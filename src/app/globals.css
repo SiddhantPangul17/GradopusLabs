@@ -1,26 +1,361 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Gradopus Labs design tokens (Tailwind CSS v4, CSS-first configuration).
+ *
+ * Colours come from src/config/brand.ts: the root layout injects them as
+ * --brand-* variables on <html>, and the block below maps them to Tailwind
+ * utilities (bg-primary, text-muted, border-border, ring-ring, ...).
+ * Components should use these semantic utilities, not raw colour values.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--brand-primary);
+  --color-primary-strong: var(--brand-primary-strong);
+  --color-on-primary: var(--brand-on-primary);
+  --color-secondary: var(--brand-secondary);
+  --color-secondary-foreground: var(--brand-secondary-foreground);
+  --color-background: var(--brand-background);
+  --color-surface: var(--brand-surface);
+  --color-foreground: var(--brand-foreground);
+  --color-muted: var(--brand-muted);
+  --color-border: var(--brand-border);
+  --color-border-strong: var(--brand-border-strong);
+  --color-ring: var(--brand-focus-ring);
+  --color-success: var(--brand-success);
+  --color-info: var(--brand-info);
+  --color-warning: var(--brand-warning);
+  --color-error: var(--brand-error);
+
+  /* Inter is self-hosted by next/font (root layout); the system stack is the fallback. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Coloured lift for filled buttons on hover. */
+  --shadow-button-hover:
+    0 8px 18px -8px color-mix(in srgb, var(--brand-primary) 60%, transparent),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Layout, shape and elevation. Borders are 1px (Tailwind's default `border`). */
+@theme {
+  /* max-w-page: public pages; max-w-narrow: long-form text (policies etc.) */
+  --container-page: 72rem;
+  --container-narrow: 48rem;
+
+  /* rounded-control: inputs, small chips; rounded-card: cards, panels; rounded-button: pill buttons */
+  --radius-control: 0.625rem;
+  --radius-card: 1rem;
+  --radius-button: 9999px;
+
+  /*
+   * shadow-card: resting cards; shadow-hover: interactive cards on hover;
+   * shadow-raised: menus, popovers, floating panels; shadow-button: filled buttons.
+   */
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.05);
+  --shadow-hover: 0 14px 32px -14px rgb(15 23 42 / 0.16), 0 4px 10px -4px rgb(15 23 42 / 0.06);
+  --shadow-raised: 0 16px 36px -12px rgb(15 23 42 / 0.16), 0 4px 10px -4px rgb(15 23 42 / 0.06);
+  --shadow-button: 0 1px 2px 0 rgb(15 23 42 / 0.12), inset 0 1px 0 0 rgb(255 255 255 / 0.14);
+
+  /*
+   * Motion. Micro-interactions (hover, press, colour) use the default
+   * 200ms transition; entrances use the 500–600ms animations below. All of it
+   * animates opacity/transform only and is disabled for reduced motion.
+   */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-fade-in: fade-in 250ms ease-out backwards;
+  --animate-fade-up: fade-up 600ms var(--ease-out-soft) backwards;
+  --animate-fade-up-sm: fade-up-sm 300ms var(--ease-out-soft) backwards;
+  --animate-pop-in: pop-in 250ms var(--ease-out-soft) backwards;
+  --animate-grow-x: grow-x 800ms var(--ease-out-soft) backwards;
+  --animate-grow-y: grow-y 700ms var(--ease-out-soft) backwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+  @keyframes fade-up-sm {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+  }
+  @keyframes grow-y {
+    from {
+      transform: scaleY(0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Entrance stagger for hand-placed sequences, e.g. `animate-fade-up stagger-2` (80ms steps). */
+@utility stagger-* {
+  animation-delay: calc(--value(integer) * 80ms);
+}
+
+/*
+ * Type scale. Size/weight/leading only; apply colour separately
+ * (e.g. `type-supporting text-muted`).
+ */
+@utility type-display {
+  font-size: 2rem;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  @media (width >= 40rem) {
+    font-size: 2.75rem;
+  }
+  @media (width >= 64rem) {
+    font-size: 3.25rem;
+  }
+}
+
+@utility type-page-title {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  @media (width >= 40rem) {
+    font-size: 2.25rem;
+  }
+}
+
+@utility type-section-title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  @media (width >= 40rem) {
+    font-size: 1.875rem;
+  }
+}
+
+@utility type-card-title {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@utility type-lead {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  @media (width >= 40rem) {
+    font-size: 1.125rem;
+  }
+}
+
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@utility type-supporting {
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+@utility type-label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@utility type-button {
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@utility type-meta {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+@utility type-eyebrow {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Decorative dotted backdrop for hero-style bands; fades out towards the edges. */
+@utility bg-dot-grid {
+  background-image: radial-gradient(color-mix(in srgb, var(--brand-primary) 18%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+}
+
+/*
+ * Sticky header that gains a shadow once the page scrolls. Scroll-driven, so
+ * it needs no JavaScript; browsers without support keep the plain border.
+ */
+@utility header-elevate {
+  @supports (animation-timeline: scroll()) {
+    animation: header-elevate linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 96px;
+  }
+}
+
+@keyframes header-elevate {
+  to {
+    box-shadow: 0 6px 20px -12px rgb(15 23 42 / 0.18);
+  }
+}
+
+/* Use on dark/primary surfaces so the focus outline stays visible there. */
+@utility focus-ring-inverse {
+  --focus-ring: var(--color-on-primary);
+}
+
+/* Long-form text (policies, articles): spacing, lists and links for plain HTML. */
+@utility prose-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-foreground);
+  & > * + * {
+    margin-top: 1rem;
+  }
+  & h3 {
+    margin-top: 1.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+  & ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  & ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  & li + li {
+    margin-top: 0.375rem;
+  }
+  & a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  & strong {
+    font-weight: 600;
+  }
+}
+
+@layer base {
+  :root {
+    --focus-ring: var(--brand-focus-ring);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  /* One consistent, clearly visible keyboard focus indicator everywhere. */
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Keep in-page anchor targets clear of the sticky header. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-foreground);
+  }
+
+  /*
+   * Smoothly size native <details> panels where supported (FAQ, table of
+   * contents); other browsers open them instantly.
+   */
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  details::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    transition:
+      block-size 250ms var(--ease-out-soft),
+      content-visibility 250ms allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
+}
+
+/*
+ * Scroll reveal. Mark an element `data-reveal` to fade it up as it enters the
+ * viewport, or `data-reveal="stagger"` to reveal its children one after
+ * another. <RevealObserver> (root layout) adds `data-reveal-ready` to <html>
+ * and sets `data-revealed` on each element: "in" while it animates, then
+ * "done"; "instant" for elements already on screen at load, so nothing that
+ * is visible on first paint ever flickers. Without JavaScript nothing is hidden.
+ */
+html[data-reveal-ready] [data-reveal]:not([data-reveal="stagger"], [data-revealed]),
+html[data-reveal-ready] [data-reveal="stagger"]:not([data-revealed]) > * {
+  opacity: 0;
+}
+
+[data-reveal][data-revealed="in"]:not([data-reveal="stagger"]),
+[data-reveal="stagger"][data-revealed="in"] > * {
+  animation: fade-up 600ms var(--ease-out-soft) backwards;
+}
+
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(2) { animation-delay: 70ms; }
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(3) { animation-delay: 140ms; }
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(4) { animation-delay: 210ms; }
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(5) { animation-delay: 280ms; }
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(6) { animation-delay: 350ms; }
+[data-reveal="stagger"][data-revealed="in"] > :nth-child(n + 7) { animation-delay: 420ms; }
+
+@media print {
+  html[data-reveal-ready] [data-reveal],
+  html[data-reveal-ready] [data-reveal] > * {
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after,
+  ::details-content {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

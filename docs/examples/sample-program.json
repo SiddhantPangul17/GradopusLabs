@@ -1,0 +1,113 @@
+{
+  "program": {
+    "title": "Sample Program (development only)",
+    "slug": "sample-program",
+    "shortDescription": "A sample program for testing the learning area locally. Not a real offering.",
+    "description": "This sample exists only to test the student learning area during development.\n\nDo not import it into production.",
+    "category": "Sample",
+    "difficulty": "beginner",
+    "duration": { "weeks": 2, "weeklyEffort": "2 hours per week" },
+    "deliveryFormat": "Online and self-paced",
+    "price": 9900,
+    "learningOutcomes": ["Navigate the learning area", "Submit a written answer", "Submit a project link"],
+    "prerequisites": ["None"],
+    "audience": ["Developers testing the platform"],
+    "modules": [
+      { "title": "Getting started", "topics": ["Orientation"] },
+      { "title": "Your first web page", "topics": ["HTML", "Submissions"] },
+      { "title": "Publishing", "topics": ["Deployment"] }
+    ],
+    "completionCriteria": ["Complete every required task.", "Have each review task accepted."],
+    "status": "draft",
+    "availability": "coming-soon"
+  },
+  "modules": [
+    {
+      "slug": "getting-started",
+      "title": "Getting started",
+      "description": "How this program works.",
+      "estimatedDurationMinutes": 15,
+      "content": "# Welcome\n\nThis is a **reading module**: it has no required tasks, so you mark it as complete yourself.\n\n## What you will do\n\n- Read each module\n- Complete the tasks\n- Track your progress on the dashboard\n\nSee the [MDN HTML guide](https://developer.mozilla.org/en-US/docs/Learn/HTML) for background.\n\n```html\n<h1>Hello</h1>\n```",
+      "tasks": []
+    },
+    {
+      "slug": "first-web-page",
+      "title": "Your first web page",
+      "description": "Write and explain a simple HTML page.",
+      "estimatedDurationMinutes": 60,
+      "content": "## Semantic HTML\n\nUse elements that describe their content, such as `header`, `main` and `footer`.",
+      "tasks": [
+        {
+          "slug": "explain-semantic-html",
+          "title": "Explain semantic HTML",
+          "description": "Describe why semantic elements matter.",
+          "instructions": "In 150–300 words, explain what semantic HTML is and give **two** examples.",
+          "taskType": "text",
+          "required": true,
+          "completionRule": "review",
+          "evaluationCriteria": ["Accurate definition", "Two relevant examples", "Clear writing"]
+        },
+        {
+          "slug": "share-your-page",
+          "title": "Share your page",
+          "description": "Publish your page and share the link.",
+          "instructions": "Deploy your page to any static host and submit the public **https** link.",
+          "taskType": "project_url",
+          "required": true,
+          "completionRule": "submission",
+          "evaluationCriteria": ["The page loads", "Uses at least three semantic elements"]
+        },
+        {
+          "slug": "optional-reflection",
+          "title": "Optional reflection",
+          "description": "What did you find hardest?",
+          "taskType": "text",
+          "required": false,
+          "completionRule": "submission"
+        },
+        {
+          "slug": "draft-task",
+          "title": "Draft task (hidden)",
+          "description": "Unpublished: students must never see this.",
+          "taskType": "text",
+          "isPublished": false
+        }
+      ]
+    },
+    {
+      "slug": "publishing",
+      "title": "Publishing",
+      "description": "Put your work online.",
+      "estimatedDurationMinutes": 45,
+      "content": "## Static hosting\n\nMany hosts publish static files from a Git repository.",
+      "tasks": [
+        {
+          "slug": "final-project-link",
+          "title": "Final project link",
+          "description": "Submit your finished project.",
+          "instructions": "Submit the link to your finished, deployed project.",
+          "taskType": "project_url",
+          "required": true,
+          "completionRule": "review",
+          "evaluationCriteria": ["Meets the published requirements"]
+        },
+        {
+          "slug": "upload-screenshot",
+          "title": "Upload a screenshot (optional)",
+          "description": "File uploads are not available yet.",
+          "taskType": "file",
+          "required": false,
+          "allowedFileTypes": [".png", ".jpg"],
+          "maxFileSizeBytes": 2000000
+        }
+      ]
+    },
+    {
+      "slug": "draft-module",
+      "title": "Draft module (hidden)",
+      "description": "Unpublished: students must never see this.",
+      "isPublished": false,
+      "tasks": []
+    }
+  ]
+}
