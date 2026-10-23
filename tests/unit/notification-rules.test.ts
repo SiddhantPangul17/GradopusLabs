@@ -4,6 +4,7 @@ import { EmailPermanentError, EmailTransientError } from "@/lib/email/provider";
 import { ResendProvider } from "@/lib/email/resend";
 import {
   certificateIssuedEmail,
+  contactMessageEmail,
   escapeHtml,
   passwordResetEmail,
   paymentConfirmationEmail,
@@ -136,6 +137,34 @@ describe("Resend provider", () => {
     respond(422, { name: "invalid_parameter", message: "The to field contains sam@example.com" });
     const error = (await new ResendProvider({ apiKey: "k_12345678", from: "a@b.co", replyTo: null }).send(message).catch((e: unknown) => e)) as Error;
     expect(error.message).not.toContain("sam@example.com");
+  });
+
+  it("uses a per-message reply-to over the configured one", async () => {
+    const provider = new ResendProvider({ apiKey: "re_secret_key", from: "a@b.co", replyTo: "team@b.co" });
+    const body = () => JSON.parse(String(((fetch as unknown as ReturnType<typeof vi.fn>).mock.calls[0][1] as RequestInit).body));
+    respond(200, { id: "email_1" });
+    await provider.send({ ...message, replyTo: "visitor@example.com" });
+    expect(body().reply_to).toBe("visitor@example.com");
+    respond(200, { id: "email_2" });
+    await provider.send(message);
+    expect(body().reply_to).toBe("team@b.co");
+  });
+});
+
+describe("contact form email", () => {
+  it("escapes the sender's input and keeps the subject on one line", () => {
+    const email = contactMessageEmail({
+      name: evil,
+      email: "visitor@example.com",
+      subject: "Hello\r\nBcc: attacker@example.com",
+      message: `Question ${evil}\nsecond line`,
+    });
+    expect(email.subject).toBe("Contact form: Hello Bcc: attacker@example.com");
+    expect(email.subject).not.toMatch(/[\r\n]/);
+    expect(email.html).not.toContain("<script>");
+    expect(email.html).not.toContain("<img");
+    expect(email.html).toContain("visitor@example.com");
+    expect(email.text).toContain("second line");
   });
 });
 

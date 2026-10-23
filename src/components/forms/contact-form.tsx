@@ -6,9 +6,11 @@ import { submitContactMessage } from "@/app/(public)/contact/actions";
 import { Button } from "@/components/ui/button";
 import { TextareaField, TextField } from "@/components/ui/form-field";
 import { Notice } from "@/components/ui/notice";
+import { brand } from "@/config/brand";
 import { contactLimits, type ContactFormState } from "@/lib/contact-form";
 
 const initialState: ContactFormState = { status: "idle" };
+const supportEmail = brand.contact.email;
 
 function ResultNotice({ state }: { state: ContactFormState }) {
   switch (state.status) {
@@ -32,12 +34,20 @@ function ResultNotice({ state }: { state: ContactFormState }) {
           in the meantime.
         </Notice>
       );
+    case "rate-limited":
+      return (
+        <Notice tone="warning" title="Too many messages">
+          Several messages were sent from your network recently, so this one was not sent. Please try again in an
+          hour{supportEmail && <>, or email us at {supportEmail}</>}. Your message is still in the form below.
+        </Notice>
+      );
     case "sent":
       return <Notice tone="success" title="Message sent">Thank you. We will reply to the email address you provided.</Notice>;
     case "error":
       return (
         <Notice tone="error" title="Something went wrong">
-          Your message could not be sent. Please try again later.
+          Your message could not be sent. Please try again later
+          {supportEmail && <>, or email us at {supportEmail}</>}. Your message is still in the form below.
         </Notice>
       );
     default:

@@ -1,6 +1,6 @@
 # Gradopus Labs Privacy Policy
 
-- **Version:** 1.2
+- **Version:** 1.3
 - **Effective date:** To be set after legal review
 - **Last updated:** 23 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
@@ -20,8 +20,8 @@ Gradopus Labs is a sole proprietorship based in Maharashtra, India. Its propriet
 personal data is processed for Gradopus Labs. In this policy, "we", "us" and "our" mean Gradopus Labs and its operator, and
 "you" means anyone who uses our website or takes part in our programs.
 
-**How to contact us about privacy:** <support.gradopuslabs@gmail.com>. The contact form on our
-website does not currently send or store messages, so please use the email address above for privacy requests.
+**How to contact us about privacy:** email <support.gradopuslabs@gmail.com>, or use the contact form on our
+website.
 
 ## 2. Scope
 
@@ -113,14 +113,18 @@ certificate's QR code can be checked.
 
 ### 4.7 Messages you send us
 
-The contact form on our website checks what you type and then discards it: it **does not currently send or store**
-your message. If you email us, we keep your email and our reply for as long as needed to deal with it (section 13).
+When you use the contact form, we collect your **name, email address, subject and message**. The message is sent by
+email (through Resend, see section 11) to our support inbox, with your email address set as the reply address so we
+can answer you. It is **not stored on the website**.
+
+Messages that reach our support inbox, whether through the form or by email, are kept for 1 year after the matter
+is resolved (section 13).
 
 ### 4.8 Technical information
 
-- **Security and rate limiting:** to stop abuse such as password guessing, the website counts requests from each IP
-  address and, for sign-in and password reset, each email address. These counts are stored only as a one-way hash
-  and are deleted automatically within about one hour.
+- **Security and rate limiting:** to stop abuse such as password guessing or contact-form spam, the website counts
+  requests from each IP address and, for sign-in and password reset, each email address. These counts are stored
+  only as a one-way hash and are deleted automatically within about one hour.
 - **Records of administrative actions:** we keep an internal record of significant actions taken by our team, such
   as reviewing work, issuing or revoking a certificate, or suspending an account. These records identify the team
   member and the affected record. They do not include IP addresses or browser details.
@@ -238,7 +242,8 @@ We share personal data with the following service providers, only as needed for 
   Razorpay processes your payment under its own terms and privacy policy.
 - **Resend** (email delivery), only when email sending is switched on. For each email, we send Resend your email
   address and the email's content, which can include your name, program and task titles, review feedback,
-  certificate IDs, payment references and links.
+  certificate IDs, payment references and links. Contact-form messages are also delivered through Resend, including
+  your name, email address, subject and message.
 - **Database hosting:** our database runs on MongoDB Atlas, on Amazon Web Services (AWS) infrastructure in a single
   region. `[TO BE CONFIRMED: the AWS region]`
 - **Website hosting:** the website at gradopuslabs.online is hosted by `[TO BE CONFIRMED: hosting provider]`.
@@ -413,6 +418,8 @@ data or using a new service provider. When we do:
 
 ## Revision history
 
+- **Version 1.3, 23 October 2026:** The contact form now delivers messages by email (through Resend) to the support
+  inbox without storing them on the website.
 - **Version 1.2, 23 October 2026:** Added: open enrolment only (no application data), no identity documents, minimum age 18,
   proprietor as sole administrator, MongoDB Atlas on AWS, retention periods, 3-working-day acknowledgement of privacy
   requests and complaints, and the breach-response process.
@@ -435,7 +442,7 @@ details), the DPDP Act, 2023 (published contact for data-related questions) and 
 Taken from the repository on 21 October 2026: account fields, Argon2id hashing, JWT session cookies (7 days), hashed
 rate-limit counters (deleted within about one hour), TTL deletion of reset tokens, email jobs and notifications, no
 analytics, the Razorpay prefill of name and email, the Resend payload, the two public verification views, the
-contact form discarding messages, no age check and no deletion feature.
+contact form delivering messages by email via Resend without storing them, no age check and no deletion feature.
 
 ### Not verifiable from the code
 

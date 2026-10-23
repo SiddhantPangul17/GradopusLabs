@@ -31,6 +31,7 @@ export const RATE_LIMITS = {
   paymentVerifyPerAccount: { scope: "payment-verify:account", limit: 30, windowSeconds: 15 * 60 },
   paymentReconcilePerAccount: { scope: "payment-reconcile:account", limit: 20, windowSeconds: 15 * 60 },
   certificateVerifyPerIp: { scope: "certificate-verify:ip", limit: 60, windowSeconds: 15 * 60 },
+  contactPerIp: { scope: "contact:ip", limit: 5, windowSeconds: 60 * 60 },
   analyticsApiPerAccount: { scope: "analytics-api:account", limit: 300, windowSeconds: 15 * 60 },
   analyticsExportPerAccount: { scope: "analytics-export:account", limit: 30, windowSeconds: 15 * 60 },
 } as const satisfies Record<string, RateLimitRule>;

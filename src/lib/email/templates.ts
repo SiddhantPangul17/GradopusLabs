@@ -311,3 +311,24 @@ export function certificateReplacedEmail(input: {
     reason: accountReason,
   });
 }
+
+/** A contact-form message, sent to the support inbox with the sender as reply-to. */
+export function contactMessageEmail(input: { name: string; email: string; subject: string; message: string }): RenderedEmail {
+  return render({
+    subject: `Contact form: ${input.subject}`,
+    heading: "New contact form message",
+    blocks: [
+      {
+        kind: "facts",
+        items: [
+          ["From", cleanText(input.name, 100)],
+          ["Email", cleanText(input.email, 254)],
+          ["Subject", cleanText(input.subject, 150)],
+        ],
+      },
+      { kind: "quote", label: "Message", text: cleanText(input.message, 5000) },
+      { kind: "p", text: "Reply to this email to answer the sender directly." },
+    ],
+    reason: `This message was sent through the contact form on the ${brand.name} website. It is not stored on the website.`,
+  });
+}

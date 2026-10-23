@@ -13,7 +13,7 @@ verification, and backend API routes under a single domain.
 | Sample programs: **`next dev` without `MONGODB_URI` only**, labelled as samples; never used in production | `src/data/programs.ts` | Published programs in MongoDB (admin dashboard, later part); then delete the fixtures |
 | Online payments (off until `PAYMENT_*` is set; test mode by default) | `src/lib/payments/`, [docs/payments.md](docs/payments.md) | Approved Razorpay account, live keys and webhook, approved refund policy |
 | Refunds (model only; not implemented) | `src/lib/services/refund-service.ts` | Provider refund API + webhook confirmation |
-| Contact form (validates on the server, then reports "not sent"; nothing stored or logged) | `src/app/(public)/contact/actions.ts` | An email/storage service; return `sent` only after delivery succeeds |
+| Contact form: emails messages to `brand.contact.email` via the email provider (sender as reply-to, 5 per IP per hour); nothing stored. Reports "not connected" until `EMAIL_*` is set | `src/app/(public)/contact/actions.ts` | Keep the support inbox monitored |
 | Policy placeholders shown publicly as "To be confirmed" (timelines, per-program terms, decision-makers); legal review pending | `docs/policies/*.md` (rendered by `src/lib/policies/` and `src/components/layout/policy-page.tsx`) | Confirmed details and legally reviewed text; record each change in the file's revision history |
 | Draft FAQ answers | `src/data/faqs.ts` (`draft: true`) | Final answers once policies are approved |
 | Certificate signatory (none printed while `null`) | `brand.certificate.signatory` | A real, authorised person, if wanted |

@@ -14,6 +14,8 @@ export type OutgoingEmail = {
   text: string;
   /** Stable per job, so a retry after an unclear failure is not delivered twice (provider-side dedupe). */
   idempotencyKey: string;
+  /** Overrides the configured reply-to for this message (e.g. a contact-form sender). Must be a validated address. */
+  replyTo?: string;
 };
 
 export interface EmailProvider {

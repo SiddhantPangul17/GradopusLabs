@@ -15,5 +15,7 @@ export type ContactFormState =
   | { status: "invalid"; values: ContactValues; errors: Partial<Record<ContactField, string>> }
   /** Input was valid, but no delivery backend exists, so nothing was sent or stored. */
   | { status: "not-connected"; values: ContactValues }
+  /** Too many messages from this network recently; nothing was sent. */
+  | { status: "rate-limited"; values: ContactValues }
   | { status: "sent" }
   | { status: "error"; values: ContactValues };

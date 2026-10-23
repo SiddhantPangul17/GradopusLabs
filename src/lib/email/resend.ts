@@ -33,6 +33,7 @@ export class ResendProvider implements EmailProvider {
   }
 
   async send(message: OutgoingEmail): Promise<{ id: string }> {
+    const replyTo = message.replyTo ?? this.settings.replyTo;
     let response: Response;
     try {
       response = await fetch(ENDPOINT, {
@@ -48,7 +49,7 @@ export class ResendProvider implements EmailProvider {
           subject: message.subject,
           html: message.html,
           text: message.text,
-          ...(this.settings.replyTo ? { reply_to: this.settings.replyTo } : {}),
+          ...(replyTo ? { reply_to: replyTo } : {}),
         }),
         signal: AbortSignal.timeout(TIMEOUT_MS),
         cache: "no-store",

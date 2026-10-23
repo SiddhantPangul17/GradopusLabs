@@ -5,6 +5,7 @@ import { PageContainer } from "@/components/layout/page-container";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Notice } from "@/components/ui/notice";
 import { brand } from "@/config/brand";
+import { isEmailDeliveryConfigured } from "@/lib/email/config";
 import { canonical } from "@/lib/seo";
 
 export function generateMetadata(): Metadata {
@@ -18,6 +19,7 @@ export function generateMetadata(): Metadata {
 export default function ContactPage() {
   // Only real, configured contact details are shown (see brand.ts).
   const { email } = brand.contact;
+  const deliveryReady = Boolean(email) && isEmailDeliveryConfigured();
 
   return (
     <PageContainer className="py-12 sm:py-16 lg:py-20">
@@ -34,10 +36,17 @@ export default function ContactPage() {
           <h2 id="form-heading" className="type-card-title text-foreground">
             Send a message
           </h2>
-          <Notice tone="warning" title="Message delivery is not connected yet" className="mt-4 mb-6">
-            You can fill in and check the form, but messages are not sent or stored yet. You will see a clear
-            confirmation once delivery is switched on.
-          </Notice>
+          {deliveryReady ? (
+            <p className="type-supporting mt-2 mb-6 text-muted">
+              Your message is emailed to our support team, and we reply to the email address you give. Messages are not
+              stored on this website.
+            </p>
+          ) : (
+            <Notice tone="warning" title="Message delivery is not connected yet" className="mt-4 mb-6">
+              You can fill in and check the form, but messages are not sent or stored yet.
+              {email && <> Please email us at {email} instead.</>}
+            </Notice>
+          )}
           <ContactForm />
         </Card>
 
