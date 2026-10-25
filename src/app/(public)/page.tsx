@@ -25,6 +25,7 @@ import { brand } from "@/config/brand";
 import { featuredFaqs } from "@/data/faqs";
 import { Notice } from "@/components/ui/notice";
 import { loadPrograms } from "@/lib/programs";
+import { reveal, revealStagger } from "@/lib/reveal";
 import { canonical } from "@/lib/seo";
 
 export function generateMetadata(): Metadata {
@@ -122,7 +123,7 @@ export default async function HomePage() {
           title="From first lesson to finished project"
           description="Every program follows the same clear path. A certificate is earned by completing the work, not by enrolling."
         />
-        <ol data-reveal="stagger" className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <ol {...revealStagger} className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {journey.map((step, index) => (
             <Card as="li" key={step.title} className="bg-linear-to-b from-surface to-background">
               <div className="flex items-center justify-between gap-3">
@@ -169,7 +170,7 @@ export default async function HomePage() {
           title={`Why choose ${brand.name}`}
           description="A straightforward way to build practical skills, with clear expectations at every step."
         />
-        <ul data-reveal="stagger" className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <ul {...revealStagger} className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit) => (
             <li key={benefit.title} className="group flex gap-4">
               <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-control bg-secondary text-secondary-foreground ring-1 ring-primary/10 transition-[background-color,color,scale] duration-300 ease-out-soft group-hover:scale-105 group-hover:bg-primary group-hover:text-on-primary">
@@ -187,7 +188,7 @@ export default async function HomePage() {
       {/* Certificate verification */}
       <PageSection labelledBy="verify-heading" tone="muted">
         <div
-          data-reveal
+          {...reveal}
           className="grid items-center gap-8 rounded-card border border-border bg-background p-6 shadow-card sm:p-10 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-12"
         >
           <span

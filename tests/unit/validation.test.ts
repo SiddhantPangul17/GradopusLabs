@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { AUTH_LIMITS, AUTH_MESSAGES, checkNewPassword } from "@/lib/validation/auth-rules";
 import { objectIdSchema, slugSchema } from "@/lib/validation/common";
 import { programInputSchema } from "@/lib/validation/program";
 import { registrationInputSchema } from "@/lib/validation/user";
@@ -55,6 +56,14 @@ describe("registrationInputSchema", () => {
   it("rejects short passwords and invalid emails", () => {
     expect(registrationInputSchema.safeParse({ ...valid, password: "short" }).success).toBe(false);
     expect(registrationInputSchema.safeParse({ ...valid, email: "not-an-email" }).success).toBe(false);
+  });
+
+  it("requires passwords of at least 6 characters, on the server and in the browser check", () => {
+    expect(AUTH_LIMITS.passwordMin).toBe(6);
+    expect(registrationInputSchema.safeParse({ ...valid, password: "12345", confirmPassword: "12345" }).success).toBe(false);
+    expect(registrationInputSchema.safeParse({ ...valid, password: "123456", confirmPassword: "123456" }).success).toBe(true);
+    expect(checkNewPassword("12345")).toBe(AUTH_MESSAGES.passwordTooShort);
+    expect(checkNewPassword("123456")).toBeUndefined();
   });
 
   it("requires matching passwords and accepted terms", () => {

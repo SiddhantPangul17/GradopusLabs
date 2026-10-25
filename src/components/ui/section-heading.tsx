@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@/components/ui/icons";
+import { reveal } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
@@ -30,7 +31,7 @@ export function SectionHeading({
 
   return (
     <div
-      data-reveal
+      {...reveal}
       className={cn(
         "flex flex-col gap-4",
         centered ? "items-center text-center" : "sm:flex-row sm:items-end sm:justify-between",

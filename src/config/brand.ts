@@ -58,6 +58,7 @@ export const brand = {
       onPrimary: "#ffffff", // text on primary/destructive fills
       secondary: "#e0e7ff", // pale indigo: soft fills, highlights
       secondaryForeground: "#312e81", // text on secondary
+      accent: "#f59e0b", // amber (the logo's spark): decorative highlights only, never for text on white
       background: "#ffffff", // main background
       surface: "#f8fafc", // secondary background
       foreground: "#0f172a", // primary text

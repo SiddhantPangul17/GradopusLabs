@@ -16,9 +16,10 @@ function ProgramVisual({ title }: { title: string }) {
   return (
     <div
       aria-hidden="true"
-      className="flex h-16 w-16 shrink-0 items-center justify-center rounded-card bg-linear-to-br from-secondary to-primary/20 text-xl font-bold text-secondary-foreground ring-1 ring-primary/10"
+      className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-card bg-linear-to-br from-primary to-primary-strong text-xl font-bold text-on-primary shadow-button"
     >
-      {initials || "GL"}
+      <span className="absolute -top-3 -right-3 size-8 rounded-full bg-accent/60 blur-md" />
+      <span className="relative">{initials || "GL"}</span>
     </div>
   );
 }

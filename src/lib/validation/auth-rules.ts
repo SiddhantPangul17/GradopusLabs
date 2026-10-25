@@ -7,7 +7,7 @@
 export const AUTH_LIMITS = {
   nameMax: 100,
   emailMax: 254,
-  passwordMin: 12,
+  passwordMin: 6,
   passwordMax: 128,
 } as const;
 

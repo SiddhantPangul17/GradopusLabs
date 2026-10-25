@@ -9,6 +9,7 @@ import { StatusBadge } from "@/components/ui/status-badge";
 import { auditActionLabel, programStatusDisplay } from "@/lib/admin/labels";
 import { requireAdmin } from "@/lib/auth/session";
 import { formatDateTime } from "@/lib/learning/labels";
+import { revealStagger } from "@/lib/reveal";
 import { getAdminOverview } from "@/lib/services/admin-service";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ async function Overview() {
         <h2 id="metrics-heading" className="sr-only">
           Key figures
         </h2>
-        <ul data-reveal="stagger" className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+        <ul {...revealStagger} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           <Metric label="Published programs" value={overview.programs.published} href="/admin/programs?status=published" />
           <Metric label="Draft programs" value={overview.programs.draft} href="/admin/programs?status=draft" />
           <Metric label="Student accounts" value={overview.users.student} href="/admin/students" />

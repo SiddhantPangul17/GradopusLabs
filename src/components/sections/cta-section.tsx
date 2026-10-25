@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageSection } from "@/components/layout/page-container";
 import { ButtonArrow, ButtonLink } from "@/components/ui/button";
+import { reveal } from "@/lib/reveal";
 import type { NavItem } from "@/types";
 
 type CtaSectionProps = {
@@ -17,7 +18,7 @@ export function CtaSection({ id, title, description, primary, secondary }: CtaSe
   return (
     <PageSection labelledBy={id}>
       <div
-        data-reveal
+        {...reveal}
         className="focus-ring-inverse relative isolate overflow-hidden rounded-card bg-primary px-6 py-12 text-center shadow-raised sm:px-12 sm:py-16"
       >
         {/* Soft highlights give the flat brand panel some depth; decorative only. */}

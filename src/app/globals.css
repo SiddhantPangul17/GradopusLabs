@@ -14,6 +14,7 @@
   --color-on-primary: var(--brand-on-primary);
   --color-secondary: var(--brand-secondary);
   --color-secondary-foreground: var(--brand-secondary-foreground);
+  --color-accent: var(--brand-accent);
   --color-background: var(--brand-background);
   --color-surface: var(--brand-surface);
   --color-foreground: var(--brand-foreground);
@@ -317,9 +318,10 @@
 }
 
 /*
- * Scroll reveal. Mark an element `data-reveal` to fade it up as it enters the
- * viewport, or `data-reveal="stagger"` to reveal its children one after
- * another. <RevealObserver> (root layout) adds `data-reveal-ready` to <html>
+ * Scroll reveal. Spread `reveal` (src/lib/reveal.ts) on an element to fade it
+ * up as it enters the viewport, or `revealStagger` to reveal its children one
+ * after another; they set `data-reveal` and silence the expected hydration
+ * difference. <RevealObserver> (root layout) adds `data-reveal-ready` to <html>
  * and sets `data-revealed` on each element: "in" while it animates, then
  * "done"; "instant" for elements already on screen at load, so nothing that
  * is visible on first paint ever flickers. Without JavaScript nothing is hidden.

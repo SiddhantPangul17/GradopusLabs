@@ -25,12 +25,16 @@ async function StudentNavWithCount() {
  */
 export default function StudentLayout({ children }: { children: ReactNode }) {
   return (
-    <PageContainer className="pt-6 pb-12 sm:pb-16">
-      {/* The active-link state and unread count are per request, so they stream in; the links render immediately. */}
-      <Suspense fallback={<StudentNavView pathname={null} />}>
-        <StudentNavWithCount />
-      </Suspense>
-      <div className="pt-8">{children}</div>
-    </PageContainer>
+    // Tinted backdrop with a soft brand glow at the top, so white cards stand out from the page.
+    <div className="relative isolate h-full bg-surface">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-linear-to-b from-secondary/80 via-secondary/30 to-transparent" />
+      <PageContainer className="pt-6 pb-12 sm:pb-16">
+        {/* The active-link state and unread count are per request, so they stream in; the links render immediately. */}
+        <Suspense fallback={<StudentNavView pathname={null} />}>
+          <StudentNavWithCount />
+        </Suspense>
+        <div className="pt-8">{children}</div>
+      </PageContainer>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { revealStagger } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 /* Presentational pieces for the analytics pages (server components). */
@@ -19,7 +20,7 @@ export function Stat({ label, value, scope, note }: { label: string; value: Reac
 
 export function StatGrid({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <dl data-reveal="stagger" className={cn("grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 lg:grid-cols-4", className)}>
+    <dl {...revealStagger} className={cn("grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 lg:grid-cols-4", className)}>
       {children}
     </dl>
   );

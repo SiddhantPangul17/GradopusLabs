@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRightIcon, ChevronDownIcon } from "@/components/ui/icons";
 import { StatusBadge } from "@/components/ui/status-badge";
+import { reveal } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 import type { FaqEntry } from "@/types";
 
@@ -38,7 +39,7 @@ export function FaqItem({ faq }: { faq: FaqEntry }) {
 
 export function FaqList({ items, className }: { items: readonly FaqEntry[]; className?: string }) {
   return (
-    <div data-reveal className={cn("divide-y divide-border overflow-hidden rounded-card border border-border bg-background shadow-card", className)}>
+    <div {...reveal} className={cn("divide-y divide-border overflow-hidden rounded-card border border-border bg-background shadow-card", className)}>
       {items.map((faq) => (
         <FaqItem key={faq.id} faq={faq} />
       ))}
