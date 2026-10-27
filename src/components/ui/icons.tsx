@@ -256,3 +256,47 @@ export function BookOpenIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function SignalIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M4 20v-4M10 20v-8M16 20V8M22 20V4" />
+    </Icon>
+  );
+}
+
+export function LayersIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="m12 2 10 5-10 5L2 7z" />
+      <path d="m2 12 10 5 10-5M2 17l10 5 10-5" />
+    </Icon>
+  );
+}
+
+export function CalendarIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </Icon>
+  );
+}
+
+export function MonitorIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path d="M8 21h8M12 17v4" />
+    </Icon>
+  );
+}
+
+export function UsersIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="9" cy="7" r="4" />
+      <path d="M2 21a7 7 0 0 1 14 0M16 3.13a4 4 0 0 1 0 7.75M22 21a7 7 0 0 0-4-6.3" />
+    </Icon>
+  );
+}

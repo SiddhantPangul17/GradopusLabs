@@ -9,7 +9,7 @@ const MAX_WEBHOOK_BYTES = 256 * 1024;
  *
  * The signature is checked over the EXACT raw body (read once as text, never
  * re-serialised) with the webhook secret before anything else happens. No
- * session is involved. The handler only updates payment/enrolment records
+ * session is involved. The handler only updates payment/enrollment records
  * (no emails or other slow work) so it answers well within the provider's
  * 5-second window. 2xx = handled or deliberately ignored (duplicates too);
  * 400 = rejected; 409/5xx = temporary, the provider retries.

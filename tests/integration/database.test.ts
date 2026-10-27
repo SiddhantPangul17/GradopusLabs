@@ -152,19 +152,19 @@ describe("enrollments", () => {
   const otherStudent = new Types.ObjectId();
   const programId = new Types.ObjectId();
 
-  it("allows only one pending/active enrolment per student and program", async () => {
+  it("allows only one pending/active enrollment per student and program", async () => {
     const first = await models.Enrollment.create({ studentId, programId, status: "pending" });
     const duplicate = await models.Enrollment.create({ studentId, programId, status: "active" }).catch((caught: unknown) => caught);
     expect(isDuplicateKey(duplicate)).toBe(true);
     expect(await enrollments.hasCurrentEnrollment(studentId.toString(), programId.toString())).toBe(true);
 
-    // After cancelling, a new enrolment is allowed.
+    // After cancelling, a new enrollment is allowed.
     await models.Enrollment.updateOne({ _id: first._id }, { status: "cancelled" });
     expect(await enrollments.hasCurrentEnrollment(studentId.toString(), programId.toString())).toBe(false);
     await expect(models.Enrollment.create({ studentId, programId, status: "pending" })).resolves.toBeDefined();
   });
 
-  it("shows an enrolment only to its student or an admin", async () => {
+  it("shows an enrollment only to its student or an admin", async () => {
     const doc = await models.Enrollment.create({ studentId: otherStudent, programId, status: "pending" });
     const id = doc._id.toString();
     expect(await enrollments.getEnrollmentForViewer(id, { id: otherStudent.toString(), role: "student" })).toMatchObject({ id, status: "pending" });

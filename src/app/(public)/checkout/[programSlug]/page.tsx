@@ -101,7 +101,7 @@ async function PaymentResult({ programSlug, paymentId, closed }: { programSlug: 
       return (
         <Shell title="Payment confirmed">
           <Notice tone="success" title="You are enrolled">
-            We have confirmed your payment with the payment provider and your enrolment in {payment.program.title} is active.
+            We have confirmed your payment with the payment provider and your enrollment in {payment.program.title} is active.
           </Notice>
           <PaymentFacts payment={payment} />
           <ButtonLink href={`/student/programs/${payment.enrollmentId}`} size="lg">
@@ -113,7 +113,7 @@ async function PaymentResult({ programSlug, paymentId, closed }: { programSlug: 
     if (payment.attentionReason) {
       return (
         <Shell title="Payment received">
-          <Notice tone="warning" title="Your enrolment needs our attention">
+          <Notice tone="warning" title="Your enrollment needs our attention">
             {attentionText[payment.attentionReason].student} Keep the order reference below. You can also{" "}
             <Link href="/contact" className="font-semibold underline underline-offset-2">
               contact us
@@ -127,7 +127,7 @@ async function PaymentResult({ programSlug, paymentId, closed }: { programSlug: 
     return (
       <Shell title="Payment confirmed">
         <Notice tone="info" title="Setting up your access">
-          Your payment is confirmed. Your enrolment is being set up; this page updates automatically.
+          Your payment is confirmed. Your enrollment is being set up; this page updates automatically.
         </Notice>
         <PaymentFacts payment={payment} />
         <PaymentStatusWatcher paymentId={payment.id} status={payment.status} />
@@ -228,7 +228,7 @@ async function Checkout({ programSlug }: { programSlug: string }) {
     );
   } else if (!program.purchasable) {
     action = (
-      <Notice tone="info" title="Enrolment is not open">
+      <Notice tone="info" title="Enrollment is not open">
         This program cannot be paid for online right now.
       </Notice>
     );
@@ -249,7 +249,7 @@ async function Checkout({ programSlug }: { programSlug: string }) {
       </Notice>
     );
   } else {
-    action = <CheckoutButton programSlug={program.slug} label={`Pay ${price} and enrol`} />;
+    action = <CheckoutButton programSlug={program.slug} label={`Pay ${price} and enroll`} />;
   }
 
   return (
@@ -278,7 +278,7 @@ async function Checkout({ programSlug }: { programSlug: string }) {
       </Card>
 
       <Notice title="Before you pay">
-        Enrolment fees are not refundable, except in the cases set out in our{" "}
+        Enrollment fees are not refundable, except in the cases set out in our{" "}
         <Link href="/refund-policy" className="font-semibold underline underline-offset-2">
           Payment, Refund &amp; Stipend Policy
         </Link>

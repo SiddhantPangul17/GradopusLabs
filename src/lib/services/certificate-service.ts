@@ -40,7 +40,7 @@ import { UserModel } from "@/models/user";
  *   earns a certificate by itself.
  * - Only administrators issue, revoke or replace (actor from the session,
  *   re-checked here). Every consequential action is audited.
- * - At most one VALID certificate per enrolment (unique partial index), so
+ * - At most one VALID certificate per enrollment (unique partial index), so
  *   repeated or concurrent issuance cannot create duplicates.
  * - Records are never deleted; numbers are never reused.
  */
@@ -119,10 +119,10 @@ export async function checkCertificateEligibility(
   });
 
   const completion = await evaluateEnrollmentCompletion(enrollmentId);
-  if (!completion) return empty("enrollment_not_found", "Enrolment not found.");
+  if (!completion) return empty("enrollment_not_found", "Enrollment not found.");
   const { enrollment, progress } = completion;
   if (options.expectedStudentId && enrollment.studentId.toString() !== options.expectedStudentId) {
-    return empty("student_mismatch", "This enrolment belongs to a different student.");
+    return empty("student_mismatch", "This enrollment belongs to a different student.");
   }
 
   const [student, program, certificates] = await Promise.all([
@@ -147,7 +147,7 @@ export async function checkCertificateEligibility(
   }
 
   if (enrollment.status !== "active" && enrollment.status !== "completed") {
-    add("enrollment_inactive", `The enrolment is ${enrollment.status}.`);
+    add("enrollment_inactive", `The enrollment is ${enrollment.status}.`);
   }
   if (!progress.eligibleForCertificate) {
     const waiting = progress.modules.reduce((sum, module) => sum + module.awaitingReview, 0);
@@ -157,17 +157,17 @@ export async function checkCertificateEligibility(
     );
   }
 
-  // Paid enrolments must still have a confirmed (not refunded) payment. Manual
-  // enrolments were granted by an administrator without payment.
+  // Paid enrollments must still have a confirmed (not refunded) payment. Manual
+  // enrollments were granted by an administrator without payment.
   if (enrollment.source === "payment") {
     const payment = enrollment.paymentId ? await PaymentModel.findById(enrollment.paymentId).select("status").lean() : null;
-    if (payment?.status !== "paid") add("payment_not_confirmed", "The payment for this enrolment is not confirmed (or was refunded).");
+    if (payment?.status !== "paid") add("payment_not_confirmed", "The payment for this enrollment is not confirmed (or was refunded).");
   }
 
   const issued = certificates.find((certificate) => certificate.status === "issued");
-  if (issued) add("already_issued", `A valid certificate (${issued.certificateId}) already exists for this enrolment.`);
+  if (issued) add("already_issued", `A valid certificate (${issued.certificateId}) already exists for this enrollment.`);
   if (certificates.some((certificate) => certificate.status === "revoked")) {
-    add("previously_revoked", "A certificate for this enrolment was revoked; a new one cannot be issued automatically.");
+    add("previously_revoked", "A certificate for this enrollment was revoked; a new one cannot be issued automatically.");
   }
 
   const studentName = student?.name ?? "";
@@ -221,7 +221,7 @@ function duplicateKeyName(error: unknown): string {
   return Object.keys(pattern).join(",");
 }
 
-/** Creates the record with a fresh number and token. Throws AlreadyIssuedError if the enrolment already has a valid one. */
+/** Creates the record with a fresh number and token. Throws AlreadyIssuedError if the enrollment already has a valid one. */
 async function createCertificateRecord(input: {
   key: Buffer;
   context: NonNullable<EligibilityResult["context"]>;
@@ -295,7 +295,7 @@ export async function issueCertificate(actor: Actor, input: unknown): Promise<Se
       issuedBy: actor.id,
     });
   } catch (error) {
-    if (error instanceof AlreadyIssuedError) return fail("conflict", "A valid certificate already exists for this enrolment.");
+    if (error instanceof AlreadyIssuedError) return fail("conflict", "A valid certificate already exists for this enrollment.");
     throw error;
   }
 
@@ -403,7 +403,7 @@ export async function replaceCertificate(actor: Actor, certificateId: string, in
       { _id: old._id, status: "superseded", supersededByCertificateId: null },
       { $set: { status: "issued", supersededAt: null } },
     );
-    if (error instanceof AlreadyIssuedError) return fail("conflict", "Another valid certificate exists for this enrolment.");
+    if (error instanceof AlreadyIssuedError) return fail("conflict", "Another valid certificate exists for this enrollment.");
     throw error;
   }
   await CertificateModel.updateOne({ _id: old._id }, { $set: { supersededByCertificateId: created._id } });
@@ -603,7 +603,7 @@ export type IssueCandidate = {
   eligibility: Pick<EligibilityResult, "eligible" | "issues" | "progress" | "existingCertificateId">;
 };
 
-/** Enrolments with their eligibility, for the issuance page (evaluated live, never cached). */
+/** Enrollments with their eligibility, for the issuance page (evaluated live, never cached). */
 export async function listIssueCandidates(
   actor: Actor,
   filters: { q?: string; programId?: string; completion?: "all" | "completed"; page?: number } = {},

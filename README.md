@@ -4,7 +4,7 @@ Affordable virtual project-based training. One Next.js application serves the
 public website, student portal, admin dashboard, certificate generation and
 verification, and backend API routes under a single domain.
 
-**Status:** Part 11 (analytics). Public website, student accounts and learning area ([docs/learning.md](docs/learning.md)), admin dashboard ([docs/admin.md](docs/admin.md)), online payments with verified enrolment activation ([docs/payments.md](docs/payments.md)), certificates with PDF + QR verification ([docs/certificates.md](docs/certificates.md)), transactional emails and in-app notifications ([docs/notifications.md](docs/notifications.md)), and admin analytics, CSV reports and operational status ([docs/analytics.md](docs/analytics.md)). Payments and email are tested against simulated providers only and are **off** until configured. Seven policies are published from [docs/policies/](docs/policies/) (version 1.0, legal review pending, effective date not yet set); file uploads are clearly labelled as not available.
+**Status:** Part 11 (analytics). Public website, student accounts and learning area ([docs/learning.md](docs/learning.md)), admin dashboard ([docs/admin.md](docs/admin.md)), online payments with verified enrollment activation ([docs/payments.md](docs/payments.md)), certificates with PDF + QR verification ([docs/certificates.md](docs/certificates.md)), transactional emails and in-app notifications ([docs/notifications.md](docs/notifications.md)), and admin analytics, CSV reports and operational status ([docs/analytics.md](docs/analytics.md)). Payments and email are tested against simulated providers only and are **off** until configured. Seven policies are published from [docs/policies/](docs/policies/) (version 1.0, legal review pending, effective date not yet set); file uploads are clearly labelled as not available.
 
 ## Placeholders and temporary data
 
@@ -21,7 +21,7 @@ verification, and backend API routes under a single domain.
 | Emails (queued, not sent until `EMAIL_*` is set; dev prints reset links to the console) | `src/lib/email/`, [docs/notifications.md](docs/notifications.md) | Verified sending domain + provider key + scheduler (`CRON_SECRET`) |
 | Email verification (not implemented; shown as "not verified") | `emailVerified` on users | Verification emails |
 | File-upload tasks (shown as unavailable; server rejects them) | `src/lib/services/submission-service.ts` | Private object storage + signed URLs ([docs/learning.md](docs/learning.md)) |
-| Manual enrolments (no payment recorded) | `/admin/enrollments`, `npm run enroll:student` | Kept for scholarships/testing |
+| Manual enrollments (no payment recorded) | `/admin/enrollments`, `npm run enroll:student` | Kept for scholarships/testing |
 
 Unknown program slugs return a real 404 via `src/proxy.ts`, which checks the
 slug before rendering.
@@ -64,7 +64,7 @@ npm run build      # production build (reads MongoDB if MONGODB_URI is set)
 npm run start      # serve the production build
 npm run admin:list | admin:grant | admin:revoke   # manage administrators (docs/authentication.md)
 npm run content:import -- --file program.json      # add/update a program and its modules (docs/learning.md)
-npm run enroll:student -- --email … --program …    # manual enrolment until payments exist
+npm run enroll:student -- --email … --program …    # manual enrollment until payments exist
 ```
 
 `GET /api/health` reports `{ status, database }` with `database` one of
@@ -79,7 +79,7 @@ npm run enroll:student -- --email … --program …    # manual enrolment until 
   `src/lib/learning/progress.ts` (see [docs/learning.md](docs/learning.md)).
 - `src/models/`: `Program`, `User`, `Enrollment`, `AuditLog` schemas with
   validation and indexes (unique slug, unique lowercased email, one
-  pending/active enrolment per student and program, append-only audit log).
+  pending/active enrollment per student and program, append-only audit log).
 - `src/lib/validation/`: Zod schemas for untrusted input (public schemas reject
   `role`, `accountStatus` and unknown fields).
 - `src/lib/services/`: server-side queries and mutations that return plain,

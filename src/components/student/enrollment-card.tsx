@@ -27,8 +27,8 @@ function ProgramVisual({ title }: { title: string }) {
 function accessMessage(enrollment: EnrollmentOverview): string | null {
   if (enrollment.access !== "none") return null;
   if (enrollment.program.status === "draft") return "This program is temporarily unavailable while it is being updated.";
-  if (enrollment.status === "pending") return "Your enrolment is awaiting confirmation. The content opens once it is confirmed.";
-  if (enrollment.status === "cancelled") return "This enrolment was cancelled, so the content is no longer available.";
+  if (enrollment.status === "pending") return "Your enrollment is awaiting confirmation. The content opens once it is confirmed.";
+  if (enrollment.status === "cancelled") return "This enrollment was cancelled, so the content is no longer available.";
   return "This program is not available.";
 }
 

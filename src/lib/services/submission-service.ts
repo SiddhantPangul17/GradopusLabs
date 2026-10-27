@@ -74,7 +74,7 @@ async function findPublishedTask(taskId: string): Promise<{ task: TaskDoc; modul
 }
 
 /**
- * The student's enrolment that grants access to the task's program: an active
+ * The student's enrollment that grants access to the task's program: an active
  * one if it exists, otherwise a completed one (read-only).
  */
 async function findAccessForTask(studentId: Id, programId: Id) {

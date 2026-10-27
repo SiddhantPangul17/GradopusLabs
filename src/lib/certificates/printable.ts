@@ -1,7 +1,6 @@
 /*
- * The certificate template uses the PDF standard fonts (Helvetica, Times),
- * which are always available and licence-free but only cover the Windows-1252
- * (WinAnsi) character set: English letters and Western European accents.
+ * The certificate template's fonts (src/lib/certificates/fonts) are used only for
+ * the Windows-1252 (WinAnsi) character set: English letters and Western European accents.
  * Names in other scripts (e.g. Devanagari) cannot be printed correctly yet, so
  * issuance is refused with a clear reason instead of printing a broken name.
  */

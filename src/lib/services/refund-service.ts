@@ -17,7 +17,7 @@ import { assertAdmin, type Actor } from "@/lib/services/authorization";
  *    refund moves the refund to "processed" and the payment to "refunded" or
  *    "partially_refunded" (src/lib/payments/state.ts allows only these).
  * 4. Whether access is withdrawn after a refund is a policy decision; any
- *    enrolment change must be explicit and audited.
+ *    enrollment change must be explicit and audited.
  * Every step is audited (refund.requested, refund.updated).
  *
  * Changing a status in the database never moves money and must never be

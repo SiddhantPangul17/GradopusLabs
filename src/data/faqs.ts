@@ -25,7 +25,7 @@ export const faqGroups: readonly FaqGroup[] = [
         id: "who-can-join",
         question: "Who can join a program?",
         answer: [
-          "Programs are designed mainly for college students and early-career learners, but anyone who meets a program's listed prerequisites can join once enrolment opens.",
+          "Programs are designed mainly for college students and early-career learners, but anyone who meets a program's listed prerequisites can join once enrollment opens.",
           "Each program page lists who it is for and what you need to know before starting.",
         ],
         link: { label: "Browse programs", href: "/programs" },
@@ -111,14 +111,14 @@ export const faqGroups: readonly FaqGroup[] = [
         id: "cost",
         question: "How much does a program cost?",
         answer: [
-          "The enrolment fee for each program is shown on its program page and again on the checkout page before you pay. It is the only charge: there is no application, assessment or certificate fee. You are enrolled only after the payment provider confirms your payment.",
+          "The enrollment fee for each program is shown on its program page and again on the checkout page before you pay. It is the only charge: there is no application, assessment or certificate fee. You are enrolled only after the payment provider confirms your payment.",
         ],
       },
       {
         id: "refunds",
         question: "What is the refund policy?",
         answer: [
-          "Enrolment fees are not refundable, except where you were charged twice, money was debited for a payment that failed, the program was unavailable when your payment was confirmed, or we cancel or significantly change a program you paid for.",
+          "Enrollment fees are not refundable, except where you were charged twice, money was debited for a payment that failed, the program was unavailable when your payment was confirmed, or we cancel or significantly change a program you paid for.",
           "Nothing in our policies limits any right to a refund that you have under law.",
         ],
         link: { label: "Read the payment and refund policy", href: "/refund-policy" },

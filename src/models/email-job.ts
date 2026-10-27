@@ -5,7 +5,7 @@ import { EMAIL_JOB_STATUSES, EMAIL_TYPES, type EmailJobStatus, type EmailType } 
 /*
  * Email outbox. A job is queued right after a business action succeeds and is
  * delivered by the outbox processor (src/lib/email/outbox.ts), so a slow or
- * failing email provider never blocks or reverses payments, enrolments,
+ * failing email provider never blocks or reverses payments, enrollments,
  * reviews or certificates.
  *
  * Privacy: the recipient is stored as a user id (the address is looked up at

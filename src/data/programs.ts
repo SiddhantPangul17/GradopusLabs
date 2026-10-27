@@ -3,7 +3,7 @@
  *
  * Sample programs used to build and preview the public pages before the
  * database exists. They are not real offerings: no program is open for
- * enrolment, and prices use the configured default from brand.ts.
+ * enrollment, and prices use the configured default from brand.ts.
  *
  * Do not import this file from pages or components. Read programs through
  * `@/lib/programs`, which is the only module to change when programs move to

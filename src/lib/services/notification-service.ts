@@ -16,7 +16,7 @@ import { NotificationModel } from "@/models/notification";
 
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
-/** Only same-site student paths, e.g. /student/certificates/GL-2026-000001 or /student/tasks/<id>#attempt-2. */
+/** Only same-site student paths, e.g. /student/certificates/GOL-2026-000001 or /student/tasks/<id>#attempt-2. */
 export function safeInternalLink(link: string | null | undefined): string | null {
   if (!link) return null;
   // Segments of letters, digits and . _ ~ - only, never "." or ".." (no //host, schemes, backslashes or traversal).

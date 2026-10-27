@@ -47,7 +47,7 @@ export type ProgramRecord = {
   faqs: ProgramFaqRecord[];
   /** Publication state: only "published" programs are visible to the public. */
   status: ProgramStatus;
-  /** Enrolment state shown on published programs. */
+  /** Enrollment state shown on published programs. */
   availability: ProgramAvailability;
   featured: boolean;
   /** Lower numbers are listed first. */

@@ -28,7 +28,7 @@ async function build(actor: Actor, report: ExportReport, query: AnalyticsQuery):
       const { rows } = await getProgramReport(actor, query);
       return {
         header: [
-          "program", "status", "enrolments_in_period", "active", "completed", "cancelled", "pending", "paid_enrolments", "manual_enrolments",
+          "program", "status", "enrollments_in_period", "active", "completed", "cancelled", "pending", "paid_enrollments", "manual_enrollments",
           "requirements_met", "completion_rate_percent", "certificates_issued_in_period", "pending_submissions_now", "currency", "collected_amount", "collected_payments",
         ],
         rows: rows.flatMap((row) => {
@@ -57,7 +57,7 @@ async function build(actor: Actor, report: ExportReport, query: AnalyticsQuery):
     case "learning-modules": {
       const learning = await getLearningReport(actor, query);
       return {
-        header: ["program", "module", "current_enrolments", "completed_module", "completion_rate_percent"],
+        header: ["program", "module", "current_enrollments", "completed_module", "completion_rate_percent"],
         rows: learning.modules.map((row) => [row.programTitle, row.moduleTitle, row.enrolled, row.completed, percent(row.enrolled ? row.completed / row.enrolled : null)]),
       };
     }

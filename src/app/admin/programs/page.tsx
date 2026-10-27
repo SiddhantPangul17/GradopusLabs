@@ -47,7 +47,7 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/prog
           action={<ButtonLink href="/admin/programs/new">Create a program</ButtonLink>}
         />
       ) : (
-        <AdminTable caption="Programs" head={["Program", "Status", "Price", "Modules (published / total)", "Enrolments", "Updated"]}>
+        <AdminTable caption="Programs" head={["Program", "Status", "Price", "Modules (published / total)", "Enrollments", "Updated"]}>
           {programs.map((program) => (
             <tr key={program.id}>
               <Td>

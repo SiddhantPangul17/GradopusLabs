@@ -27,7 +27,7 @@ export default function RegisterPage() {
   return (
     <AuthShell
       title="Create a student account"
-      description="Register to enrol in programs once enrolment opens."
+      description="Register to enroll in programs once enrollment opens."
       footer={
         <p>
           Already have an account?{" "}

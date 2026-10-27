@@ -11,7 +11,7 @@ not exist (404).
 | Route | Purpose |
 | ----- | ------- |
 | `/student` | Dashboard: real counts, programs to continue, recent submission activity |
-| `/student/programs` | All the student's enrolments (active, pending, completed, cancelled) |
+| `/student/programs` | All the student's enrollments (active, pending, completed, cancelled) |
 | `/student/programs/[enrollmentId]` | Program outline, module and task states, progress |
 | `/student/programs/[enrollmentId]/modules/[moduleId]` | Module content, tasks, previous/next, "mark as complete" for reading modules |
 | `/student/tasks/[taskId]` | Instructions, requirements, criteria, submission form, all attempts and feedback |
@@ -33,7 +33,7 @@ JSON API (same rules, cookie session; JSON bodies only):
 | `learning_modules` | Per program; stable ObjectId plus a per-program `slug`; `order`; Markdown `content`; `isPublished` |
 | `learning_tasks` | Per module; `taskType` (`text`, `project_url`, `file`); `required`; `completionRule` (`review` or `submission`); optional `dueDate`; `evaluationCriteria`; `isPublished` |
 | `submissions` | One document per **attempt**; unique `(enrollmentId, taskId, attempt)`; status `submitted` → `under_review` / `accepted` / `changes_requested` / `rejected` |
-| `learning_progress` | One per enrolment (unique); stores reading modules marked as done and a cached snapshot |
+| `learning_progress` | One per enrollment (unique); stores reading modules marked as done and a cached snapshot |
 | `enrollments` | Now records `source`: `manual` (operator) or `payment` (future) |
 
 Unpublished modules and tasks are never returned to students and never count
@@ -93,7 +93,7 @@ through short-lived signed URLs after an ownership check.
 
 ## Access rules
 
-| Enrolment | Program published / archived | Program draft |
+| Enrollment | Program published / archived | Program draft |
 | --------- | ---------------------------- | ------------- |
 | active | Full access (read and submit) | No access ("temporarily unavailable") |
 | completed | Read-only (content and own submissions) | No access |
@@ -123,15 +123,15 @@ validated first. Modules and tasks are matched by `slug` and updated in place,
 so ids, progress and submissions are kept; anything removed from the file is
 unpublished, never deleted. Public program pages refresh within an hour.
 
-**Enrol a student** (until online payment exists):
+**Enroll a student** (until online payment exists):
 
 ```bash
 npm run enroll:student -- --email student@example.com --program program-slug
 ```
 
 The student must already have registered and the program must be published.
-The enrolment is recorded as `source: manual` with `amountPaid: 0` and written
+The enrollment is recorded as `source: manual` with `amountPaid: 0` and written
 to the audit log. Both scripts ask for confirmation (pass `--yes` in
 automation) and never print secrets.
 
-There is no self-service enrolment and no simulated payment.
+There is no self-service enrollment and no simulated payment.

@@ -72,7 +72,7 @@ npm install
 npm run dev
 ```
 
-Indexes (unique program slugs, unique emails, one current enrolment per student
+Indexes (unique program slugs, unique emails, one current enrollment per student
 and program, and query indexes) are created automatically by Mongoose the first
 time each model connects.
 

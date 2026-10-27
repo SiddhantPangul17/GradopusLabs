@@ -91,7 +91,7 @@ export const manualEnrollmentSchema = z
   .object({
     email: z.string().trim().toLowerCase().max(254).pipe(z.email({ error: "Enter the student's email address." })),
     programSlug: slugSchema,
-    confirmNoPayment: z.literal(true, { error: "Confirm that this enrolment is granted without online payment." }),
+    confirmNoPayment: z.literal(true, { error: "Confirm that this enrollment is granted without online payment." }),
   })
   .strict();
 

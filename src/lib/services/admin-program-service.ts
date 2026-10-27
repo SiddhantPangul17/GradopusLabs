@@ -22,7 +22,7 @@ import { ProgramModel, type ProgramRecord } from "@/models/program";
  * Program management for administrators. Every function asserts the admin
  * role (in addition to the page/action checks) and records an audit entry.
  * Programs are never deleted: archiving hides them from the catalogue while
- * keeping enrolments, submissions and (future) certificates intact.
+ * keeping enrollments, submissions and (future) certificates intact.
  */
 
 /** Maps schema paths to the program form's field names. */

@@ -148,7 +148,7 @@ function toView(doc: SubmissionDoc): SubmissionView {
 
 /**
  * Loads a submission with everything needed to review it, and checks the
- * records agree (task in program, enrolment belongs to the same student and
+ * records agree (task in program, enrollment belongs to the same student and
  * program). Inconsistent records are reported, never reviewed.
  */
 async function loadForReview(submissionId: string) {
@@ -173,7 +173,7 @@ export async function getSubmissionForReview(actor: Actor, submissionId: string)
   if (!loaded) return fail("not_found", "Submission not found.");
   const { doc, task, module, program, student, consistent } = loaded;
   if (!consistent || !task || !module || !program || !student) {
-    return fail("conflict", "This submission's records do not match (task, program or enrolment). It cannot be reviewed.");
+    return fail("conflict", "This submission's records do not match (task, program or enrollment). It cannot be reviewed.");
   }
 
   const history = await SubmissionModel.find({ enrollmentId: doc.enrollmentId, taskId: doc.taskId }).sort({ attempt: -1 }).lean<SubmissionDoc[]>();

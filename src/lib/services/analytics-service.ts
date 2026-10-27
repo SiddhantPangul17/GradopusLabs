@@ -24,15 +24,15 @@ import { UserModel } from "@/models/user";
  *   payment record (one record per provider order; duplicate webhooks never
  *   create records), by `paidAt` (payment time), per currency, per mode
  *   (live and test are never mixed). Created/authorized/pending/failed orders
- *   are never revenue. Enrolment status is never used to infer payment.
+ *   are never revenue. Enrollment status is never used to infer payment.
  * - Refunds: NOT tracked (refunds are not processed through the platform yet),
  *   so refund totals and net collected are reported as unavailable.
- * - "Requirements met": an enrolment whose progress snapshot state is
+ * - "Requirements met": an enrollment whose progress snapshot state is
  *   "requirements_completed", the cached result of THE progress rule used by
  *   the student pages and certificate eligibility (refreshed on every
  *   submission, review, reading mark and content change).
- * - Completion rate = requirements met ÷ current enrolments (status active or
- *   completed); pending and cancelled enrolments are excluded.
+ * - Completion rate = requirements met ÷ current enrollments (status active or
+ *   completed); pending and cancelled enrollments are excluded.
  */
 
 type Money = { currency: string; amount: number; count: number };
@@ -41,7 +41,7 @@ export type SeriesPoint = { key: string; label: string; value: number };
 /** Statuses that mean money was collected (refund states can only follow "paid"). */
 export const COLLECTED_PAYMENT_STATUSES = ["paid", "refund_pending", "partially_refunded", "refunded"] as const satisfies readonly PaymentStatus[];
 const FINAL_REVIEW = ["accepted", "changes_requested", "rejected"];
-/** "Current" enrolments for progress metrics: active or completed (pending and cancelled have no learning access). */
+/** "Current" enrollments for progress metrics: active or completed (pending and cancelled have no learning access). */
 const CURRENT = ["active", "completed"];
 
 async function ready(actor: Actor) {
@@ -97,7 +97,7 @@ async function collectedByCurrency(query: AnalyticsQuery): Promise<Money[]> {
   return rows.map((row) => ({ currency: row._id, amount: row.amount, count: row.count }));
 }
 
-/** Current (active/completed) enrolments whose cached progress says requirements are met. */
+/** Current (active/completed) enrollments whose cached progress says requirements are met. */
 function requirementsMetPipeline(match: Record<string, unknown>): PipelineStage[] {
   return [
     { $match: { ...match, status: { $in: CURRENT } } },
@@ -294,7 +294,7 @@ export type ProgramRow = {
   programId: string;
   title: string;
   status: string;
-  /** Enrolments CREATED in the period, by current status. */
+  /** Enrollments CREATED in the period, by current status. */
   enrollments: { total: number; active: number; completed: number; cancelled: number; pending: number; paid: number; manual: number };
   requirementsMet: number;
   /** requirementsMet ÷ (active + completed); null when there are none. */
@@ -363,7 +363,7 @@ export type LearningReport = {
   submissions: {
     /** Attempts submitted in the period (each resubmission counts once). */
     attempts: number;
-    /** Distinct enrolment + task pairs among them. */
+    /** Distinct enrollment + task pairs among them. */
     uniqueTasks: number;
     resubmissions: number;
     /** Current status of the attempts submitted in the period. */
@@ -378,7 +378,7 @@ export type LearningReport = {
     medianHours: number | null;
   };
   pendingNow: { submissions: number; students: number; oldestSubmittedAt: string | null };
-  /** Current (active/completed) enrolments by cached progress state. */
+  /** Current (active/completed) enrollments by cached progress state. */
   progressStates: Record<string, number>;
   certificateBacklog: number;
   modules: { programId: string; programTitle: string; moduleId: string; moduleTitle: string; completed: number; enrolled: number }[];
@@ -424,7 +424,7 @@ export async function getLearningReport(actor: Actor, query: AnalyticsQuery): Pr
         { $group: { _id: { $ifNull: [{ $first: "$progress.state" }, "not_calculated"] }, n: { $sum: 1 } } },
       ]),
       certificateBacklog(),
-      // Module completion among current enrolments (same cached rule).
+      // Module completion among current enrollments (same cached rule).
       EnrollmentModel.aggregate<{ _id: unknown; n: number }>([
         { $match: { status: { $in: CURRENT } } },
         {

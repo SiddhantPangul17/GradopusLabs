@@ -37,7 +37,7 @@ import { UserModel } from "@/models/user";
 import { WebhookEventModel } from "@/models/webhook-event";
 
 /*
- * Online payments and paid enrolment activation.
+ * Online payments and paid enrollment activation.
  *
  * Trust rules (see docs/payments.md):
  * - The amount and currency always come from the program in the database.
@@ -49,7 +49,7 @@ import { WebhookEventModel } from "@/models/webhook-event";
  * - If the provider cannot be reached or the result is unclear, the payment
  *   stays pending and is reconciled later (webhook retries, "check again").
  * - Activation is idempotent without transactions: compare-and-set status
- *   updates, a unique index on enrollment.paymentId, the one-current-enrolment
+ *   updates, a unique index on enrollment.paymentId, the one-current-enrollment
  *   index, and a recovery step that completes a half-finished activation
  *   whenever the payment is seen again.
  */
@@ -236,7 +236,7 @@ export async function createCheckoutOrder(
     .select("title slug price currency availability")
     .lean();
   if (!program) return fail("not_found", "This program is not available.");
-  if (!isPurchasable(program)) return fail("conflict", "Enrolment for this program is not open for online payment.");
+  if (!isPurchasable(program)) return fail("conflict", "Enrollment for this program is not open for online payment.");
 
   const enrolled = await EnrollmentModel.exists({
     studentId: actor.id,
@@ -500,7 +500,7 @@ async function flagAttention(payment: PaymentDoc, reason: PaymentAttentionReason
 }
 
 /**
- * Creates the paid enrolment for a verified payment, exactly once. Safe to
+ * Creates the paid enrollment for a verified payment, exactly once. Safe to
  * call repeatedly (it is the recovery step after an interruption).
  * Policy: access is granted only while the program is published. A payment
  * confirmed after the program was unpublished or archived is kept as paid,
@@ -534,7 +534,7 @@ async function ensureEnrollment(payment: PaymentDoc): Promise<void> {
     enrollmentId = created._id;
   } catch (error) {
     if (!isDuplicateKeyError(error)) throw error;
-    // Either a concurrent run created it for this payment, or the student already has a current enrolment.
+    // Either a concurrent run created it for this payment, or the student already has a current enrollment.
     const again = await EnrollmentModel.findOne({ paymentId: payment._id }).select("_id").lean();
     if (again) return link(again._id);
     return flagAttention(payment, "already_enrolled");
@@ -778,7 +778,7 @@ function paginate(total: number, requested: number | undefined, size: number) {
   return { totalPages, page, skip: (page - 1) * size };
 }
 
-/** The student's own payment records (not inferred from enrolments), newest first. */
+/** The student's own payment records (not inferred from enrollments), newest first. */
 export async function listOwnPayments(actor: Actor, requestedPage?: number) {
   assertStudent(actor);
   await connectToDatabase();

@@ -41,7 +41,7 @@ async function Students({ searchParams }: { searchParams: PageProps<"/admin/stud
       {list.items.length === 0 ? (
         <EmptyState title="No students found" description={q ? "Try a different search." : "Students appear here after they register."} />
       ) : (
-        <AdminTable caption="Students" head={["Student", "Joined", "Enrolments", "Status", "Account"]}>
+        <AdminTable caption="Students" head={["Student", "Joined", "Enrollments", "Status", "Account"]}>
           {list.items.map((student) => {
             const status = accountStatusDisplay[student.accountStatus];
             return (

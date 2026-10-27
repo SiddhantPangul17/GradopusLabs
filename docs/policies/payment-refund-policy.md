@@ -21,12 +21,12 @@ a company.
 
 ## 2. Summary
 
-- You pay an **enrolment fee** to join a program. The amount is shown on the program's page before you enrol.
-- The enrolment fee is the **only** charge. There is **no** application fee, registration fee, assessment fee or
+- You pay an **enrollment fee** to join a program. The amount is shown on the program's page before you enroll.
+- The enrollment fee is the **only** charge. There is **no** application fee, registration fee, assessment fee or
   certificate fee.
 - Paying the fee gives you access to the program. It does **not** guarantee that your work will be accepted, that
   you will complete the program, or that you will receive a certificate, a job or a placement.
-- Enrolment fees are **not refundable**, except in the cases listed in section 8, such as duplicate payments or a
+- Enrollment fees are **not refundable**, except in the cases listed in section 8, such as duplicate payments or a
   program cancelled by Gradopus Labs.
 - Gradopus Labs does **not** currently pay stipends.
 
@@ -58,14 +58,14 @@ We will not use false urgency, such as fake countdowns or invented "limited seat
 ## 5. What is charged and what is not
 
 - **Applying or registering an account:** free.
-- **Joining a program:** the program's enrolment fee.
-- **Assessment and reviews:** included in the enrolment fee; no extra charge.
+- **Joining a program:** the program's enrollment fee.
+- **Assessment and reviews:** included in the enrollment fee; no extra charge.
 - **Resubmissions within the attempt limit:** included; no extra charge.
 - **Certificate of Completion:** free. There is no fee to issue, download, verify or correct a certificate.
 - **Other charges:** none.
 
 If Gradopus Labs ever introduces any other charge, it will apply only to students who agree to it in writing before
-they enrol. It will never be a condition of receiving a certificate for a program you have already joined.
+they enroll. It will never be a condition of receiving a certificate for a program you have already joined.
 
 ## 6. Stipends
 
@@ -108,10 +108,10 @@ section 14]`
 
 ## 8. Refunds
 
-**Enrolment fees are not refundable**, including if you withdraw, do not complete the program, or are not satisfied
+**Enrollment fees are not refundable**, including if you withdraw, do not complete the program, or are not satisfied
 with your own results, **except** in the following cases, where your money will be returned:
 
-1. **Duplicate payment:** you were charged more than once for the same enrolment.
+1. **Duplicate payment:** you were charged more than once for the same enrollment.
 2. **Failed payment that was debited:** money left your account but the payment did not complete and you did not
    receive access. Banks and Razorpay often reverse these automatically.
 3. **Program unavailable:** your payment was confirmed but the program had already been withdrawn, so you did not
@@ -147,7 +147,7 @@ description of a paid program as an "internship".]`
 ## 10. Program cancellation or significant changes by Gradopus Labs
 
 - If we **cancel** a program you have paid for before you complete it, we will tell you as early as possible and
-  refund your enrolment fee in full. `[TO BE CONFIRMED: whether a partial refund applies if most of the program has
+  refund your enrollment fee in full. `[TO BE CONFIRMED: whether a partial refund applies if most of the program has
   already been delivered]`
 - If we make a **significant change** that materially reduces what was promised, such as removing major parts of the
   program or substantially changing its duration, we will tell you before the change takes effect. You may then
@@ -180,10 +180,10 @@ will confirm each refund to you by email.
 
 - If a payment fails, you are not enrolled and you can try again.
 - Some payments, especially UPI, can take time to confirm. Until Razorpay confirms the payment to our website, your
-  enrolment is shown as **awaiting confirmation**. You can check the status on the checkout page.
+  enrollment is shown as **awaiting confirmation**. You can check the status on the checkout page.
 - Access is given only after the payment is confirmed by Razorpay to our server. A success message in your banking
-  app alone does not activate enrolment.
-- If money has left your account but your enrolment is not confirmed after `[TO BE CONFIRMED: time]`, contact us
+  app alone does not activate enrollment.
+- If money has left your account but your enrollment is not confirmed after `[TO BE CONFIRMED: time]`, contact us
   with the payment reference.
 
 ## 14. Taxes and invoices
@@ -240,14 +240,14 @@ details), the DPDP Act, 2023 (published contact for data-related questions) and 
 
 ### Confirmed owner decisions (21 October 2026)
 
-Students pay an enrolment fee per program; no certificate fee; no stipends for now; no refunds, with lawful
+Students pay an enrollment fee per program; no certificate fee; no stipends for now; no refunds, with lawful
 exceptions.
 
 ### Implementation facts used
 
 Razorpay is the only provider and is off until configured and approved; it has been tested only against a simulated
 API. The amount comes from the program record (minimum ₹1 for online payment). One open order per student and
-program. Enrolment is activated only after server-side confirmation. The payment confirmation email is "not a tax
+program. Enrollment is activated only after server-side confirmation. The payment confirmation email is "not a tax
 invoice". Refunds are not implemented (`refund-service.ts` always refuses), and refunds made in the Razorpay dashboard
 are not reflected in the platform. Payments confirmed for an unavailable program are flagged `program_unavailable`.
 No GST or tax handling exists.
@@ -255,9 +255,9 @@ No GST or tax handling exists.
 ### Operational follow-ups
 
 - `brand.commerce.defaultProgramPricePaise` is 9900 (₹99). Set real prices per program.
-- A ₹0 program cannot be bought online; such enrolments are manual.
+- A ₹0 program cannot be bought online; such enrollments are manual.
 - Pausing access during a chargeback (section 12) is not automated.
-- A refunded paid enrolment is not eligible for a certificate (Certificate Issuance & Verification Policy, section
+- A refunded paid enrollment is not eligible for a certificate (Certificate Issuance & Verification Policy, section
   4). The platform enforces this at issue time only, and only once refunds are recorded in the platform.
 
 ### Legal and tax review

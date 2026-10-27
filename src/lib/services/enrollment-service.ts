@@ -11,7 +11,7 @@ import { EnrollmentModel, type EnrollmentRecord } from "@/models/enrollment";
 import { ProgramModel } from "@/models/program";
 import { UserModel } from "@/models/user";
 
-/** Safe, serialisable view of an enrolment. */
+/** Safe, serialisable view of an enrollment. */
 export type EnrollmentSummary = {
   id: string;
   studentId: string;
@@ -41,9 +41,9 @@ export function toEnrollmentSummary(doc: EnrollmentDocument): EnrollmentSummary 
 }
 
 /**
- * Returns an enrolment only to its student or an admin. Returns null both
+ * Returns an enrollment only to its student or an admin. Returns null both
  * when it does not exist and when the viewer may not see it, so callers cannot
- * probe for other students' enrolments.
+ * probe for other students' enrollments.
  */
 export async function getEnrollmentForViewer(enrollmentId: string, viewer: Actor): Promise<EnrollmentSummary | null> {
   if (!isValidObjectIdString(enrollmentId)) return null;
@@ -59,11 +59,11 @@ export type ManualEnrollmentResult =
   | { ok: false; reason: "student_not_found" | "program_not_found" | "already_enrolled" };
 
 /**
- * Creates an ACTIVE enrolment without payment, for operators (via
+ * Creates an ACTIVE enrollment without payment, for operators (via
  * `npm run enroll:student`) until online payment exists. TRUSTED callers only:
  * no role check here, so it must never be reachable from a public route.
  * Recorded with source "manual" and amountPaid 0 (no payment is implied) and
- * audited. The database prevents duplicate current enrolments.
+ * audited. The database prevents duplicate current enrollments.
  */
 export async function createManualEnrollment(
   input: { email: string; programSlug: string },
@@ -75,7 +75,7 @@ export async function createManualEnrollment(
     .select("_id")
     .lean();
   if (!user) return { ok: false, reason: "student_not_found" };
-  // New enrolments only for programs on sale (published).
+  // New enrollments only for programs on sale (published).
   const program = await ProgramModel.findOne({ slug: input.programSlug, status: "published" }).select("_id slug title currency").lean();
   if (!program) return { ok: false, reason: "program_not_found" };
 
@@ -106,7 +106,7 @@ export async function createManualEnrollment(
   return { ok: true, enrollmentId: created._id.toString() };
 }
 
-/** True if the student has a pending or active enrolment in the program. */
+/** True if the student has a pending or active enrollment in the program. */
 export async function hasCurrentEnrollment(studentId: string, programId: string): Promise<boolean> {
   if (!isValidObjectIdString(studentId) || !isValidObjectIdString(programId)) return false;
   await connectToDatabase();

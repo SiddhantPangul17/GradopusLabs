@@ -3,7 +3,7 @@ import { objectIdSchema } from "@/lib/validation/common";
 
 /*
  * Admin certificate operations. The acting admin, the student, eligibility and
- * status are never taken from the form: only the enrolment / certificate being
+ * status are never taken from the form: only the enrollment / certificate being
  * acted on, an explicit confirmation and (where needed) a reason.
  */
 

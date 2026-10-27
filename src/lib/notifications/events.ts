@@ -6,7 +6,7 @@ import { createNotification } from "@/lib/services/notification-service";
 
 /*
  * Business events → email job + in-app notification. Called by the payment,
- * enrolment, review, certificate and registration services ONLY after their
+ * enrollment, review, certificate and registration services ONLY after their
  * own database change succeeded. Every call is idempotent (one key per event),
  * so webhook retries and repeated requests never duplicate notifications, and
  * nothing here can throw back into the business operation.
@@ -25,7 +25,7 @@ export async function notifyWelcome(userId: Id): Promise<void> {
       userId,
       type: "welcome",
       title: `Welcome to ${brand.name}`,
-      message: "Your account is ready. Browse the programs and enrol when you're ready.",
+      message: "Your account is ready. Browse the programs and enroll when you're ready.",
       link: "/student",
       idempotencyKey: `welcome:${str(userId)}`,
     }),
@@ -61,7 +61,7 @@ export async function notifyEnrollmentActivated(enrollment: { _id: Id; studentId
       userId: enrollment.studentId,
       type: "enrollment_confirmed",
       title: "You're enrolled",
-      message: `Your enrolment in ${programTitle} is active. Start with the first module.`,
+      message: `Your enrollment in ${programTitle} is active. Start with the first module.`,
       link: `/student/programs/${str(enrollment._id)}`,
       idempotencyKey: key,
     }),

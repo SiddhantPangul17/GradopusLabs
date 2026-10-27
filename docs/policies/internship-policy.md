@@ -28,7 +28,7 @@ reviewed, when a certificate may be issued and what you can do if something goes
 It applies to every applicant and intern in a Gradopus Labs internship, and to the mentors and reviewers who
 work with them.
 
-Each internship also has its own **internship details**, shown to you in writing before you enrol or accept a
+Each internship also has its own **internship details**, shown to you in writing before you enroll or accept a
 place, for example on the program's page. They set out the specific terms of that internship, such as its fee,
 duration, weekly time commitment, tasks and completion requirements. If the internship details and this policy
 disagree, the internship details apply to that internship, except that they cannot remove any protection this
@@ -44,15 +44,15 @@ from a mentor and have your work reviewed against criteria that are shared with 
 The internship details for each internship will state clearly:
 
 - what you will learn and the kind of work you will do;
-- the **enrolment fee** for the program (section 3.1);
+- the **enrollment fee** for the program (section 3.1);
 - whether your work is limited to practice tasks or also includes contributing to a real product or client
   project.
 
 ### 3.1 Fees and stipends
 
-- Students pay an **enrolment fee** to join a program. The fee for each program is shown on its page before you
-  enrol. `[TO BE CONFIRMED: the fee for each program]`
-- The enrolment fee is the only charge. There is no application, assessment or certificate fee.
+- Students pay an **enrollment fee** to join a program. The fee for each program is shown on its page before you
+  enroll. `[TO BE CONFIRMED: the fee for each program]`
+- The enrollment fee is the only charge. There is no application, assessment or certificate fee.
 - Paying the fee gives you access to the program. It does not guarantee that your work will be accepted, that you
   will complete the program, or that you will receive a certificate, a job or a placement.
 - Gradopus Labs does **not** currently pay stipends. If a stipend is ever offered, its terms will be stated in
@@ -76,8 +76,8 @@ identity, sexual orientation, caste, religion, region, place of birth, language,
 pregnancy, family background or economic background. Where a skill is required, we assess the skill itself, not
 the name of your college or how you acquired it.
 
-**How to join.** All programs are currently **open enrolment**: you create an account, review the internship details
-on the program's page, and enrol by paying the enrolment fee. There is no application or selection step. If a
+**How to join.** All programs are currently **open enrollment**: you create an account, review the internship details
+on the program's page, and enroll by paying the enrollment fee. There is no application or selection step. If a
 program ever requires an application, its page will say so, and this policy and the Privacy Policy will be updated
 first.
 
@@ -87,10 +87,10 @@ for identity documents, or for information about your religion, caste, health or
 
 ## 5. Selection and onboarding
 
-**Selection.** There is currently no selection step, because all programs are open enrolment (section 4). If an
+**Selection.** There is currently no selection step, because all programs are open enrollment (section 4). If an
 application-based program is introduced, its selection criteria will be published before applications open.
 
-**Before you commit.** Whether you enrol directly or are offered a place after applying, you will see the
+**Before you commit.** Whether you enroll directly or are offered a place after applying, you will see the
 internship details in writing before you pay or accept. Read them carefully. You are not committed to anything
 until you pay or accept.
 
@@ -222,7 +222,7 @@ You complete an internship when you meet **all** of the completion requirements 
 
 Optional tasks do not affect completion.
 
-Enrolling, paying the enrolment fee, attending sessions or submitting work does not, by itself, complete an
+Enrolling, paying the enrollment fee, attending sessions or submitting work does not, by itself, complete an
 internship. The Project Submission & Assessment Policy explains how work is assessed.
 
 ## 13. Certificate eligibility and limitations
@@ -232,8 +232,8 @@ completion requirements in section 12 and our records confirm this. Certificates
 cannot generate your own.
 
 - There is **no fee** for a certificate.
-- If your enrolment fee was refunded (which happens only in the limited cases in the Payment, Refund & Stipend
-  Policy, such as a program cancelled by Gradopus Labs), a certificate is not issued for that enrolment.
+- If your enrollment fee was refunded (which happens only in the limited cases in the Payment, Refund & Stipend
+  Policy, such as a program cancelled by Gradopus Labs), a certificate is not issued for that enrollment.
 - An issued certificate is never revoked because of a payment or administrative dispute.
 
 **What a certificate shows.** A certificate records only what is documented in our records: your name, the program
@@ -351,7 +351,7 @@ Where there is an immediate risk to people, systems or confidential information,
 while the concern is looked into. A suspension is not a finding that you did anything wrong.
 
 We may also end an internship early for reasons that are not your fault, for example if a program is
-discontinued. If that happens, we will give you as much notice as possible, and your enrolment fee will be refunded
+discontinued. If that happens, we will give you as much notice as possible, and your enrollment fee will be refunded
 as set out in the Payment, Refund & Stipend Policy.
 
 **What happens to your work and records.**
@@ -360,7 +360,7 @@ as set out in the Payment, Refund & Stipend Policy.
 - Submissions still waiting for review when an internship ends will be: `[TO BE CONFIRMED: reviewed, or closed
   without review]`. You will be told which.
 - A certificate is issued only if you met all of the completion requirements before the internship ended.
-- Enrolment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
+- Enrollment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
   cases set out in the Payment, Refund & Stipend Policy.
 - You must return or delete confidential material, as described in section 15.
 
@@ -417,12 +417,12 @@ We may update this policy from time to time. When we do:
 
 ## Revision history
 
-- **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrolment only, no identity documents.
+- **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrollment only, no identity documents.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
   (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
 - **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review. Adds the
-  confirmed fee model (enrolment fee only, no certificate fee, no stipends, refunds only in limited cases) and the
-  open-enrolment route.
+  confirmed fee model (enrollment fee only, no certificate fee, no stipends, refunds only in limited cases) and the
+  open-enrollment route.
 - **Draft 0.1, 21 October 2026:** Initial internal draft.
 
 ## Notes for reviewers (remove before publication)
@@ -471,5 +471,5 @@ Every `[LEGAL REVIEW: …]` marker above, plus:
 
 ### Owner decisions confirmed on 21 October 2026
 
-Students pay an enrolment fee per program; no certificate fee; no stipends for now; no refunds, with lawful
+Students pay an enrollment fee per program; no certificate fee; no stipends for now; no refunds, with lawful
 exceptions. Charging students for a program described as an "internship" needs consumer-protection review.

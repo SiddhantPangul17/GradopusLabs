@@ -13,24 +13,24 @@ reads trusted records and uses the same progress rule as the learning area
 
 A certificate can be issued only when **all** of these hold:
 
-1. The enrolment exists (and belongs to the expected student, when one is
+1. The enrollment exists (and belongs to the expected student, when one is
    given).
 2. The student account exists, is a student and is active.
 3. The program exists and is published or archived (not draft).
 4. The program has published completion criteria and at least one published
    module, and no required file-upload tasks (students can't submit those
    yet).
-5. The enrolment is `active` or `completed`.
+5. The enrollment is `active` or `completed`.
 6. Every published module is complete:
    - required tasks are complete. Tasks with the `review` rule need an
      **accepted** review; `submission` tasks need a valid submission;
    - reading-only modules are marked as read.
 
    Optional tasks never count.
-7. For paid enrolments (`source: payment`), the linked payment is still
-   `paid` (not refunded). Manual enrolments were granted by an admin without
+7. For paid enrollments (`source: payment`), the linked payment is still
+   `paid` (not refunded). Manual enrollments were granted by an admin without
    payment. Nothing is charged twice.
-8. No valid certificate exists for the enrolment, and none was revoked.
+8. No valid certificate exists for the enrollment, and none was revoked.
    Re-issuing after a revocation is deliberately not automatic.
 9. The name and program title can be printed by the template (see Limitations).
 
@@ -42,7 +42,7 @@ cannot send "eligible", an issuer or a status: the Zod schemas reject them.
 | Route | Purpose |
 | ----- | ------- |
 | `/admin/certificates` | Search by certificate ID, student name or email; filter by status and program |
-| `/admin/certificates/issue` | Enrolments with live eligibility and reasons; issue with confirmation |
+| `/admin/certificates/issue` | Enrollments with live eligibility and reasons; issue with confirmation |
 | `/admin/certificates/[certificateId]` | Record, history, PDF download, correct and reissue, revoke |
 
 - Every page calls `requireAdmin()`. Each Server Action re-checks the session.
@@ -50,7 +50,7 @@ cannot send "eligible", an issuer or a status: the Zod schemas reject them.
 - The issuer is the signed-in admin.
 - **Issue:** eligibility is re-checked at the moment of issuance. Repeated or
   concurrent requests can't create a second certificate, because a unique
-  partial index allows at most one `issued` certificate per enrolment. A
+  partial index allows at most one `issued` certificate per enrollment. A
   refused attempt is audited as `certificate.issue_refused` with the reason
   codes.
 - **Revoke:** needs a reason (10–500 characters) and confirmation.
@@ -79,7 +79,7 @@ cannot send "eligible", an issuer or a status: the Zod schemas reject them.
 
 ## Certificate numbers
 
-Format: `PREFIX-YEAR-SEQUENCE`, e.g. `GL-2026-000001`.
+Format: `PREFIX-YEAR-SEQUENCE`, e.g. `GOL-2026-000001`.
 - `PREFIX` is `brand.certificate.prefix` (2–6 capital letters).
 - `YEAR` is the issue year in IST.
 - `SEQUENCE` has at least six digits.
@@ -118,32 +118,43 @@ record.
 - Generated **on demand** with `pdf-lib` from the immutable record and its
   `templateVersion`. Nothing is stored, so there is no bucket to secure.
 - Output is reproducible: metadata dates are the issue date.
-- Layout: A4 landscape, brand name and colours, "Certificate of completion",
-  then:
-  - the student name snapshot (auto-sized, wraps to two lines);
-  - the program title snapshot (up to three lines);
-  - completion date, issue date and certificate ID;
-  - the QR code with "Scan to verify" and the `/verify` host;
-  - a footer stating it is **not a degree, diploma or accredited
-    qualification**, and the template version.
-- There are no signatures, seals, logos of other bodies or invented people. A
-  signatory prints only if `brand.certificate.signatory` is set to a real,
-  authorised person.
-- Fonts are the built-in PDF standard fonts (Helvetica, Times): no licensing
-  and nothing to bundle.
+- Layout: A4 landscape on an ivory page with a gold frame and "VERIFIED
+  CERTIFICATE" micro-text bands. Logo, name and tagline top left; certificate
+  ID and a "Verified Credential" badge top right; a faint logo watermark; then:
+  - "Certificate / of completion" and the student name snapshot (serif,
+    auto-sized, wraps to two lines);
+  - the program title snapshot (up to two lines), followed by a fixed line
+    on what was demonstrated (hands-on project tasks reviewed against the
+    published completion criteria; a final project is not promised, since
+    programs need not have one);
+  - completion and issue dates (bottom left);
+  - the brand seal, the QR code and "Scan to verify" (bottom right);
+  - a footer with "Udyam-registered MSME" (no registration number, by the
+    owner's choice), the `/verify` host and a line stating it is **not a
+    degree, diploma or accredited qualification**.
+- Every certificate renders with the current design, whatever template version
+  it was issued under (the version is kept in the PDF metadata).
+- The badge and the seal are the platform's own marks and print only on valid
+  certificates. There are no signatures, logos of other bodies or invented
+  people. A signatory prints only if `brand.certificate.signatory` is set to a
+  real, authorised person.
+- Fonts: Cormorant Garamond and Inter, trimmed to the certificate character
+  set and embedded whole, from `src/lib/certificates/fonts` (SIL Open Font
+  License; see the README and licence files there;
+  bundled for the PDF route via `outputFileTracingIncludes` in next.config.ts).
 - Download: `GET /api/certificates/:certificateId/pdf`.
   - Students get their own **valid** certificates only. Another student's is
     404; signed out is 401.
   - Admins can download any certificate; revoked and superseded copies are
     watermarked "NOT VALID". Admin downloads are audited.
-  - Responses use `application/pdf`, `attachment; filename="GL-….pdf"` and
+  - Responses use `application/pdf`, `attachment; filename="GOL-….pdf"` and
     `private, no-store`.
   - If generation fails, an error is shown; nothing is re-issued.
 
 ## Public verification
 
 - `/verify`: enter a certificate ID. Input is normalised; for example,
-  `gl 2026 000001` becomes `GL-2026-000001`. The result shows status, program,
+  `gol 2026 000001` becomes `GOL-2026-000001`. The result shows status, program,
   dates and the holder's **initials only**, because numbers are sequential and
   full names would be enumerable.
 - `/verify/[token]` (the QR target): shows the full name, program and dates.
@@ -184,8 +195,8 @@ record.
 ## Limitations / before launch
 
 - **Names in non-Latin scripts** (e.g. Devanagari) can't be printed by the
-  standard fonts. Issuance is refused with a clear reason. Supporting them needs
-  a bundled Unicode font with complex-script shaping, which pdf-lib does not do.
+  bundled fonts, which cover the same Western European character set as before.
+  Issuance is refused with a clear reason. Supporting them needs a Unicode font with complex-script shaping, which pdf-lib does not do.
 - `pdf-lib` 1.17.1 is stable but has had no release since 2021. Re-evaluate if
   maintenance matters.
 - The certificate policy (`/certificate-policy`) is still a draft. Who may

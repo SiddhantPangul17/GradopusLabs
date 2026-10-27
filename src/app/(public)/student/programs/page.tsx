@@ -22,13 +22,13 @@ async function MyPrograms() {
       <SectionHeading
         as="h1"
         title="My programs"
-        description="Every program you are enrolled in, including pending, completed and cancelled enrolments."
+        description="Every program you are enrolled in, including pending, completed and cancelled enrollments."
       />
       {enrollments.length === 0 ? (
         <EmptyState
           className="mt-8"
           title="You are not enrolled in any programs yet"
-          description="Online enrolment is not available yet. Once you are enrolled, your programs will appear here."
+          description="Online enrollment is not available yet. Once you are enrolled, your programs will appear here."
           action={
             <ButtonLink href="/programs" variant="outline">
               Browse programs

@@ -35,7 +35,7 @@ import { UserModel } from "@/models/user";
  * 1. Business services call enqueueEmail() AFTER their own write succeeded.
  *    One job per event (unique idempotency key), so repeated webhooks or
  *    retries never queue a second email. enqueueEmail never throws: an email
- *    problem can never undo a payment, enrolment, review or certificate.
+ *    problem can never undo a payment, enrollment, review or certificate.
  * 2. processEmailOutbox() delivers due jobs. It runs after the response
  *    (Next.js after()) and from the authenticated scheduled endpoint
  *    POST /api/notifications/process, because a serverless function is not

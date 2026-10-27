@@ -228,7 +228,7 @@ describe("registration and password reset", () => {
   });
 });
 
-describe("payments and enrolment", () => {
+describe("payments and enrollment", () => {
   async function paidFlow(slug: string, options: { archive?: boolean } = {}) {
     const p = await program(slug);
     const { actor } = await register();
@@ -272,7 +272,7 @@ describe("payments and enrolment", () => {
     expect(await M.Notification.countDocuments({ userId: actor.id, type: { $in: ["payment_confirmed", "enrollment_confirmed"] } })).toBe(2);
   });
 
-  it("no enrolment email when activation did not happen (program archived while pending)", async () => {
+  it("no enrollment email when activation did not happen (program archived while pending)", async () => {
     const { actor, entity } = await paidFlow("pay-notify-b", { archive: true });
     await signedWebhook("payment.captured", entity, "evt_n_3");
     await flush();
@@ -280,7 +280,7 @@ describe("payments and enrolment", () => {
     expect(await jobsOf(actor.id, "enrollment_confirmation")).toHaveLength(0);
   });
 
-  it("an email provider outage never reverses the payment or enrolment; retries are bounded and reuse one idempotency key", async () => {
+  it("an email provider outage never reverses the payment or enrollment; retries are bounded and reuse one idempotency key", async () => {
     resend.mode = "fail500";
     const { actor, paymentId, entity } = await paidFlow("pay-notify-c");
     expect((await signedWebhook("payment.captured", entity, "evt_n_4")).status).toBe(200);
@@ -380,7 +380,7 @@ describe("reviews and certificates", () => {
     const certJob = (await jobsOf(actor!.id, "certificate_issued"))[0];
     expect(certJob).toMatchObject({ status: "sent" });
     const certMail = resend.sent.find((item) => item.subject.startsWith("Your certificate is ready"))!;
-    expect(certMail.text).toContain("/verify?id=GL-");
+    expect(certMail.text).toContain("/verify?id=GOL-");
     expect(certMail.text).not.toMatch(/\/verify\/[A-Za-z0-9_-]{43}/); // the secret QR token is not emailed
     const certificateId = issued.ok ? issued.data.certificateId : "";
     await certs.revokeCertificate(admin, certificateId, { reason: "Copied project confirmed by review.", confirm: true });

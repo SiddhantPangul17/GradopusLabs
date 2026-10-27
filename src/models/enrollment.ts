@@ -12,12 +12,12 @@ import {
 } from "@/lib/constants";
 
 /*
- * A student's enrolment in a program.
+ * A student's enrollment in a program.
  *
- * Paid enrolments are created only by the payment service after the provider
+ * Paid enrollments are created only by the payment service after the provider
  * has confirmed the payment (signed webhook, or checkout signature plus an API
  * fetch), never because the browser reached a success page. No route accepts
- * an enrolment id to activate.
+ * an enrollment id to activate.
  */
 
 export type EnrollmentRecord = {
@@ -31,7 +31,7 @@ export type EnrollmentRecord = {
   completedAt: Date | null;
   /** "manual" = created by an admin or operator script (no payment); "payment" = after a verified payment. */
   source: EnrollmentSource;
-  /** The verified payment that created this enrolment (source "payment" only). */
+  /** The verified payment that created this enrollment (source "payment" only). */
   paymentId: Types.ObjectId | null;
   createdAt: Date;
   updatedAt: Date;
@@ -59,8 +59,8 @@ const enrollmentSchema = new Schema<EnrollmentRecord>(
   { timestamps: true, strict: "throw" },
 );
 
-// At most one current (pending or active) enrolment per student and program,
-// enforced by the database. Cancelled or completed enrolments do not block a
+// At most one current (pending or active) enrollment per student and program,
+// enforced by the database. Cancelled or completed enrollments do not block a
 // new one. Partial indexes with $in require MongoDB 6.0+ (Atlas default).
 enrollmentSchema.index(
   { studentId: 1, programId: 1 },
@@ -70,16 +70,16 @@ enrollmentSchema.index(
     partialFilterExpression: { status: { $in: [...CURRENT_ENROLLMENT_STATUSES] } },
   },
 );
-// A payment activates at most one enrolment (makes activation safe to retry).
+// A payment activates at most one enrollment (makes activation safe to retry).
 enrollmentSchema.index(
   { paymentId: 1 },
   { unique: true, name: "unique_enrollment_payment", partialFilterExpression: { paymentId: { $type: "objectId" } } },
 );
-// A student's enrolments, newest first.
+// A student's enrollments, newest first.
 enrollmentSchema.index({ studentId: 1, createdAt: -1 });
-// Enrolments for a program, by status (admin views).
+// Enrollments for a program, by status (admin views).
 enrollmentSchema.index({ programId: 1, status: 1 });
-// Admin enrolment list, newest first, optionally by status.
+// Admin enrollment list, newest first, optionally by status.
 enrollmentSchema.index({ status: 1, createdAt: -1 });
 enrollmentSchema.index({ createdAt: -1 });
 

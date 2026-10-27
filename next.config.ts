@@ -3,8 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
-  // Policy pages read their Markdown at render time (src/lib/policies/load.ts).
-  outputFileTracingIncludes: { "/*": ["./docs/policies/*.md"] },
+  // Files read at render time: policy Markdown (src/lib/policies/load.ts) and certificate fonts.
+  outputFileTracingIncludes: {
+    "/*": ["./docs/policies/*.md"],
+    // Certificate PDFs embed these fonts (src/lib/certificates/pdf.ts).
+    "/api/certificates/**": ["./src/lib/certificates/fonts/*.ttf"],
+  },
   partialPrefetching: true,
   turbopack: {
     rules: {

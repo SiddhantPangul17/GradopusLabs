@@ -28,10 +28,10 @@ export function StudentStatusForm({ action, currentStatus, idPrefix }: { action:
   );
 }
 
-/** Grants an enrolment without online payment (recorded as manual, amount paid ₹0). */
+/** Grants an enrollment without online payment (recorded as manual, amount paid ₹0). */
 export function ManualEnrollmentForm({ action, programs }: { action: Action; programs: { slug: string; title: string }[] }) {
   return (
-    <AdminForm action={action} submitLabel="Create manual enrolment" pendingLabel="Creating…" resetOnSuccess>
+    <AdminForm action={action} submitLabel="Create manual enrollment" pendingLabel="Creating…" resetOnSuccess>
       {(errors) => (
         <>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -51,7 +51,7 @@ export function ManualEnrollmentForm({ action, programs }: { action: Action; pro
             id="manual-confirm"
             name="confirmNoPayment"
             required
-            label="I confirm this enrolment is granted without an online payment. It will be recorded as a manual enrolment, not as paid."
+            label="I confirm this enrollment is granted without an online payment. It will be recorded as a manual enrollment, not as paid."
             error={errors.confirmNoPayment}
           />
         </>

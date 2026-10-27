@@ -62,7 +62,7 @@ async function Overview() {
           <Metric label="Published programs" value={overview.programs.published} href="/admin/programs?status=published" />
           <Metric label="Draft programs" value={overview.programs.draft} href="/admin/programs?status=draft" />
           <Metric label="Student accounts" value={overview.users.student} href="/admin/students" />
-          <Metric label="Active enrolments" value={overview.activeEnrollments} href="/admin/enrollments?status=active" />
+          <Metric label="Active enrollments" value={overview.activeEnrollments} href="/admin/enrollments?status=active" />
           <Metric label="Submissions to review" value={overview.pendingSubmissions} href="/admin/submissions" />
         </ul>
       </section>

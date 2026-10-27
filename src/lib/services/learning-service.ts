@@ -151,7 +151,7 @@ function toTaskSummary(task: TaskDoc, state: TaskState): TaskSummary {
   };
 }
 
-/** Enrolments with programs, curricula and calculated progress, in one batch of queries. */
+/** Enrollments with programs, curricula and calculated progress, in one batch of queries. */
 async function buildOverviews(studentId: Id, enrollments: EnrollmentDoc[]) {
   const programs = await ProgramModel.find({ _id: { $in: enrollments.map((item) => item.programId) } })
     .select("title slug category status")
@@ -209,7 +209,7 @@ function withoutCurriculum<T extends { curriculum: unknown }>(overview: T): Omit
   return copy as Omit<T, "curriculum">;
 }
 
-/** The student's own enrolment, or null (also when it belongs to someone else). */
+/** The student's own enrollment, or null (also when it belongs to someone else). */
 async function findOwnEnrollment(studentId: Id, enrollmentId: string): Promise<EnrollmentDoc | null> {
   if (!isValidObjectIdString(enrollmentId)) return null;
   return EnrollmentModel.findOne({ _id: toId(enrollmentId), studentId }).lean<EnrollmentDoc>();
@@ -309,7 +309,7 @@ export async function getStudentDashboard(actor: Actor): Promise<StudentDashboar
 
 export type EnrollmentLearning = { enrollment: EnrollmentOverview; modules: ModuleSummary[] };
 
-/** An enrolment's program outline with per-module and per-task progress. */
+/** An enrollment's program outline with per-module and per-task progress. */
 export async function getEnrollmentLearning(actor: Actor, enrollmentId: string): Promise<ServiceResult<EnrollmentLearning>> {
   assertStudent(actor);
   await connectToDatabase();
@@ -360,7 +360,7 @@ export async function getModuleLearning(
   const { enrollment, modules } = outline.data;
   if (enrollment.access === "none") return fail("forbidden", "You do not currently have access to this program.");
 
-  // Only published modules of THIS enrolment's program are in `modules`.
+  // Only published modules of THIS enrollment's program are in `modules`.
   const index = modules.findIndex((module) => module.id === moduleId);
   if (index === -1) return fail("not_found", NOT_FOUND);
 
@@ -422,7 +422,7 @@ async function ensureProgressDocument(enrollmentId: Id, studentId: Id, programId
 }
 
 /**
- * Recalculates and caches the progress snapshot for an enrolment. Called after
+ * Recalculates and caches the progress snapshot for an enrollment. Called after
  * every change (submission, review, module read). Pages never rely on it.
  */
 export async function refreshProgressSnapshot(enrollmentId: string): Promise<void> {
@@ -460,7 +460,7 @@ export async function refreshProgressSnapshot(enrollmentId: string): Promise<voi
 }
 
 /**
- * Refreshes cached snapshots for every enrolment in a program after its
+ * Refreshes cached snapshots for every enrollment in a program after its
  * learning content changes (best effort, bounded). Pages never depend on it:
  * they always recalculate progress from the current content.
  */
@@ -486,7 +486,7 @@ export type EnrollmentCompletion = {
 };
 
 /**
- * Evaluates an enrolment with THE progress rule (src/lib/learning/progress.ts)
+ * Evaluates an enrollment with THE progress rule (src/lib/learning/progress.ts)
  * from server-side records only. For trusted server code (certificate
  * eligibility); callers do their own authorization.
  */

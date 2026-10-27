@@ -46,7 +46,7 @@ describe("Program model", () => {
   });
 
   it("throws on unknown fields (strict mode)", async () => {
-    expect(() => new ProgramModel({ ...programInput(), enrolmentCount: 5000 })).toThrow();
+    expect(() => new ProgramModel({ ...programInput(), enrollmentCount: 5000 })).toThrow();
   });
 
   it("defines a unique slug index and a catalogue index", async () => {
@@ -90,7 +90,7 @@ describe("Enrollment model", () => {
     expect(await errorPaths(new EnrollmentModel({ ...ids, amountPaid: -1 }))).toContain("amountPaid");
   });
 
-  it("has a partial unique index allowing one pending/active enrolment per student and program", async () => {
+  it("has a partial unique index allowing one pending/active enrollment per student and program", async () => {
     expect(
       hasIndex(EnrollmentModel, { studentId: 1, programId: 1 }, {
         unique: true,

@@ -14,7 +14,7 @@ export type NotificationRecord = {
   type: NotificationType;
   title: string;
   message: string;
-  /** Internal path such as /student/certificates/GL-2026-000001. */
+  /** Internal path such as /student/certificates/GOL-2026-000001. */
   link: string | null;
   idempotencyKey: string;
   readAt: Date | null;

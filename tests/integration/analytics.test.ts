@@ -109,14 +109,14 @@ beforeAll(async () => {
   ids.old = (await M.Program.create(programInput({ slug: "old", title: "Archived Program", status: "archived", price: 9900 })))._id;
   ids.mod = (await M.Module.create({ programId: ids.web, slug: "m1", title: "Module 1", order: 0, isPublished: true }))._id;
 
-  // Enrolments created in March: web → 2 active (1 met), 1 cancelled, 1 pending; old (archived) → 1 active met.
-  const enrol = (studentId: Types.ObjectId, programId: Types.ObjectId, status: string, source = "manual") =>
+  // Enrollments created in March: web → 2 active (1 met), 1 cancelled, 1 pending; old (archived) → 1 active met.
+  const enroll = (studentId: Types.ObjectId, programId: Types.ObjectId, status: string, source = "manual") =>
     M.Enrollment.create({ studentId, programId, status, source, enrolledAt: mid, createdAt: mid });
-  ids.e1 = (await enrol(ids.s1, ids.web, "active", "payment"))._id;
-  ids.e2 = (await enrol(ids.s2, ids.web, "active"))._id;
-  await enrol(ids.before, ids.web, "cancelled");
-  await enrol(ids.after, ids.web, "pending");
-  ids.e3 = (await enrol(ids.s2, ids.old, "active"))._id;
+  ids.e1 = (await enroll(ids.s1, ids.web, "active", "payment"))._id;
+  ids.e2 = (await enroll(ids.s2, ids.web, "active"))._id;
+  await enroll(ids.before, ids.web, "cancelled");
+  await enroll(ids.after, ids.web, "pending");
+  ids.e3 = (await enroll(ids.s2, ids.old, "active"))._id;
   const snapshot = (state: string, done: Types.ObjectId[] = []) => ({ completedModuleIds: done, completedTaskIds: [], totalModules: 1, percent: state === "requirements_completed" ? 100 : 0, state, computedAt: mid });
   await M.Progress.create({ studentId: ids.s1, enrollmentId: ids.e1, programId: ids.web, snapshot: snapshot("requirements_completed", [ids.mod]) });
   await M.Progress.create({ studentId: ids.s2, enrollmentId: ids.e2, programId: ids.web, snapshot: snapshot("in_progress") });
@@ -266,7 +266,7 @@ describe("programs, learning and certificates", () => {
     expect(learning.progressStates).toMatchObject({ requirements_completed: 2, in_progress: 1 }); // + "not_calculated" for the new one
     // Met requirements: e1 (no certificate) counts; e3 has a revoked one (not re-issued automatically).
     expect(learning.certificateBacklog).toBe(1);
-    // Current figure: includes the enrolment activated by the webhook test above (not a March cohort figure).
+    // Current figure: includes the enrollment activated by the webhook test above (not a March cohort figure).
     const currentWeb = await M.Enrollment.countDocuments({ programId: ids.web, status: { $in: ["active", "completed"] } });
     expect(learning.modules.find((row) => row.moduleId === ids.mod.toString())).toMatchObject({ completed: 1, enrolled: currentWeb });
     expect(JSON.stringify(learning)).not.toContain("secret answer");

@@ -4,7 +4,7 @@ import { getEnrollmentLearning } from "@/lib/services/learning-service";
 
 /**
  * GET /api/student/enrollments/:enrollmentId — program outline and progress for
- * one of the signed-in student's own enrolments. Another student's enrolment
+ * one of the signed-in student's own enrollments. Another student's enrollment
  * returns 404, exactly like one that does not exist.
  */
 export async function GET(_request: Request, { params }: RouteContext<"/api/student/enrollments/[enrollmentId]">) {

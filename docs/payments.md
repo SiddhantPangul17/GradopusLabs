@@ -1,7 +1,7 @@
 # Online payments
 
 Students pay for a published program at `/checkout/[programSlug]`; their
-enrolment is activated only after the payment provider has confirmed the
+enrollment is activated only after the payment provider has confirmed the
 payment on the server. Everything runs inside this Next.js app and domain.
 
 **Status:** implemented and tested against a **simulated** Razorpay API, using
@@ -39,7 +39,7 @@ To add another gateway, implement `PaymentProvider` and add its name to
   development, never commit them, and never give a payment variable a
   `NEXT_PUBLIC_` prefix (a unit test enforces this).
 - Every payment record stores its `mode`, so test and live records never mix.
-- The program page enables "Enrol" only when payments are configured. It is
+- The program page enables "Enroll" only when payments are configured. It is
   prerendered, so **redeploy** after changing payment variables.
 
 ### Razorpay dashboard setup (test mode first, then live)
@@ -62,7 +62,7 @@ To add another gateway, implement `PaymentProvider` and add its name to
 ## Flow
 
 1. **Checkout page** (`/checkout/[slug]`, students only):
-   - Reads the program, the price and any existing enrolment from the database.
+   - Reads the program, the price and any existing enrollment from the database.
    - Shows the program fee as the amount payable. No taxes, discounts or fees
      are invented.
    - Links the **draft** refund policy and terms.
@@ -117,20 +117,20 @@ compare-and-set.
   attempt on the same order, and a UPI payment can succeed after being reported
   as failed.
 
-### Enrolment activation
+### Enrollment activation
 
 After a verified capture the payment is marked `paid`, then exactly one
-`active` enrolment is created (`source: "payment"`, `amountPaid`, `paymentId`)
+`active` enrollment is created (`source: "payment"`, `amountPaid`, `paymentId`)
 and linked. Both steps are audited.
 
 There are no multi-document transactions. Safety comes from:
 - compare-and-set updates;
 - a unique index on `enrollment.paymentId`;
-- the one-current-enrolment index;
-- a recovery step. A paid payment without an enrolment is completed on the
+- the one-current-enrollment index;
+- a recovery step. A paid payment without an enrollment is completed on the
   next webhook retry, verify call or reconciliation.
 
-No route activates an enrolment from an enrolment id.
+No route activates an enrollment from an enrollment id.
 
 **Policy: program unavailable at confirmation.** If the program has been
 unpublished or archived when payment is confirmed:
@@ -140,13 +140,13 @@ unpublished or archived when payment is confirmed:
   refund or follow-up.
 
 Paying while already enrolled is flagged `already_enrolled` (possible
-duplicate). Programs that are published but closed to new enrolment still
-activate orders started while enrolment was open.
+duplicate). Programs that are published but closed to new enrollment still
+activate orders started while enrollment was open.
 
 ## Student and admin views
 
 - `/student/payments`: the student's own payment records, paginated. It never
-  infers payments from enrolments; manual enrolments have no payment. Pending
+  infers payments from enrollments; manual enrollments have no payment. Pending
   is never labelled paid.
 - `/admin/payments`: read-only, with filters (status, "needs attention", mode,
   program).
@@ -165,7 +165,7 @@ activate orders started while enrolment was open.
 ## Stored data
 
 `Payment` stores:
-- student, program and enrolment ids;
+- student, program and enrollment ids;
 - provider, mode, provider order and payment ids;
 - amount (integer paise) and currency;
 - status, failure code, attention reason, how it was verified;

@@ -124,7 +124,7 @@ describe("admin input schemas", () => {
     expect(adminReviewSchema.safeParse({ status: "accepted", feedback: "", score: null, reviewerId: "x" }).success).toBe(false);
   });
 
-  it("needs a reason and confirmation for suspensions; confirmation for manual enrolments", () => {
+  it("needs a reason and confirmation for suspensions; confirmation for manual enrollments", () => {
     expect(studentStatusChangeSchema.safeParse({ status: "suspended", reason: "Abuse of the review system", confirm: true }).success).toBe(true);
     expect(studentStatusChangeSchema.safeParse({ status: "suspended", reason: "x", confirm: true }).success).toBe(false);
     expect(studentStatusChangeSchema.safeParse({ status: "suspended", reason: "Valid reason", confirm: false }).success).toBe(false);

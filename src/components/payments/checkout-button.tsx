@@ -72,7 +72,7 @@ async function postJson(url: string, body: unknown): Promise<{ status: number; d
   return { status: response.status, data };
 }
 
-export function CheckoutButton({ programSlug, label = "Pay and enrol" }: { programSlug: string; label?: string }) {
+export function CheckoutButton({ programSlug, label = "Pay and enroll" }: { programSlug: string; label?: string }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);

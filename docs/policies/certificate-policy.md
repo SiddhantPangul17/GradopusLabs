@@ -40,13 +40,13 @@ A Certificate of Completion may be issued when **all** of the following are true
 
 1. You have met every completion requirement published for the program (section 5 and the Project Submission &
    Assessment Policy).
-2. Your enrolment in the program is active or completed, and your account is active.
-3. For a program you paid for, your enrolment fee has not been refunded. Refunds are given only in the limited cases
+2. Your enrollment in the program is active or completed, and your account is active.
+3. For a program you paid for, your enrollment fee has not been refunded. Refunds are given only in the limited cases
    in the [Payment, Refund & Stipend Policy](./payment-refund-policy.md), such as a program cancelled by Gradopus
    Labs.
-4. No valid certificate has already been issued for the same enrolment, and no certificate for it has been revoked.
+4. No valid certificate has already been issued for the same enrollment, and no certificate for it has been revoked.
 
-**There is no fee for a certificate.** Your enrolment fee pays for taking part in the program. It does not buy a
+**There is no fee for a certificate.** Your enrollment fee pays for taking part in the program. It does not buy a
 certificate, and a certificate is never conditional on a payment or requirement that was not disclosed to you before
 you enrolled.
 
@@ -59,7 +59,7 @@ Not every student completes every program, so not every student receives a certi
 - Submitting a link, repository or demonstration does **not** by itself complete a task; the submission must be
   reviewed and accepted against the task's published criteria.
 - Optional tasks never affect eligibility.
-- Any other completion requirement must be stated in the program's internship details before you enrol.
+- Any other completion requirement must be stated in the program's internship details before you enroll.
 
 ## 6. Checking identity and contribution
 
@@ -107,7 +107,7 @@ profile page. Use your real name as you want it to appear.
 
 ## 9. Certificate IDs
 
-- Each certificate has a unique ID in the form **GL-YEAR-NUMBER**, for example GL-2026-000001.
+- Each certificate has a unique ID in the form **GOL-YEAR-NUMBER**, for example GOL-2026-000001.
 - IDs are never reused, even if a certificate is revoked or replaced.
 - The ID contains no personal information: no phone number, date of birth or identity number. It is not the
   database's internal identifier.
@@ -248,7 +248,7 @@ You may list your certificate on your CV, LinkedIn, portfolio and job applicatio
 ## 19. Consent and public verification
 
 Public verification is part of what makes a certificate useful: it lets others confirm it is genuine. It is
-explained to you in this policy and the Privacy Policy before you enrol and before any certificate is issued.
+explained to you in this policy and the Privacy Policy before you enroll and before any certificate is issued.
 
 - The ID search shows only initials, so a guessed ID does not reveal your full name.
 - The full-name view is reachable only through your certificate's QR link.
@@ -320,9 +320,9 @@ details), the DPDP Act, 2023 (published contact for data-related questions) and 
 ### Implementation facts used
 
 Eligibility check (`checkCertificateEligibility`), the issued/revoked/superseded statuses, sequential IDs
-`GL-YEAR-NNNNNN` from an atomic counter, a 32-byte random token (SHA-256 hash plus an AES-256-GCM sealed copy), the ID
+`GOL-YEAR-NNNNNN` from an atomic counter, a 32-byte random token (SHA-256 hash plus an AES-256-GCM sealed copy), the ID
 lookup showing initials and the QR link showing the full name with noindex, revocation and correction reasons kept
-internal, the PDF available only to the owner and admins, no signatory configured, and a refunded paid enrolment
+internal, the PDF available only to the owner and admins, no signatory configured, and a refunded paid enrollment
 being ineligible.
 
 ### Implementation gaps against this policy

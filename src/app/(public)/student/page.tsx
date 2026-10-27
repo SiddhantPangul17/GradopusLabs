@@ -189,8 +189,8 @@ async function Dashboard() {
             title={enrollments.length === 0 ? "You are not enrolled in any programs yet" : "No programs are open for learning right now"}
             description={
               enrollments.length === 0
-                ? "Browse the programs and enrol to start learning. Your programs will appear here."
-                : "See My programs for the status of your enrolments."
+                ? "Browse the programs and enroll to start learning. Your programs will appear here."
+                : "See My programs for the status of your enrollments."
             }
             action={
               <ButtonLink href={enrollments.length === 0 ? "/programs" : "/student/programs"}>

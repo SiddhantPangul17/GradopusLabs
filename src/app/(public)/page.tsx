@@ -38,7 +38,7 @@ export function generateMetadata(): Metadata {
 
 const journey = [
   { title: "Explore a program", body: "Compare programs by topic, level, duration and price.", Icon: SearchIcon },
-  { title: "Enrol", body: "Join the program that fits your goals once enrolment opens.", Icon: UserPlusIcon },
+  { title: "Enroll", body: "Join the program that fits your goals once enrollment opens.", Icon: UserPlusIcon },
   { title: "Learn and build", body: "Work through each module and complete its project tasks.", Icon: CodeIcon },
   { title: "Submit your work", body: "Submit the required tasks and final project for review.", Icon: UploadIcon },
   {
@@ -51,7 +51,7 @@ const journey = [
 const benefits = [
   {
     title: "Affordable learning",
-    body: "Programs are priced to be accessible for students, and each program's price is shown before you enrol.",
+    body: "Programs are priced to be accessible for students, and each program's price is shown before you enroll.",
     Icon: WalletIcon,
   },
   {

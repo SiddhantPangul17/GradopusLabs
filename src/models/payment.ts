@@ -26,7 +26,7 @@ import {
 export type PaymentRecord = {
   studentId: Types.ObjectId;
   programId: Types.ObjectId;
-  /** Set once the payment has activated (or been linked to) an enrolment. */
+  /** Set once the payment has activated (or been linked to) an enrollment. */
   enrollmentId: Types.ObjectId | null;
   provider: PaymentProviderName;
   /** Which credentials created it; test and live records never mix. */

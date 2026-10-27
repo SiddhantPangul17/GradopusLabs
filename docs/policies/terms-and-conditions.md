@@ -39,10 +39,10 @@ that part does not apply to the extent of the conflict.
 - **Intern**: a student who has been selected for, and has accepted a place in, a Gradopus Labs internship.
 - **Program**: a structured internship or learning program offered by Gradopus Labs, made up of modules, tasks
   and projects, with published completion requirements.
-- **Internship details:** the written terms for a specific program, shown to you before you enrol or accept a
-  place, for example on the program's page. They state things such as the enrolment fee, duration, weekly time
+- **Internship details:** the written terms for a specific program, shown to you before you enroll or accept a
+  place, for example on the program's page. They state things such as the enrollment fee, duration, weekly time
   commitment, tasks and completion requirements.
-- **Enrolment fee:** the amount you pay to join a program, shown on the program's page.
+- **Enrollment fee:** the amount you pay to join a program, shown on the program's page.
 - **Task**: an assignment within a program, with stated instructions, submission requirements and review criteria.
 - **Project**: a task, or group of tasks, in which you build software and submit evidence of it, such as a GitHub
   repository, a live deployment URL, documentation or a demonstration.
@@ -53,7 +53,7 @@ that part does not apply to the extent of the conflict.
 
 ## 4. Eligibility and accurate information
 
-- You must be **18 or older** to create an account or enrol in a program.
+- You must be **18 or older** to create an account or enroll in a program.
 - Each program lists any other eligibility requirements. These are limited to what is genuinely needed for the
   program, and we do not exclude anyone on discriminatory grounds, as described in the
   [Internship Policy](./internship-policy.md), section 4. `[TO BE CONFIRMED: other eligibility requirements per
@@ -109,7 +109,7 @@ details.]`
 
 ## 6. Selection, onboarding and program-specific conditions
 
-- All programs are currently **open enrolment**: you join by paying the enrolment fee, with no application or
+- All programs are currently **open enrollment**: you join by paying the enrollment fee, with no application or
   selection step. If a program ever requires an application, its page will say so before you apply.
 - You will see the internship details in writing **before** you pay or accept a place. You are not committed to
   anything until you do.
@@ -344,12 +344,12 @@ The [Project Submission & Assessment Policy](./project-assessment-policy.md) giv
 published for your program, and our records confirm this. Completion requirements are set out in section 12 of the
 Internship Policy and in your internship details.
 
-- Certificates are not issued for enrolling, paying the enrolment fee, attending sessions or submitting work
-  alone. The enrolment fee pays for taking part in the program, not for a certificate.
+- Certificates are not issued for enrolling, paying the enrollment fee, attending sessions or submitting work
+  alone. The enrollment fee pays for taking part in the program, not for a certificate.
 - There is **no fee** for a certificate.
 - We will not make a certificate depend on any condition that was not disclosed to you before you enrolled.
-- If your enrolment fee is refunded before a certificate is issued (refunds are given only in the limited cases in
-  the Payment, Refund & Stipend Policy), a certificate is not issued for that enrolment. An issued certificate is
+- If your enrollment fee is refunded before a certificate is issued (refunds are given only in the limited cases in
+  the Payment, Refund & Stipend Policy), a certificate is not issued for that enrollment. An issued certificate is
   never revoked because of a payment or administrative dispute.
 
 **What a certificate means.** A certificate records only what is documented in our records: your name, the program
@@ -384,15 +384,15 @@ If someone asks us to verify a certificate, we will tell them truthfully what ou
 
 ## 16. Fees, payments, refunds and stipends
 
-- **Enrolment fee:** you pay an enrolment fee to join a program. The amount is shown on the program's page and at
+- **Enrollment fee:** you pay an enrollment fee to join a program. The amount is shown on the program's page and at
   checkout before you pay. `[TO BE CONFIRMED: the fee for each program, and whether it includes GST]`
 - **No other charges:** there is no application, assessment or certificate fee. We will not charge any amount that
   was not disclosed in writing before you enrolled.
 - **What the fee pays for:** taking part in the program. It does not guarantee that your work will be accepted, that
   you will complete the program, or a certificate, job or placement.
-- **Payment:** online payments are processed by Razorpay, and your enrolment is confirmed only after the payment
+- **Payment:** online payments are processed by Razorpay, and your enrollment is confirmed only after the payment
   succeeds. Gradopus Labs will never ask for your UPI PIN, card PIN, OTP or banking password.
-- **Refunds:** enrolment fees are not refundable, except in the cases in the Payment, Refund & Stipend Policy, such
+- **Refunds:** enrollment fees are not refundable, except in the cases in the Payment, Refund & Stipend Policy, such
   as duplicate payments or a program cancelled by Gradopus Labs. Nothing in these Terms limits any right to a refund
   that you have under law.
 - **Stipends:** Gradopus Labs does not currently pay stipends. Any future stipend will be stated in writing before
@@ -403,7 +403,7 @@ The [Payment, Refund & Stipend Policy](./payment-refund-policy.md) gives full de
 
 `[LEGAL REVIEW: stipend, wage and other obligations depend on how each program is actually arranged and must be
 reviewed under applicable central and state labour laws. Calling a program an "internship" does not, by itself,
-decide its legal status. Charging enrolment fees for a program described as an internship, the non-refundable rule
+decide its legal status. Charging enrollment fees for a program described as an internship, the non-refundable rule
 and how fees are disclosed must also be reviewed, including under consumer-protection law.]`
 
 ## 17. Withdrawal, suspension and termination
@@ -422,7 +422,7 @@ Where there is an immediate risk to people, systems or confidential information,
 while the concern is looked into. A suspension is not a finding that you did anything wrong.
 
 We may also end a program early for reasons that are not your fault, for example if a program is discontinued. If
-that happens, we will give you as much notice as possible, and your enrolment fee will be refunded as set out in the
+that happens, we will give you as much notice as possible, and your enrollment fee will be refunded as set out in the
 Payment, Refund & Stipend Policy.
 
 **What happens next.** When a program ends for any reason, section 17 of the Internship Policy applies:
@@ -430,7 +430,7 @@ Payment, Refund & Stipend Policy.
 - reviews already completed stay on your record;
 - pending submissions are handled as stated there; `[TO BE CONFIRMED: reviewed, or closed without review]`
 - a certificate is issued only if you met all completion requirements before the program ended;
-- enrolment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
+- enrollment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
   cases in the Payment, Refund & Stipend Policy;
 - you must return or delete confidential material (section 11).
 
@@ -489,7 +489,7 @@ We may update these Terms from time to time. When we do:
 - changes will not apply retrospectively to work already submitted or reviewed, and will not make the completion
   requirements of a program you have already accepted harder to meet without your agreement;
 - if you do not agree to a significant change, you may withdraw from your program without penalty. If the change
-  materially reduces what was promised for a program you paid for, your enrolment fee will be refunded, as set out
+  materially reduces what was promised for a program you paid for, your enrollment fee will be refunded, as set out
   in the Payment, Refund & Stipend Policy.
 
 ## 21. Applicable law and disputes
@@ -513,7 +513,7 @@ When you create an account, you are asked to tick a box confirming that you agre
 [Privacy Policy](./privacy-policy.md). The date you agreed is recorded. By agreeing, you confirm that:
 
 - you have read and understood these Terms, and you will read the [Internship Policy](./internship-policy.md) and
-  the internship details for any program before you enrol;
+  the internship details for any program before you enroll;
 - the information you have given us is accurate;
 - you agree to follow these Terms.
 
@@ -528,12 +528,12 @@ section 18.
 
 ## Revision history
 
-- **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrolment only, no identity documents.
+- **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrollment only, no identity documents.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
   (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
 - **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review. Adds the
-  confirmed fee model (enrolment fee only, no certificate fee, no stipends, refunds only in limited cases), the
-  open-enrolment route and the registration checkbox.
+  confirmed fee model (enrollment fee only, no certificate fee, no stipends, refunds only in limited cases), the
+  open-enrollment route and the registration checkbox.
 - **Draft 0.1, 21 October 2026:** Initial internal draft.
 
 ## Notes for reviewers (remove before publication)

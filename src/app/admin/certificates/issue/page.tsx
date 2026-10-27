@@ -56,7 +56,7 @@ async function Issue({ searchParams }: { searchParams: PageProps<"/admin/certifi
         </SelectField>
         <SelectField id="issue-completion" name="completion" label="Completion" defaultValue={completion}>
           <option value="completed">Requirements completed</option>
-          <option value="all">All active enrolments</option>
+          <option value="all">All active enrollments</option>
         </SelectField>
         <Button type="submit" variant="outline">
           Apply filters
@@ -64,10 +64,10 @@ async function Issue({ searchParams }: { searchParams: PageProps<"/admin/certifi
       </form>
 
       <p className="type-supporting mb-3 text-muted" aria-live="polite">
-        {list.total} {list.total === 1 ? "enrolment" : "enrolments"}
+        {list.total} {list.total === 1 ? "enrollment" : "enrollments"}
       </p>
       {list.items.length === 0 ? (
-        <EmptyState title="No enrolments found" description="Try showing all active enrolments or another program." />
+        <EmptyState title="No enrollments found" description="Try showing all active enrollments or another program." />
       ) : (
         <ul className="space-y-4">
           {list.items.map((item) => {
@@ -78,7 +78,7 @@ async function Issue({ searchParams }: { searchParams: PageProps<"/admin/certifi
                   <div className="min-w-0">
                     <p className="type-label wrap-anywhere text-foreground">{item.student.name}</p>
                     <p className="type-meta wrap-anywhere text-muted">
-                      {item.student.email} · {item.program.title} · enrolment {item.enrollmentStatus}
+                      {item.student.email} · {item.program.title} · enrollment {item.enrollmentStatus}
                       {eligibility.progress && ` · ${eligibility.progress.completedModules}/${eligibility.progress.totalModules} modules`}
                     </p>
                   </div>
@@ -120,7 +120,7 @@ async function Issue({ searchParams }: { searchParams: PageProps<"/admin/certifi
         </ul>
       )}
       <Pagination
-        label="Enrolment pages"
+        label="Enrollment pages"
         page={list.page}
         totalPages={list.totalPages}
         hrefFor={(page) => withQuery("/admin/certificates/issue", { q, program: programId, completion, page })}

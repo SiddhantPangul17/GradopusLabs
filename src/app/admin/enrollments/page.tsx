@@ -16,7 +16,7 @@ import { enrollmentStatusDisplay, formatDate } from "@/lib/learning/labels";
 import { listEnrollments } from "@/lib/services/admin-people-service";
 import { listProgramsForAdmin } from "@/lib/services/admin-program-service";
 
-export const metadata: Metadata = { title: "Enrolments · Admin", robots: { index: false } };
+export const metadata: Metadata = { title: "Enrollments · Admin", robots: { index: false } };
 
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value);
 
@@ -42,8 +42,8 @@ async function Enrollments({ searchParams }: { searchParams: PageProps<"/admin/e
   return (
     <>
       <AdminHeader
-        title="Enrolments"
-        description="Enrolments from verified online payments and manual (unpaid) grants. Payment records are on the Payments page."
+        title="Enrollments"
+        description="Enrollments from verified online payments and manual (unpaid) grants. Payment records are on the Payments page."
       />
       <form method="get" className="mb-6 grid gap-4 rounded-card border border-border bg-surface p-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <SelectField id="enrollment-status" name="status" label="Status" defaultValue={status}>
@@ -68,12 +68,12 @@ async function Enrollments({ searchParams }: { searchParams: PageProps<"/admin/e
       </form>
 
       <p className="type-supporting mb-3 text-muted" aria-live="polite">
-        {list.total} {list.total === 1 ? "enrolment" : "enrolments"}
+        {list.total} {list.total === 1 ? "enrollment" : "enrollments"}
       </p>
       {list.items.length === 0 ? (
-        <EmptyState title="No enrolments found" description="Enrolments appear here when students are enrolled." />
+        <EmptyState title="No enrollments found" description="Enrollments appear here when students are enrolled." />
       ) : (
-        <AdminTable caption="Enrolments" head={["Student", "Program", "Status", "Source / payment", "Enrolled", "Progress"]}>
+        <AdminTable caption="Enrollments" head={["Student", "Program", "Status", "Source / payment", "Enrolled", "Progress"]}>
           {list.items.map((item) => {
             const display = enrollmentStatusDisplay[item.status];
             return (
@@ -95,7 +95,7 @@ async function Enrollments({ searchParams }: { searchParams: PageProps<"/admin/e
         </AdminTable>
       )}
       <Pagination
-        label="Enrolment pages"
+        label="Enrollment pages"
         page={list.page}
         totalPages={list.totalPages}
         hrefFor={(page) => withQuery("/admin/enrollments", { status, program: programId, page })}
@@ -103,11 +103,11 @@ async function Enrollments({ searchParams }: { searchParams: PageProps<"/admin/e
 
       <Card as="section" aria-labelledby="manual-heading" className="mt-10 max-w-3xl">
         <CardTitle as="h2" id="manual-heading">
-          Grant a manual enrolment
+          Grant a manual enrollment
         </CardTitle>
         <p className="type-supporting mt-2 text-muted">
           For legitimate cases handled outside online payment (for example scholarships or testing). It is recorded in the audit log as a
-          manual enrolment with no payment. The student must already have an account.
+          manual enrollment with no payment. The student must already have an account.
         </p>
         <div className="mt-5">
           <ManualEnrollmentForm

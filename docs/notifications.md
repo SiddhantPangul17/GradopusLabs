@@ -16,7 +16,7 @@ provider" is not the same as "delivered to an inbox".
 | Student account created | Welcome (login + programs links; never claims the address is verified) | Welcome |
 | Password reset requested (account exists) | Reset link (single-use, 30 min) | — |
 | Payment verified as `paid` (webhook / checkout verification / reconciliation) | Payment confirmation (program, amount, provider payment reference, date, link) | Payment confirmed |
-| Enrolment activated (verified payment or manual grant) | Enrolment confirmation with getting-started steps | You're enrolled |
+| Enrollment activated (verified payment or manual grant) | Enrollment confirmation with getting-started steps | You're enrolled |
 | Review decision: accepted / changes requested / rejected | Outcome, feedback, link to the attempt | Submission reviewed |
 | Certificate issued | Certificate ID, date, sign-in link, public `/verify?id=` link (the secret QR token is never emailed) | Certificate issued |
 | Certificate revoked | Notice and link | Certificate revoked |
@@ -36,7 +36,7 @@ provider" is not the same as "delivered to an inbox".
      webhooks and retries never queue a second email;
    - a `notifications` document (also unique per event).
 
-   Queueing never throws, so an email problem can't undo a payment, enrolment,
+   Queueing never throws, so an email problem can't undo a payment, enrollment,
    review or certificate.
 2. **Deliver.** `processEmailOutbox()` (`src/lib/email/outbox.ts`):
    - claims due jobs with a 2-minute **lease** (compare-and-set), so concurrent
@@ -170,7 +170,7 @@ interface.
 ## Preferences
 
 All current emails are transactional and tied to the student's own account
-activity: security, payment, enrolment, review results and certificates.
+activity: security, payment, enrollment, review results and certificates.
 There is no optional or marketing email yet, so there are no preference
 settings. If optional notifications are added later:
 - add per-user preferences that never disable password resets or payment and

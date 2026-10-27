@@ -158,8 +158,8 @@ async function ProgramLearning({ params }: { params: PageProps<"/student/program
           {enrollment.program.status === "draft"
             ? "This program is temporarily unavailable while it is being updated."
             : enrollment.status === "pending"
-              ? "Your enrolment is awaiting confirmation. The content opens once it is confirmed."
-              : "This enrolment is no longer active, so the content is not available."}
+              ? "Your enrollment is awaiting confirmation. The content opens once it is confirmed."
+              : "This enrollment is no longer active, so the content is not available."}
         </Notice>
       ) : (
         <section aria-labelledby="modules-heading" className="mt-12">

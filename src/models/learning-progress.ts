@@ -2,7 +2,7 @@ import "server-only";
 import { model, models, Schema, type Model, type Types } from "mongoose";
 
 /*
- * Per-enrolment learning progress.
+ * Per-enrollment learning progress.
  *
  * Progress is DERIVED: src/lib/learning/progress.ts calculates it from the
  * published curriculum, the student's submissions and `readModules`. Pages
@@ -69,10 +69,10 @@ const learningProgressSchema = new Schema<LearningProgressRecord>(
   { timestamps: true, strict: "throw", collection: "learning_progress" },
 );
 
-// Exactly one progress record per enrolment (an enrolment belongs to one student).
+// Exactly one progress record per enrollment (an enrollment belongs to one student).
 learningProgressSchema.index({ enrollmentId: 1 }, { unique: true });
 learningProgressSchema.index({ studentId: 1 });
-// Analytics: enrolments by cached progress state.
+// Analytics: enrollments by cached progress state.
 learningProgressSchema.index({ "snapshot.state": 1 });
 
 export const LearningProgressModel: Model<LearningProgressRecord> =

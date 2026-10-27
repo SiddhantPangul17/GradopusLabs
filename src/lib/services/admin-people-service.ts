@@ -16,11 +16,11 @@ import { ProgramModel } from "@/models/program";
 import { UserModel } from "@/models/user";
 
 /*
- * Students and enrolments for administrators: paginated, read-mostly lists.
+ * Students and enrollments for administrators: paginated, read-mostly lists.
  * Only fields needed for administration are returned (never password hashes,
  * session data or tokens). The only changes possible here are suspending /
  * reactivating a STUDENT account (with a reason) and granting a manual
- * enrolment; both are audited. Payment state cannot be set here.
+ * enrollment; both are audited. Payment state cannot be set here.
  */
 
 type Id = Types.ObjectId;
@@ -117,7 +117,7 @@ export async function setStudentAccountStatus(actor: Actor, studentId: string, i
   return { ok: true, data: { status: target } };
 }
 
-// ---------- Enrolments ----------
+// ---------- Enrollments ----------
 
 export type EnrollmentListItem = {
   id: string;
@@ -177,7 +177,7 @@ export async function listEnrollments(actor: Actor, options: { status?: string; 
   };
 }
 
-/** Grants a manual (unpaid) enrolment from the dashboard. Audited with the admin as actor. */
+/** Grants a manual (unpaid) enrollment from the dashboard. Audited with the admin as actor. */
 export async function createManualEnrollmentAsAdmin(actor: Actor, input: unknown): Promise<ServiceResult<{ enrollmentId: string }>> {
   assertAdmin(actor);
   const parsed = manualEnrollmentSchema.safeParse(input);
@@ -190,7 +190,7 @@ export async function createManualEnrollmentAsAdmin(actor: Actor, input: unknown
   const messages = {
     student_not_found: { email: "No active student account uses this email address." },
     program_not_found: { programSlug: "Choose a published program." },
-    already_enrolled: { email: "This student already has a pending or active enrolment in this program." },
+    already_enrolled: { email: "This student already has a pending or active enrollment in this program." },
   } as const;
   return fail(result.reason === "already_enrolled" ? "conflict" : "invalid", "Please correct the highlighted fields.", messages[result.reason]);
 }

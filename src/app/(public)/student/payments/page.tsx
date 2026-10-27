@@ -21,7 +21,7 @@ async function Payments({ searchParams }: { searchParams: PageProps<"/student/pa
   const user = await requireStudent("/student/payments");
   const raw = (await searchParams).page;
   const requested = Number.parseInt(Array.isArray(raw) ? (raw[0] ?? "1") : (raw ?? "1"), 10);
-  // Payment records only; never inferred from enrolments (manual enrolments involve no payment).
+  // Payment records only; never inferred from enrollments (manual enrollments involve no payment).
   const { items, page, totalPages, total } = await listOwnPayments({ id: user.id, role: user.role }, requested);
 
   return (

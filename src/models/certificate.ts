@@ -14,7 +14,7 @@ import { CERTIFICATE_ID_PATTERN, CERTIFICATE_STATUSES, type CertificateStatus } 
  */
 
 export type CertificateRecord = {
-  /** Public, readable number, e.g. GL-2026-000001. Unique, never reused. */
+  /** Public, readable number, e.g. GOL-2026-000001. Unique, never reused. */
   certificateId: string;
   /** SHA-256 of the verification token (lookups). */
   verificationTokenHash: string;
@@ -72,7 +72,7 @@ const certificateSchema = new Schema<CertificateRecord>(
 
 certificateSchema.index({ certificateId: 1 }, { unique: true, name: "unique_certificate_id" });
 certificateSchema.index({ verificationTokenHash: 1 }, { unique: true, name: "unique_verification_token" });
-// At most one VALID certificate per enrolment: concurrent or repeated issuance cannot create a second one.
+// At most one VALID certificate per enrollment: concurrent or repeated issuance cannot create a second one.
 certificateSchema.index(
   { enrollmentId: 1 },
   { unique: true, name: "unique_issued_per_enrollment", partialFilterExpression: { status: "issued" } },

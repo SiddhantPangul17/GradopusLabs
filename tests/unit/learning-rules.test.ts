@@ -96,7 +96,7 @@ describe("program progress (single rule, deterministic)", () => {
 });
 
 describe("access, transitions and resubmission", () => {
-  it("enrolment + program status decide access", () => {
+  it("enrollment + program status decide access", () => {
     expect(learningAccess("active", "published")).toBe("full");
     expect(learningAccess("active", "archived")).toBe("full");
     expect(learningAccess("completed", "published")).toBe("read_only");

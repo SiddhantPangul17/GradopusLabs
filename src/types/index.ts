@@ -29,7 +29,7 @@ export type FaqGroup = {
 
 export type ProgramLevel = (typeof PROGRAM_LEVELS)[number];
 
-/** Whether students can currently enrol. Nothing is "open" until enrolment is implemented. */
+/** Whether students can currently enroll. Nothing is "open" until enrollment is implemented. */
 export type ProgramAvailability = (typeof PROGRAM_AVAILABILITY)[number];
 
 export type ProgramModule = {

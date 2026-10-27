@@ -228,8 +228,8 @@ describe("programs", () => {
 describe("reviews", () => {
   let first = "";
   it("queue shows pending work; feedback is required to request changes; reviewer comes from the session", async () => {
-    const enrol = await people.createManualEnrollmentAsAdmin(admin, { email: "sam@example.com", programSlug: "admin-test-program", confirmNoPayment: true });
-    expect(enrol).toMatchObject({ ok: true });
+    const enroll = await people.createManualEnrollmentAsAdmin(admin, { email: "sam@example.com", programSlug: "admin-test-program", confirmNoPayment: true });
+    expect(enroll).toMatchObject({ ok: true });
     const sub = await submissions.submitTaskAttempt(student, ids.task!, { submissionType: "text", textContent: "First answer" });
     if (!sub.ok) throw new Error("submit");
     first = sub.data.submissionId;
@@ -310,7 +310,7 @@ describe("reviews", () => {
   });
 });
 
-describe("students and enrolments", () => {
+describe("students and enrollments", () => {
   it("search treats input literally and never returns credentials", async () => {
     const list = await people.listStudents(admin, { q: "sam" });
     expect(list.items.map((s) => s.email)).toEqual(["sam@example.com"]);
@@ -330,7 +330,7 @@ describe("students and enrolments", () => {
     expect(await authService.authenticateWithPassword("sam@example.com", "a-good-password-1")).toMatchObject({ ok: true });
   });
 
-  it("manual enrolments record no payment and the admin as actor", async () => {
+  it("manual enrollments record no payment and the admin as actor", async () => {
     const list = await people.listEnrollments(admin, { status: "active" });
     expect(list.items[0]).toMatchObject({ source: "manual", amountPaid: 0, student: { email: "sam@example.com" } });
     const entry = await M.AuditLog.findOne({ action: "enrollment.created" }).lean();

@@ -116,7 +116,7 @@ async function ProgramDetail({
               )}
             </div>
             {program.status !== "draft" && activeStudents > 0 && (
-              <p className="type-supporting mt-4 text-muted">{activeStudents} active or pending enrolments depend on this program.</p>
+              <p className="type-supporting mt-4 text-muted">{activeStudents} active or pending enrollments depend on this program.</p>
             )}
             <div className="mt-5 border-t border-border pt-5">
               <ProgramStatusForm action={changeProgramStatusAction.bind(null, program.id)} targets={targets} />
@@ -133,7 +133,7 @@ async function ProgramDetail({
                 { label: "Price", value: formatMinorUnits(program.price, program.currency) },
                 { label: "Modules", value: `${program.stats.modules.published} published / ${program.stats.modules.total}` },
                 { label: "Tasks", value: `${program.stats.tasks.published} published / ${program.stats.tasks.total}` },
-                { label: "Active enrolments", value: String(program.stats.enrollments.active) },
+                { label: "Active enrollments", value: String(program.stats.enrollments.active) },
                 { label: "Completed", value: String(program.stats.enrollments.completed) },
               ]}
             />

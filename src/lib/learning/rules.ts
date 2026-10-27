@@ -8,13 +8,13 @@ import {
 
 /* Access, review and resubmission rules for the learning area. Pure functions. */
 
-// ---------- Enrolment access ----------
+// ---------- Enrollment access ----------
 
 /**
- * What a student may do in a program, given their enrolment and the program:
- * - active enrolment: full access (read and submit)
- * - completed enrolment: read-only (view content and their submissions)
- * - pending or cancelled enrolment: no access to content
+ * What a student may do in a program, given their enrollment and the program:
+ * - active enrollment: full access (read and submit)
+ * - completed enrollment: read-only (view content and their submissions)
+ * - pending or cancelled enrollment: no access to content
  *
  * Archived programs (no longer sold) stay available to existing students.
  * Draft programs (pulled back for editing) are unavailable to everyone.

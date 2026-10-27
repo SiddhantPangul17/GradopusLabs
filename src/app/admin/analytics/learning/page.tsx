@@ -52,20 +52,20 @@ async function Learning({ searchParams }: { searchParams: PageProps<"/admin/anal
       />
       {error && <Notice tone="warning" title={error} className="mb-6" />}
 
-      <Section id="students-heading" title="Students and enrolments">
+      <Section id="students-heading" title="Students and enrollments">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="min-w-0">
             <h3 className="type-label mb-2 text-foreground">New student registrations</h3>
             <ColumnChart points={report.registrations} valueFormat={{ kind: "count" }} summary={seriesSummary(report.registrations, "new students", period.label, period.bucket)} tableCaption="New student registrations by period" />
           </div>
           <div className="min-w-0">
-            <h3 className="type-label mb-2 text-foreground">Enrolments started</h3>
-            <ColumnChart points={report.enrollmentsStarted} valueFormat={{ kind: "count" }} summary={seriesSummary(report.enrollmentsStarted, "enrolments started", period.label, period.bucket)} tableCaption="Enrolments started by period" />
+            <h3 className="type-label mb-2 text-foreground">Enrollments started</h3>
+            <ColumnChart points={report.enrollmentsStarted} valueFormat={{ kind: "count" }} summary={seriesSummary(report.enrollmentsStarted, "enrollments started", period.label, period.bucket)} tableCaption="Enrollments started by period" />
           </div>
         </div>
       </Section>
 
-      <Section id="progress-heading" title="Where current enrolments stand" description="Enrolments that are active or completed, by their latest calculated progress.">
+      <Section id="progress-heading" title="Where current enrollments stand" description="Enrollments that are active or completed, by their latest calculated progress.">
         <StatGrid>
           {Object.entries(STATE_LABELS)
             .filter(([state]) => report.progressStates[state])
@@ -76,10 +76,10 @@ async function Learning({ searchParams }: { searchParams: PageProps<"/admin/anal
         </StatGrid>
       </Section>
 
-      <Section id="submissions-heading" title="Submissions" description="Every attempt counts once; resubmissions are attempts after the first for the same task and enrolment.">
+      <Section id="submissions-heading" title="Submissions" description="Every attempt counts once; resubmissions are attempts after the first for the same task and enrollment.">
         <StatGrid>
           <Stat label="Attempts submitted" value={count(report.submissions.attempts)} scope="period" />
-          <Stat label="Distinct tasks submitted" value={count(report.submissions.uniqueTasks)} scope="period" note="enrolment + task" />
+          <Stat label="Distinct tasks submitted" value={count(report.submissions.uniqueTasks)} scope="period" note="enrollment + task" />
           <Stat label="Resubmissions" value={count(report.submissions.resubmissions)} scope="period" />
           <Stat label="Awaiting review" value={count(report.pendingNow.submissions)} scope="now" note={`${count(report.pendingNow.students)} students`} />
         </StatGrid>
@@ -108,11 +108,11 @@ async function Learning({ searchParams }: { searchParams: PageProps<"/admin/anal
         )}
       </Section>
 
-      <Section id="modules-heading" title="Module completion" description="Share of current enrolments in each program that have completed the module (published modules only).">
+      <Section id="modules-heading" title="Module completion" description="Share of current enrollments in each program that have completed the module (published modules only).">
         {report.modules.length === 0 ? (
           <p className="type-supporting text-muted">No published modules yet.</p>
         ) : (
-          <AdminTable caption="Module completion" head={["Program", "Module", "Completed", "Current enrolments", "Rate"]}>
+          <AdminTable caption="Module completion" head={["Program", "Module", "Completed", "Current enrollments", "Rate"]}>
             {report.modules.map((row) => (
               <tr key={row.moduleId}>
                 <Td>{row.programTitle}</Td>

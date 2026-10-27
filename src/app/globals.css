@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Gradopus Labs design tokens (Tailwind CSS v4, CSS-first configuration).
+ * GradOpus Labs design tokens (Tailwind CSS v4, CSS-first configuration).
  *
  * Colours come from src/config/brand.ts: the root layout injects them as
  * --brand-* variables on <html>, and the block below maps them to Tailwind

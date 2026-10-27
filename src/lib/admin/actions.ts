@@ -310,7 +310,7 @@ export async function setStudentStatusAction(studentId: string, _previous: FormR
 }
 
 export async function manualEnrollmentAction(_previous: FormResult, formData: FormData): Promise<FormResult> {
-  return run("manual enrolment", async (actor) => {
+  return run("manual enrollment", async (actor) => {
     const saved = await createManualEnrollmentAsAdmin(actor, {
       email: text(formData, "email", 300),
       programSlug: text(formData, "programSlug", 200),
@@ -318,7 +318,7 @@ export async function manualEnrollmentAction(_previous: FormResult, formData: Fo
     });
     if (!saved.ok) return toError(saved);
     refresh();
-    return { status: "success", message: "Enrolment created (manual, no payment recorded)." };
+    return { status: "success", message: "Enrollment created (manual, no payment recorded)." };
   });
 }
 

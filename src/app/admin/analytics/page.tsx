@@ -26,26 +26,26 @@ async function Overview({ searchParams }: { searchParams: PageProps<"/admin/anal
       <ReportFilters action="/admin/analytics" query={query} showMode />
       {error && <Notice tone="warning" title={error} className="mb-6" />}
       {report.empty ? (
-        <EmptyState title="No data yet" description="Figures appear here once students register, programs are published and enrolments start." />
+        <EmptyState title="No data yet" description="Figures appear here once students register, programs are published and enrollments start." />
       ) : (
         <>
           <Section id="now-heading" title="Current totals">
             <StatGrid>
               <Stat label="Registered students" value={count(lifetime.students)} scope="lifetime" />
               <Stat label="Published programs" value={count(lifetime.publishedPrograms)} scope="now" />
-              <Stat label="Active enrolments" value={count(lifetime.activeEnrollments)} scope="now" />
-              <Stat label="Requirements met" value={count(lifetime.requirementsMet)} scope="now" note="current enrolments that met every requirement" />
+              <Stat label="Active enrollments" value={count(lifetime.activeEnrollments)} scope="now" />
+              <Stat label="Requirements met" value={count(lifetime.requirementsMet)} scope="now" note="current enrollments that met every requirement" />
               <Stat label="Submissions awaiting review" value={count(lifetime.pendingSubmissions)} scope="now" />
               <Stat label="Valid certificates" value={count(lifetime.validCertificates)} scope="now" />
               <Stat label="Revoked certificates" value={count(lifetime.revokedCertificates)} scope="now" />
-              <Stat label="Enrolments marked completed" value={count(lifetime.completedEnrollments)} scope="now" note="status not yet set by the platform" />
+              <Stat label="Enrollments marked completed" value={count(lifetime.completedEnrollments)} scope="now" note="status not yet set by the platform" />
             </StatGrid>
           </Section>
 
           <Section id="period-heading" title={`In this period: ${query.period.label}`}>
             <StatGrid>
               <Stat label="New students" value={count(period.newStudents)} scope="period" />
-              <Stat label="New enrolments" value={count(period.newEnrollments)} scope="period" note="paid and manual" />
+              <Stat label="New enrollments" value={count(period.newEnrollments)} scope="period" note="paid and manual" />
               <Stat
                 label={`Collected (${query.mode} payments)`}
                 value={period.collected.length ? period.collected.map((item) => money(item.amount, item.currency)).join(" + ") : money(0, "INR")}

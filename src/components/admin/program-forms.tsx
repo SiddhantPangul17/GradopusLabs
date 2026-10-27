@@ -148,10 +148,10 @@ export function ProgramForm({
           <fieldset className="space-y-5">
             <legend className="type-card-title text-foreground">Catalogue</legend>
             <div className="grid gap-5 sm:grid-cols-2">
-              <SelectField id="program-availability" name="availability" label="Enrolment availability (shown publicly)" defaultValue={initial.availability} error={errors.availability}>
-                <option value="coming-soon">Enrolment not open yet</option>
-                <option value="open">Enrolment open</option>
-                <option value="closed">Enrolment closed</option>
+              <SelectField id="program-availability" name="availability" label="Enrollment availability (shown publicly)" defaultValue={initial.availability} error={errors.availability}>
+                <option value="coming-soon">Enrollment not open yet</option>
+                <option value="open">Enrollment open</option>
+                <option value="closed">Enrollment closed</option>
               </SelectField>
               <TextField id="program-order" name="displayOrder" type="number" label="Display order" hint="Lower numbers are listed first." defaultValue={initial.displayOrder} error={errors.displayOrder} />
             </div>
@@ -171,7 +171,7 @@ const STATUS_COPY: Record<string, { label: string; warning: string; confirm: str
   },
   archived: {
     label: "Archive",
-    warning: "The program leaves the public catalogue and stops accepting new enrolments. Enrolled students keep access; nothing is deleted.",
+    warning: "The program leaves the public catalogue and stops accepting new enrollments. Enrolled students keep access; nothing is deleted.",
     confirm: "I understand the program will no longer be offered.",
   },
   draft: {

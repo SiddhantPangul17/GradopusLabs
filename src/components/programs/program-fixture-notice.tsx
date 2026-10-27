@@ -8,7 +8,7 @@ export function ProgramFixtureNotice({ className }: { className?: string }) {
   return (
     <Notice tone="info" title="Sample programs for preview" className={className}>
       These listings are development samples used to preview the website because no database is configured. They are
-      not real programs and are not open for enrolment.
+      not real programs and are not open for enrollment.
     </Notice>
   );
 }

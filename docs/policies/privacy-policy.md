@@ -29,7 +29,7 @@ This policy covers personal data we process when you:
 
 - visit the Gradopus Labs website;
 - create an account and sign in;
-- enrol in, pay for and take part in a program;
+- enroll in, pay for and take part in a program;
 - submit work for review;
 - receive, download or have someone verify a certificate;
 - contact us.
@@ -41,7 +41,7 @@ have their own privacy policies (see section 19).
 
 - We collect your **name, email address and password** when you create an account. Your password is stored only as
   a secure hash.
-- We record your **enrolments, payments, progress and submitted work**, and the **feedback** reviewers give you.
+- We record your **enrollments, payments, progress and submitted work**, and the **feedback** reviewers give you.
 - We do **not** ask for your phone number, date of birth, address, college details, identity documents, or
   information about your religion, caste, health or finances.
 - **Certificates** can be verified publicly. A search by certificate ID shows your **initials**; the link in a
@@ -71,13 +71,13 @@ address, contact us (section 14).
 The website does not currently have an application form, and it does not ask for educational information such as
 your college, course or year of study.
 
-All programs are currently open enrolment, so no application information is collected. If we ever introduce
+All programs are currently open enrollment, so no application information is collected. If we ever introduce
 applications, this policy will be updated first to say exactly what will be asked and why.
 
-### 4.3 Enrolments and payments
+### 4.3 Enrollments and payments
 
-- **Enrolments:** the programs you join, enrolment status and dates, how you enrolled (online payment, or a manual
-  enrolment by our team) and the amount paid.
+- **Enrollments:** the programs you join, enrollment status and dates, how you enrolled (online payment, or a manual
+  enrollment by our team) and the amount paid.
 - **Payments:** the amount and currency, the payment status, Razorpay's order and payment references, any failure
   code, and timestamps.
 - We **do not** receive or store your card number, CVV, UPI ID, UPI PIN, bank details or OTPs. You enter those
@@ -135,8 +135,8 @@ is resolved (section 13).
 
 ## 5. Where personal data comes from
 
-- **From you:** when you register, edit your profile, enrol, pay, submit work or contact us.
-- **From our team:** reviewers' feedback and decisions, certificate records, and actions such as manual enrolment
+- **From you:** when you register, edit your profile, enroll, pay, submit work or contact us.
+- **From our team:** reviewers' feedback and decisions, certificate records, and actions such as manual enrollment
   or account suspension.
 - **From Razorpay:** confirmation of whether a payment succeeded, with its references and amount.
 - **Automatically:** sign-in and security information described in section 4.8.
@@ -144,12 +144,12 @@ is resolved (section 13).
 ## 6. Why we use personal data
 
 - **To run your account:** to create it, keep it secure and let you sign in.
-- **To deliver programs:** to give you access to programs you enrol in and to track your progress.
-- **To process payments:** to take enrolment fees through Razorpay and keep payment records.
+- **To deliver programs:** to give you access to programs you enroll in and to track your progress.
+- **To process payments:** to take enrollment fees through Razorpay and keep payment records.
 - **To review your work:** to assess submissions against published criteria and give you feedback.
 - **To issue and verify certificates:** to issue a certificate when you meet the completion requirements and to let
   others check that it is genuine.
-- **To communicate with you:** to send service messages such as password resets, payment and enrolment
+- **To communicate with you:** to send service messages such as password resets, payment and enrollment
   confirmations, review results and certificate notices.
 - **To keep the platform secure:** to prevent fraud and misuse and to investigate problems.
 - **To meet legal obligations:** for example keeping financial records where the law requires it.
@@ -199,7 +199,7 @@ affect your assessment or certificate.
 
 ## 10. How certificate verification works
 
-When we issue a certificate, it gets a **certificate ID** (for example GL-2026-000001) and a **QR code** linking to a
+When we issue a certificate, it gets a **certificate ID** (for example GOL-2026-000001) and a **QR code** linking to a
 private verification page. Anyone can check a certificate in two ways:
 
 1. **By certificate ID** on the website's verification page. This shows:
@@ -228,10 +228,10 @@ and proportionate, and how holders are informed of it.]`
 
 ## 11. Who can see your personal data
 
-- **You** can see your own account, enrolments, payments, progress, submissions, feedback, notifications and
+- **You** can see your own account, enrollments, payments, progress, submissions, feedback, notifications and
   certificates. Other students cannot see your records.
 - **Our team (administrators and reviewers)** can see what they need to run programs: students' names and email
-  addresses, enrolments, payments, submissions and feedback, certificate records, email status and the record of
+  addresses, enrollments, payments, submissions and feedback, certificate records, email status and the record of
   administrative actions. Currently, only the proprietor has administrator access.
 
 We share personal data with the following service providers, only as needed for them to provide their service to us:
@@ -272,7 +272,7 @@ Some data is deleted automatically today:
 
 For everything else, we keep personal data for these periods:
 
-- **Your account, enrolments, progress, submissions and feedback:** while your account is active, and then for
+- **Your account, enrollments, progress, submissions and feedback:** while your account is active, and then for
   **1 year after you last sign in**. After that, they are deleted.
 - **Certificate records:** with **no fixed end**, so that anyone checking a certificate keeps getting an accurate
   answer. Your certificate stays verifiable even after your account is deleted, but you will no longer be able to
@@ -357,7 +357,7 @@ law requires it.
 
 ## 17. Children and age
 
-You must be **18 or older** to create an account or enrol in a Gradopus Labs program. We do not knowingly collect
+You must be **18 or older** to create an account or enroll in a Gradopus Labs program. We do not knowingly collect
 personal data from anyone under 18.
 
 The website does not ask for your date of birth. If we learn that someone under 18 has created an account, we will
@@ -369,7 +369,7 @@ from a parent or guardian, and whether applicants under 18 can be accepted.]`
 ## 18. Marketing communications
 
 We do not send marketing or promotional emails. The emails we send are service messages about your account and
-programs: welcome, password reset, payment confirmation, enrolment confirmation, review results and certificate
+programs: welcome, password reset, payment confirmation, enrollment confirmation, review results and certificate
 notices.
 
 If we ever want to send marketing messages, we will ask for your consent first, and you will be able to withdraw it
@@ -420,7 +420,7 @@ data or using a new service provider. When we do:
 
 - **Version 1.3, 23 October 2026:** The contact form now delivers messages by email (through Resend) to the support
   inbox without storing them on the website.
-- **Version 1.2, 23 October 2026:** Added: open enrolment only (no application data), no identity documents, minimum age 18,
+- **Version 1.2, 23 October 2026:** Added: open enrollment only (no application data), no identity documents, minimum age 18,
   proprietor as sole administrator, MongoDB Atlas on AWS, retention periods, 3-working-day acknowledgement of privacy
   requests and complaints, and the breach-response process.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address

@@ -13,7 +13,7 @@ is requested, using read-only aggregations.
 | `/admin/analytics` (overview) | `GET /api/admin/analytics/overview` |
 | `/admin/analytics/programs` | `GET /api/admin/analytics/programs` |
 | `/admin/analytics/revenue` | `GET /api/admin/analytics/revenue` |
-| `/admin/analytics/learning` (students, enrolments, submissions) | `GET /api/admin/analytics/learning` |
+| `/admin/analytics/learning` (students, enrollments, submissions) | `GET /api/admin/analytics/learning` |
 | `/admin/analytics/certificates` | `GET /api/admin/analytics/certificates` |
 | `/admin/analytics/operations` | `GET /api/admin/analytics/operations` |
 | CSV downloads | `GET /api/admin/analytics/export?report=…` |
@@ -55,7 +55,7 @@ APIs reject unknown or invalid parameters with 400; pages fall back to the last
   | Metric | Time used |
   | ------ | --------- |
   | Registration | `users.createdAt` |
-  | Enrolment started | `enrollments.createdAt` |
+  | Enrollment started | `enrollments.createdAt` |
   | Payment collected | `payments.paidAt` (not order creation) |
   | Payment started | `payments.createdAt` |
   | Submission | `submittedAt` |
@@ -73,7 +73,7 @@ Every figure is labelled **Current** (state now), **In selected period** or
 - **Counted once.** Each payment record is one provider order. Unique indexes
   and idempotent webhook handling (Part 8) mean duplicate webhooks never create
   or double-count records.
-- **Never inferred from enrolments.** Manual enrolments involve no payment.
+- **Never inferred from enrollments.** Manual enrollments involve no payment.
 - **Per currency:** amounts are stored in minor units (paise) and never added
   across currencies.
 - **Per mode:** live and test payments are reported separately and never
@@ -88,10 +88,10 @@ Every figure is labelled **Current** (state now), **In selected period** or
   *current* status. It is not revenue.
 
 ## Programs
-Enrolment figures are a **cohort**: enrolments *created* in the period, by
+Enrollment figures are a **cohort**: enrollments *created* in the period, by
 current status.
-- **Completion rate** = enrolments that **met every requirement** ÷ enrolments
-  that are **active or completed**. Pending and cancelled enrolments are excluded
+- **Completion rate** = enrollments that **met every requirement** ÷ enrollments
+  that are **active or completed**. Pending and cancelled enrollments are excluded
   from the denominator, and "—" is shown when there are none.
 - **Paid** = created by a verified payment (`source: payment`). **Manual** = granted
   by an admin.
@@ -99,21 +99,21 @@ current status.
   certificates column counts issuances in the period.
 - Archived programs stay in every report. Internally, rows are keyed by program
   id; titles are for display.
-- Current prices and curricula may differ from those when older enrolments
+- Current prices and curricula may differ from those when older enrollments
   started.
 - No ratings or satisfaction data are collected or shown.
 
 ## Learning, students and submissions
-- **Requirements met** uses each enrolment's progress snapshot. That snapshot is
+- **Requirements met** uses each enrollment's progress snapshot. That snapshot is
   the cached result of the same rule used by the student pages and certificate
   eligibility, refreshed on every submission, review, reading mark and content
   change. There is no second definition of completion.
-- **Current enrolments** means active or completed. Snapshot states shown:
+- **Current enrollments** means active or completed. Snapshot states shown:
   not started, in progress, waiting only on reviews, requirements met, and not
   calculated (no progress recorded yet).
 - **Submissions:**
   - every attempt counts once;
-  - "distinct tasks" counts distinct enrolment + task pairs;
+  - "distinct tasks" counts distinct enrollment + task pairs;
   - "resubmissions" counts attempts after the first;
   - submission content is never read into reports.
 - **Review time** runs from submission to the recorded decision (accept, request
@@ -121,7 +121,7 @@ current status.
   not a decision. Feedback edits don't change the decision time. The median uses
   MongoDB 7.0+ `$percentile` (Atlas default) and shows "not available"
   otherwise.
-- **Met requirements, no certificate yet** counts current enrolments that met
+- **Met requirements, no certificate yet** counts current enrollments that met
   requirements and have no valid or revoked certificate. Issuing re-checks full
   eligibility (payment, criteria, account).
 - **Not available:** "active learners", time spent or logins. Logins aren't
@@ -194,6 +194,6 @@ returned.
 - **No caching.** Figures are computed per request, so a payment confirmed or a
   certificate revoked a second ago is already reflected.
 - **When to precompute:** at the current scale this is cheap. If requests slow
-  down (roughly hundreds of thousands of enrolments or payments), add a nightly
+  down (roughly hundreds of thousands of enrollments or payments), add a nightly
   job writing daily aggregates to a small `analytics_daily` collection, and keep
   "current" figures live. A separate analytics store isn't needed before then.

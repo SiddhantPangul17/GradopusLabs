@@ -33,7 +33,7 @@ const TYPE_LABEL: Record<string, string> = {
   welcome: "Welcome",
   password_reset: "Password reset",
   payment_confirmation: "Payment confirmation",
-  enrollment_confirmation: "Enrolment confirmation",
+  enrollment_confirmation: "Enrollment confirmation",
   submission_reviewed: "Submission reviewed",
   certificate_issued: "Certificate issued",
   certificate_revoked: "Certificate revoked",
@@ -100,7 +100,7 @@ async function Jobs({ searchParams }: { searchParams: PageProps<"/admin/notifica
       </form>
 
       {list.items.length === 0 ? (
-        <EmptyState title="No email jobs" description="Emails are queued when students register, pay, enrol, get reviews or certificates." />
+        <EmptyState title="No email jobs" description="Emails are queued when students register, pay, enroll, get reviews or certificates." />
       ) : (
         <AdminTable caption="Email jobs" head={["Email", "Recipient", "Status", "Attempts", "Times", "Retry"]}>
           {list.items.map((item) => (

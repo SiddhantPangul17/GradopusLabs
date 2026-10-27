@@ -24,7 +24,7 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/anal
     <>
       <AdminHeader
         title="Program performance"
-        description="Enrolment figures cover enrolments CREATED in the selected period (a cohort), counted by their current status. Archived programs keep their history."
+        description="Enrollment figures cover enrollments CREATED in the selected period (a cohort), counted by their current status. Archived programs keep their history."
       />
       <ReportFilters action="/admin/analytics/programs" query={query} showMode exports={[{ report: "programs", label: "Program performance" }]} />
       {error && <Notice tone="warning" title={error} className="mb-6" />}
@@ -32,9 +32,9 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/anal
         <EmptyState title="No programs yet" description="Programs appear here once they are created." />
       ) : (
         <>
-          <Section id="enrolments-heading" title="Enrolments by program" description="Enrolments created in the period, all sources (paid and manual).">
+          <Section id="enrollments-heading" title="Enrollments by program" description="Enrollments created in the period, all sources (paid and manual).">
             <BarList
-              caption="Enrolments created in the period, by program"
+              caption="Enrollments created in the period, by program"
               rows={[...rows]
                 .sort((a, b) => b.enrollments.total - a.enrollments.total)
                 .slice(0, 15)
@@ -45,11 +45,11 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/anal
           <Section
             id="table-heading"
             title="All programs"
-            description="Completion rate = enrolments that met every requirement ÷ enrolments currently active or completed (pending and cancelled are excluded). Paid = created by a verified payment. Collected = confirmed payments by payment date. Pending submissions are current."
+            description="Completion rate = enrollments that met every requirement ÷ enrollments currently active or completed (pending and cancelled are excluded). Paid = created by a verified payment. Collected = confirmed payments by payment date. Pending submissions are current."
           >
             <AdminTable
               caption="Program performance"
-              head={["Program", "Enrolments", "Active / completed / cancelled", "Paid / manual", "Requirements met", "Completion rate", `Collected (${query.mode})`, "Certificates issued", "Pending reviews (now)"]}
+              head={["Program", "Enrollments", "Active / completed / cancelled", "Paid / manual", "Requirements met", "Completion rate", `Collected (${query.mode})`, "Certificates issued", "Pending reviews (now)"]}
             >
               {rows.map((row) => {
                 const status = programStatusDisplay[row.status as ProgramStatus];
@@ -82,7 +82,7 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/anal
               })}
             </AdminTable>
             <p className="type-meta mt-3 text-muted">
-              The program&apos;s current price, curriculum and completion rules are not necessarily those in force when older enrolments started.
+              The program&apos;s current price, curriculum and completion rules are not necessarily those in force when older enrollments started.
               No ratings or satisfaction scores are collected.
             </p>
           </Section>

@@ -10,17 +10,17 @@
  * environment-specific and is resolved server-side in `@/lib/env`.
  */
 export const brand = {
-  name: "Gradopus Labs",
+  name: "GradOpus Labs",
   description: "Affordable Virtual Project-Based Training",
   summary:
-    "Gradopus Labs offers affordable online training programs where students build skills by completing practical projects.",
+    "GradOpus Labs offers affordable online training programs where students build skills by completing practical projects.",
 
   locale: "en-IN",
   timeZone: "Asia/Kolkata",
 
   logo: {
     src: "/images/logo.svg",
-    alt: "Gradopus Labs logo",
+    alt: "GradOpus Labs logo",
   },
 
   contact: {
@@ -31,12 +31,12 @@ export const brand = {
   },
 
   certificate: {
-    // Certificate numbers are `${prefix}-${year}-${sequence}`, e.g. GL-2026-000001.
+    // Certificate numbers are `${prefix}-${year}-${sequence}`, e.g. GOL-2026-000001.
     // 2-6 capital letters. Changing it affects only certificates issued afterwards
-    // (certificates issued earlier under "KT" keep their numbers and still verify).
-    prefix: "GL",
+    // (certificates issued earlier under "KT" or "GL" keep their numbers and still verify).
+    prefix: "GOL",
     // Printed on certificates ONLY when a real, authorised person is configured
-    // here, e.g. { name: "…", role: "Proprietor, Gradopus Labs" }. Never invent one.
+    // here, e.g. { name: "…", role: "Proprietor, GradOpus Labs" }. Never invent one.
     signatory: null as { name: string; role: string } | null,
   },
 

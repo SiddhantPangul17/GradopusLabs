@@ -123,7 +123,7 @@ async function Payments({ searchParams }: { searchParams: PageProps<"/admin/paym
                   {item.attentionReason && (
                     <span className="type-meta mt-1 block max-w-xs text-warning">{attentionText[item.attentionReason].admin}</span>
                   )}
-                  {item.enrollmentId && <span className="type-meta mt-1 block text-muted">Enrolment linked</span>}
+                  {item.enrollmentId && <span className="type-meta mt-1 block text-muted">Enrollment linked</span>}
                 </Td>
                 <Td>
                   <span className="type-meta block font-mono wrap-anywhere">{item.providerOrderId ?? "No order"}</span>

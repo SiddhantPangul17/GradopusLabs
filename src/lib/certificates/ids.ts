@@ -1,7 +1,7 @@
 import { CERTIFICATE_ID_PATTERN } from "@/lib/constants";
 
 /*
- * Readable certificate numbers: PREFIX-YEAR-SEQUENCE, e.g. GL-2026-000001.
+ * Readable certificate numbers: PREFIX-YEAR-SEQUENCE, e.g. GOL-2026-000001.
  * - PREFIX: brand.certificate.prefix (no per-program code: programs have no
  *   reliable short-code mapping, and a wrong code would be worse than none).
  * - YEAR: the issue year in India Standard Time.
@@ -21,7 +21,7 @@ export function issueYear(date: Date): number {
   return Number(new Intl.DateTimeFormat("en-IN", { year: "numeric", timeZone: "Asia/Kolkata" }).format(date));
 }
 
-/** Normalises user input ("gl 2026 000001", " GL-2026-000001 ") or returns null. */
+/** Normalises user input ("gol 2026 000001", " GOL-2026-000001 ") or returns null. */
 export function normalizeCertificateId(input: string): string | null {
   const compact = input.trim().toUpperCase().replace(/[\s_–—]+/g, "-").replace(/-+/g, "-");
   return CERTIFICATE_ID_PATTERN.test(compact) ? compact : null;

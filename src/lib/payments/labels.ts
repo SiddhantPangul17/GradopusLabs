@@ -34,12 +34,12 @@ export const attentionText: Record<PaymentAttentionReason, { student: string; ad
   program_unavailable: {
     student:
       "Your payment was received, but the program is no longer available, so access was not granted. We will contact you about a refund or next steps.",
-    admin: "Paid after the program was unpublished or archived; no access was granted. Decide on a refund or re-enrolment.",
+    admin: "Paid after the program was unpublished or archived; no access was granted. Decide on a refund or re-enrollment.",
   },
   already_enrolled: {
     student:
-      "Your payment was received, but you already had an enrolment in this program, so this payment may be a duplicate. We will review it and contact you.",
-    admin: "Paid while the student already had a current enrolment (possible duplicate payment). Review and refund if appropriate.",
+      "Your payment was received, but you already had an enrollment in this program, so this payment may be a duplicate. We will review it and contact you.",
+    admin: "Paid while the student already had a current enrollment (possible duplicate payment). Review and refund if appropriate.",
   },
   verification_mismatch: {
     student: "We could not match this payment to your order automatically. We will review it.",

@@ -7,7 +7,7 @@ import { AUTH_LIMITS, AUTH_MESSAGES } from "@/lib/validation/auth-rules";
  *
  * Every schema is `.strict()`: unknown fields are rejected, so a request can
  * never set `role`, `accountStatus`, `emailVerified`, `passwordHash`,
- * `sessionVersion`, payment or enrolment data.
+ * `sessionVersion`, payment or enrollment data.
  */
 
 const emailSchema = z

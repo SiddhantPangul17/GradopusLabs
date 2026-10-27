@@ -34,7 +34,7 @@ const principles = [
   },
   {
     title: "Fair, transparent certificates",
-    body: "Completion criteria are published before you enrol. A certificate is awarded for meeting them, and nothing else.",
+    body: "Completion criteria are published before you enroll. A certificate is awarded for meeting them, and nothing else.",
     Icon: ClipboardCheckIcon,
   },
 ] as const;
@@ -81,7 +81,7 @@ export default function AboutPage() {
         </h2>
         <div className="prose-content mt-4">
           <p>
-            {brand.name} is a new platform. Programs, enrolment, project submission and online certificate verification
+            {brand.name} is a new platform. Programs, enrollment, project submission and online certificate verification
             are available; some features, such as file uploads, are still being built.
           </p>
           <p>

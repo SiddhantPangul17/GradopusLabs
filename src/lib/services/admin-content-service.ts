@@ -137,7 +137,7 @@ export type AdminModuleDetail = {
   program: ProgramRef;
   module: AdminModuleItem & { content: string };
   tasks: AdminTaskItem[];
-  /** Active enrolments affected by changes to required tasks or completion rules. */
+  /** Active enrollments affected by changes to required tasks or completion rules. */
   activeEnrollments: number;
 };
 

@@ -1,7 +1,7 @@
 import type { SubmissionStatus, TaskCompletionRule } from "@/lib/constants";
 
 /*
- * THE progress and eligibility rule for Gradopus Labs. Pure functions (no
+ * THE progress and eligibility rule for GradOpus Labs. Pure functions (no
  * database), used by every student page and, later, by certificate issuance.
  * Only PUBLISHED modules and tasks are ever passed in.
  *

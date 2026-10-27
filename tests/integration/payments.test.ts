@@ -231,7 +231,7 @@ describe("starting checkout", () => {
 });
 
 describe("checkout verification", () => {
-  it("activates the enrolment only after signature + provider confirmation", async () => {
+  it("activates the enrollment only after signature + provider confirmation", async () => {
     const slug = await makeProgram();
     const session = await startCheckout(alice, slug);
     const paid = providerPays(session.checkout.orderId);
@@ -417,7 +417,7 @@ describe("webhooks", () => {
     expect(await enrollmentsFor(bob)).toHaveLength(1);
   });
 
-  it("checkout verification and webhook racing still create one enrolment", async () => {
+  it("checkout verification and webhook racing still create one enrollment", async () => {
     const slug = await makeProgram();
     const session = await startCheckout(alice, slug);
     const paid = providerPays(session.checkout.orderId);
@@ -453,7 +453,7 @@ describe("activation policy and recovery", () => {
     expect((await payments.listPaymentsForAdmin(admin, { status: "attention" })).items.map((item) => item.id)).toContain(session.payment.id);
   });
 
-  it("paying while already enrolled is flagged as a possible duplicate, not a second enrolment", async () => {
+  it("paying while already enrolled is flagged as a possible duplicate, not a second enrollment", async () => {
     const slug = await makeProgram();
     const session = await startCheckout(alice, slug);
     await enrollments.createManualEnrollment({ email: alice.email, programSlug: slug }, { actorId: admin.id, via: "admin" });
@@ -463,7 +463,7 @@ describe("activation policy and recovery", () => {
     expect(await enrollmentsFor(alice)).toHaveLength(1);
   });
 
-  it("completes an interrupted activation (paid but no enrolment yet) on the next check", async () => {
+  it("completes an interrupted activation (paid but no enrollment yet) on the next check", async () => {
     const slug = await makeProgram();
     const session = await startCheckout(alice, slug);
     const paid = providerPays(session.checkout.orderId);
@@ -485,7 +485,7 @@ describe("activation policy and recovery", () => {
     expect(await enrollmentsFor(alice)).toHaveLength(1);
   });
 
-  it("payment history comes from payment records, never from enrolments", async () => {
+  it("payment history comes from payment records, never from enrollments", async () => {
     const slug = await makeProgram();
     await enrollments.createManualEnrollment({ email: alice.email, programSlug: slug }, { actorId: admin.id, via: "admin" });
     expect((await payments.listOwnPayments(alice)).total).toBe(0);

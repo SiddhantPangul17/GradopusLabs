@@ -9,7 +9,7 @@ export type ProgramStatus = (typeof PROGRAM_STATUSES)[number];
 
 export const PROGRAM_LEVELS = ["beginner", "intermediate", "advanced"] as const;
 
-/** Whether students can enrol in a published program. */
+/** Whether students can enroll in a published program. */
 export const PROGRAM_AVAILABILITY = ["open", "coming-soon", "closed"] as const;
 
 export const USER_ROLES = ["student", "admin"] as const;
@@ -21,10 +21,10 @@ export type AccountStatus = (typeof ACCOUNT_STATUSES)[number];
 export const ENROLLMENT_STATUSES = ["pending", "active", "completed", "cancelled"] as const;
 export type EnrollmentStatus = (typeof ENROLLMENT_STATUSES)[number];
 
-/** Statuses that count as a current enrolment; at most one per student and program. */
+/** Statuses that count as a current enrollment; at most one per student and program. */
 export const CURRENT_ENROLLMENT_STATUSES = ["pending", "active"] as const satisfies readonly EnrollmentStatus[];
 
-/** How an enrolment was created: "manual" (admin/operator, no payment) or "payment" (after a verified online payment). */
+/** How an enrollment was created: "manual" (admin/operator, no payment) or "payment" (after a verified online payment). */
 export const ENROLLMENT_SOURCES = ["manual", "payment"] as const;
 export type EnrollmentSource = (typeof ENROLLMENT_SOURCES)[number];
 
@@ -170,7 +170,7 @@ export type RefundStatus = (typeof REFUND_STATUSES)[number];
  */
 export const PAYMENT_ATTENTION_REASONS = [
   "program_unavailable", // paid, but the program was no longer published, so no access was granted
-  "already_enrolled", // paid, but the student already had a current enrolment (possible duplicate payment)
+  "already_enrolled", // paid, but the student already had a current enrollment (possible duplicate payment)
   "verification_mismatch", // provider data did not match the order, amount, currency or student
 ] as const;
 export type PaymentAttentionReason = (typeof PAYMENT_ATTENTION_REASONS)[number];
@@ -187,7 +187,7 @@ export type CertificateStatus = (typeof CERTIFICATE_STATUSES)[number];
 /** Bump when the PDF layout changes; each certificate records the version it was issued with. */
 export const CERTIFICATE_TEMPLATE_VERSION = 1;
 
-/** Readable certificate number: PREFIX-YEAR-SEQUENCE, e.g. GL-2026-000001. */
+/** Readable certificate number: PREFIX-YEAR-SEQUENCE, e.g. GOL-2026-000001. */
 export const CERTIFICATE_ID_PATTERN = /^[A-Z]{2,6}-\d{4}-\d{6,9}$/;
 
 // ---------- Email and in-app notifications ----------

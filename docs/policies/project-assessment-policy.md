@@ -301,7 +301,7 @@ You complete a program when you meet **all** of its published completion require
 - Project submissions count towards completion **only once accepted**. Submitting a link does not by itself
   complete a task.
 - Optional tasks never affect completion.
-- Paying the enrolment fee pays for taking part in the program. It does **not** mean your work will be accepted or
+- Paying the enrollment fee pays for taking part in the program. It does **not** mean your work will be accepted or
   that you will receive a certificate.
 - Not every student completes every program, and a certificate is issued only when the completion requirements are
   met. There is **no fee** for a certificate.

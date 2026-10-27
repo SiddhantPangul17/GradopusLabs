@@ -84,7 +84,7 @@ beforeAll(async () => {
   alice = await createStudent("Alice", "alice@example.com");
   bob = await createStudent("Bob", "bob@example.com");
   const result = await enrollments.createManualEnrollment({ email: "alice@example.com", programSlug: "sample-program" }, { actorId: null, via: "cli" });
-  if (!result.ok) throw new Error("enrolment failed");
+  if (!result.ok) throw new Error("enrollment failed");
   aliceEnrollmentId = result.enrollmentId;
 });
 
@@ -97,7 +97,7 @@ afterAll(async () => {
 const text = (textContent: string) => ({ submissionType: "text", textContent });
 const link = (projectUrl: string) => ({ submissionType: "project_url", projectUrl });
 
-describe("content import and operator enrolment", () => {
+describe("content import and operator enrollment", () => {
   it("re-importing keeps ids; removed modules are unpublished, not deleted", async () => {
     await curriculum.importProgramPackage(samplePackage(), { actorId: null, via: "cli" });
     expect((await models.Module.findOne({ slug: "getting-started" }).lean())?._id.toString()).toBe(ids["module:getting-started"]);
@@ -109,7 +109,7 @@ describe("content import and operator enrolment", () => {
     expect((await models.Module.findOne({ slug: "publishing" }).lean())?.isPublished).toBe(true);
   });
 
-  it("manual enrolments: audited, no payment implied, no duplicates, published programs only", async () => {
+  it("manual enrollments: audited, no payment implied, no duplicates, published programs only", async () => {
     const doc = await models.Enrollment.findById(aliceEnrollmentId).lean();
     expect(doc).toMatchObject({ status: "active", source: "manual", amountPaid: 0 });
     expect(await models.AuditLog.countDocuments({ action: "enrollment.created" })).toBe(1);
@@ -121,12 +121,12 @@ describe("content import and operator enrolment", () => {
 });
 
 describe("isolation between students", () => {
-  it("each student only sees their own enrolments", async () => {
+  it("each student only sees their own enrollments", async () => {
     expect((await learning.listStudentEnrollments(alice)).map((e) => e.id)).toEqual([aliceEnrollmentId]);
     expect(await learning.listStudentEnrollments(bob)).toEqual([]);
   });
 
-  it("another student's enrolment, modules and tasks behave as not found", async () => {
+  it("another student's enrollment, modules and tasks behave as not found", async () => {
     expect(await learning.getEnrollmentLearning(bob, aliceEnrollmentId)).toMatchObject({ ok: false, error: "not_found" });
     expect(await learning.getModuleLearning(bob, aliceEnrollmentId, ids["module:getting-started"]!)).toMatchObject({ ok: false, error: "not_found" });
     expect(await submissions.getTaskPage(bob, ids["task:explain-semantic-html"]!)).toMatchObject({ ok: false, error: "not_found" });
@@ -261,8 +261,8 @@ describe("progress and eligibility", () => {
   });
 });
 
-describe("enrolment status and program status", () => {
-  it("completed enrolment is read-only; archived keeps access; draft removes it", async () => {
+describe("enrollment status and program status", () => {
+  it("completed enrollment is read-only; archived keeps access; draft removes it", async () => {
     await models.Enrollment.updateOne({ _id: aliceEnrollmentId }, { $set: { status: "completed" } });
     expect(await submissions.submitTaskAttempt(alice, ids["task:optional-reflection"]!, text("Late thoughts"))).toMatchObject({ error: "forbidden" });
     expect((await learning.getEnrollmentLearning(alice, aliceEnrollmentId)) as { data: { enrollment: { access: string } } }).toMatchObject({

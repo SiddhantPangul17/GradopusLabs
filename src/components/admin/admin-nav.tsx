@@ -10,7 +10,7 @@ const items = [
   { label: "Programs", href: "/admin/programs", exact: false },
   { label: "Submissions", href: "/admin/submissions", exact: false },
   { label: "Students", href: "/admin/students", exact: false },
-  { label: "Enrolments", href: "/admin/enrollments", exact: false },
+  { label: "Enrollments", href: "/admin/enrollments", exact: false },
   { label: "Payments", href: "/admin/payments", exact: false },
   { label: "Certificates", href: "/admin/certificates", exact: false },
   { label: "Emails", href: "/admin/notifications", exact: false },

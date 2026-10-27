@@ -135,7 +135,7 @@ export function welcomeEmail(input: { name: string; loginUrl: string; programsUr
     greeting: hello(input.name),
     blocks: [
       { kind: "p", text: `Your ${brand.name} account has been created. ${brand.summary}` },
-      { kind: "p", text: "Browse the programs, enrol in one that suits you, and learn by completing practical project tasks." },
+      { kind: "p", text: "Browse the programs, enroll in one that suits you, and learn by completing practical project tasks." },
     ],
     action: { label: "Log in", url: input.loginUrl },
     secondary: { label: "Browse programs", url: input.programsUrl },
@@ -191,7 +191,7 @@ export function paymentConfirmationEmail(input: {
 export function enrollmentConfirmationEmail(input: { name: string; programTitle: string; link: string }): RenderedEmail {
   return render({
     subject: `You're enrolled: ${input.programTitle}`,
-    heading: "Your enrolment is confirmed",
+    heading: "Your enrollment is confirmed",
     greeting: hello(input.name),
     blocks: [
       { kind: "p", text: `You now have access to ${cleanText(input.programTitle, 200)}.` },

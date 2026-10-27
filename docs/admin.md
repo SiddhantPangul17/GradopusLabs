@@ -9,7 +9,7 @@ never send identity, role, reviewer or status.
 
 | Route | Purpose |
 | ----- | ------- |
-| `/admin` | Live counts (published/draft programs, students, active enrolments, submissions to review), recently updated programs, recent audit activity |
+| `/admin` | Live counts (published/draft programs, students, active enrollments, submissions to review), recently updated programs, recent audit activity |
 | `/admin/analytics` (+ programs, revenue, learning, certificates, operations) | Reports, charts, CSV exports and operational status ([analytics.md](analytics.md)) |
 | `/admin/programs` | All programs with status filter |
 | `/admin/programs/new` | Create a program (always saved as a draft) |
@@ -19,7 +19,7 @@ never send identity, role, reviewer or status.
 | `/admin/submissions` | Review queue (pending first, oldest first), filters by status and program, 25 per page |
 | `/admin/submissions/[id]` | Submitted work, instructions, criteria, all attempts; record a decision or update feedback |
 | `/admin/students` | Search and paginate students; suspend or reactivate (reason + confirmation) |
-| `/admin/enrollments` | Enrolments with status/program filters and progress; grant a manual (unpaid) enrolment |
+| `/admin/enrollments` | Enrollments with status/program filters and progress; grant a manual (unpaid) enrollment |
 | `/admin/payments` | Read-only payment records, filters, "needs attention", check with provider ([payments.md](payments.md)) |
 | `/admin/certificates` (+ `/issue`, `/[certificateId]`) | Issue eligible certificates, download, correct and reissue, revoke ([certificates.md](certificates.md)) |
 | `/admin/notifications` | Email outbox monitoring: status counts, failures, retry failed jobs, process now ([notifications.md](notifications.md)) |
@@ -39,7 +39,7 @@ never send identity, role, reviewer or status.
   program: edits, module/task hiding or task changes that would break it are
   refused and rolled back.
 - **Status changes** (with confirmation): draft ↔ published ↔ archived. Archiving
-  removes the program from the catalogue and new enrolment; enrolled students
+  removes the program from the catalogue and new enrollment; enrolled students
   keep access. Moving a published program back to draft removes access until it
   is published again. Programs are **never deleted**.
 - FAQ entries are kept on save (edit them through `npm run content:import`).
@@ -68,7 +68,7 @@ never send identity, role, reviewer or status.
 - Accepting work updates progress/eligibility only. Certificates are issued
   separately by an admin after a live eligibility check ([certificates.md](certificates.md)).
 
-## Students and enrolments
+## Students and enrollments
 
 - Lists show only what administration needs (name, email, dates, status,
   counts); never password hashes, session data or tokens. Search input is
@@ -76,8 +76,8 @@ never send identity, role, reviewer or status.
 - **Suspension** (student accounts only; admins use the CLI) needs a reason and
   confirmation, ends all the student's sessions immediately, is audited with the
   reason, and is reversible. Nothing is deleted.
-- Enrolments and payments cannot be marked as paid by hand; paid enrolments come
-  only from verified payments ([payments.md](payments.md)). A **manual enrolment** requires confirming
+- Enrollments and payments cannot be marked as paid by hand; paid enrollments come
+  only from verified payments ([payments.md](payments.md)). A **manual enrollment** requires confirming
   that no online payment is involved; it is recorded with `source: manual` and
   `amountPaid: 0`, and audited with the administrator as actor.
 
@@ -86,5 +86,5 @@ never send identity, role, reviewer or status.
 Recorded with the acting admin (or "System" for the CLI) and non-sensitive
 metadata: program created/updated/published/archived/unpublished, content
 imported, module/task created/updated/reordered, submission reviewed and
-feedback updated, role and account-status changes, enrolments created.
+feedback updated, role and account-status changes, enrollments created.
 Entries are append-only and cannot be edited or deleted.

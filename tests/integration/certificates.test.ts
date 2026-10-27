@@ -81,7 +81,7 @@ async function setup(options: { complete?: boolean; name?: string } = {}) {
   await curriculum.importProgramPackage(pkg(slug), { actorId: null, via: "cli" });
   const s = await student(options.name);
   const enrolled = await enrollments.createManualEnrollment({ email: s.email, programSlug: slug }, { actorId: admin.id, via: "admin" });
-  if (!enrolled.ok) throw new Error("enrol failed");
+  if (!enrolled.ok) throw new Error("enroll failed");
   const program = (await M.Program.findOne({ slug }).lean())!;
   if (options.complete !== false) await complete(s, enrolled.enrollmentId, program._id.toString());
   return { student: s, enrollmentId: enrolled.enrollmentId, programId: program._id.toString(), slug };
@@ -176,7 +176,7 @@ describe("eligibility", () => {
     await M.Program.updateOne({ slug }, { completionCriteria: ["Done"] });
   });
 
-  it("a paid enrolment needs its payment to still be confirmed (refunded = not eligible)", async () => {
+  it("a paid enrollment needs its payment to still be confirmed (refunded = not eligible)", async () => {
     const { enrollmentId, student: s, programId } = await setup();
     const payment = await M.Payment.create({
       studentId: s.id,
@@ -215,7 +215,7 @@ describe("issuance", () => {
     const result = await issue(enrollmentId);
     expect(result).toMatchObject({ ok: true });
     const certificateId = (result as { data: { certificateId: string } }).data.certificateId;
-    expect(certificateId).toMatch(/^GL-\d{4}-\d{6}$/);
+    expect(certificateId).toMatch(/^GOL-\d{4}-\d{6}$/);
     const doc = (await M.Certificate.findOne({ certificateId }).select("+verificationTokenSealed").lean())!;
     expect(doc).toMatchObject({
       status: "issued",
@@ -236,7 +236,7 @@ describe("issuance", () => {
     expect(await M.AuditLog.countDocuments({ action: "certificate.issued", entityId: doc._id, actorId: new Types.ObjectId(admin.id) })).toBe(1);
   });
 
-  it("repeated and concurrent issuance for one enrolment creates exactly one certificate", async () => {
+  it("repeated and concurrent issuance for one enrollment creates exactly one certificate", async () => {
     const { enrollmentId } = await setup();
     const results = await Promise.all(Array.from({ length: 6 }, () => issue(enrollmentId)));
     expect(results.filter((result) => result.ok)).toHaveLength(1);
@@ -244,7 +244,7 @@ describe("issuance", () => {
     expect(await M.Certificate.countDocuments({ enrollmentId, status: "issued" })).toBe(1);
   });
 
-  it("numbers stay unique under concurrent issuance for different enrolments", async () => {
+  it("numbers stay unique under concurrent issuance for different enrollments", async () => {
     const setups = await Promise.all(Array.from({ length: 8 }, () => setup()));
     const results = await Promise.all(setups.map((item) => issue(item.enrollmentId)));
     const ids = results.map((result) => (result.ok ? result.data.certificateId : "FAILED"));
@@ -312,7 +312,7 @@ describe("revocation and replacement", () => {
       error: "conflict",
     });
     expect(await M.Certificate.countDocuments({ certificateId })).toBe(1);
-    // A revoked enrolment cannot simply be issued again.
+    // A revoked enrollment cannot simply be issued again.
     expect((await certs.checkCertificateEligibility(enrollmentId)).issues.map((issue) => issue.code)).toContain("previously_revoked");
     // Students cannot download a revoked certificate.
     expect(await certs.getCertificatePdf(s, certificateId)).toMatchObject({ ok: false, error: "conflict" });
