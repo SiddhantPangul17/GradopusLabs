@@ -1,8 +1,8 @@
 # Gradopus Labs Certificate Issuance & Verification Policy
 
-- **Version:** 1.2
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.3
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Contact:** <support.gradopuslabs@gmail.com>
 
@@ -26,7 +26,7 @@ a company.
 named student met all of the published completion requirements of a specific program.
 
 **Participation certificates are not currently issued.** Taking part in a program without completing it does not
-lead to a certificate. `[TO BE CONFIRMED: whether a separate participation certificate will be offered]` If one is
+lead to a certificate. If one is ever
 introduced, it will be clearly titled as a participation certificate, it will not state or suggest that the program
 was completed, and its eligibility rules will be published in this policy before it is issued.
 
@@ -81,8 +81,8 @@ It records the assessment outcomes documented in our records.
 3. You can download it as a PDF from the **Certificates** section of your student dashboard. If email is set up, you
    also receive an email telling you it has been issued.
 
-Certificates are **digital (PDF)**. `[TO BE CONFIRMED: whether printed certificates will be offered]`
-`[TO BE CONFIRMED: expected time between completion and issue]`
+Certificates are **digital (PDF)** only; printed certificates are not offered. We aim to issue your certificate
+within **7 working days** of your meeting all of the completion requirements.
 
 ## 8. Information on a certificate
 
@@ -97,8 +97,9 @@ Each certificate shows:
 - a QR code and web address for verification;
 - a statement that it is not a degree, diploma or accredited qualification.
 
-A signature is shown only if a real, authorised signatory has been designated.
-`[TO BE CONFIRMED: whether a signatory will appear and who it is]`
+A signature is shown only if a real, authorised signatory has been designated. Certificates currently carry no
+personal signature: they are issued in the name of Gradopus Labs, and their authenticity is shown by the
+verification described in section 10.
 
 A certificate never shows your email address, phone number, scores, feedback or payment details.
 
@@ -189,9 +190,9 @@ fraudulent work, or that a certificate is being misused:
 
 1. We review the relevant records, such as submissions, attempts and review notes.
 2. We tell the holder in writing what the concern is and the evidence for it.
-3. The holder has a fair opportunity to respond, for example by explaining their work.
-   `[TO BE CONFIRMED: the time allowed to respond]`
-4. A decision is made by `[TO BE CONFIRMED: who decides]` and explained in writing with reasons.
+3. The holder has a fair opportunity to respond, for example by explaining their work, with at least **7 days** to
+   do so.
+4. A decision is made by the proprietor of Gradopus Labs and explained in writing with reasons.
 
 A concern raised by a third party is not, by itself, proof of misconduct.
 
@@ -213,8 +214,9 @@ A certificate will **not** be revoked:
 
 When a certificate is revoked, its verification page shows that it was revoked and the date, but not the reason. You
 will be told the reason in writing. A revocation is not automatically reversed, but a new certificate can be issued
-if a revocation is overturned on appeal or the problem is put right. `[TO BE CONFIRMED: whether, and how, a student
-can earn a new certificate after a revocation]`
+if a revocation is overturned on appeal or the problem is put right. For example, if a certificate was revoked
+because some work was not your own, you can earn a new certificate by resubmitting your own work for the affected
+tasks, within the attempt limits, and having it accepted while the program is still running.
 
 Gradopus Labs does not suspend certificates temporarily. While a concern is being investigated, the certificate stays
 valid until a decision is made.
@@ -260,7 +262,7 @@ and how it should be obtained and recorded.]`
 ## 20. Record retention and correction requests
 
 - Certificate records are kept for as long as certificates need to remain verifiable, so that verification stays
-  accurate. They are not deleted automatically. `[TO BE CONFIRMED: retention period for certificate records]`
+  accurate. They have no fixed end date and are not deleted automatically.
 - If you ask us to delete your personal data, we may need to keep certificate records to stop anyone presenting a
   false certificate in your name. We will explain what is kept and why.
 - You can ask us to correct certificate details under section 13. Other data requests are handled under the Privacy
@@ -272,10 +274,10 @@ To report an error, a suspected fake certificate, or to appeal a decision (for e
 refused correction or a revocation):
 
 1. Write to <support.gradopuslabs@gmail.com> with the certificate ID, if any, and a description.
-2. We will acknowledge your message and respond in writing with reasons.
-   `[TO BE CONFIRMED: acknowledgement and response timelines]`
-3. Appeals against a revocation are decided, where possible, by someone not involved in the original decision.
-   `[TO BE CONFIRMED: who decides appeals]`
+2. We will acknowledge your message within **3 working days**, and respond in writing with reasons within
+   **30 days**.
+3. Appeals against a revocation are decided by the proprietor of Gradopus Labs, who looks at the case afresh,
+   including anything new you provide.
 
 You will not be penalised for raising a genuine concern. This process does not affect any other remedy available to
 you under law. More detail is in the Student Terms & Conditions.
@@ -302,10 +304,13 @@ records.
 
 ## Revision history
 
+- **Version 1.3, 28 October 2026:** Effective from 28 October 2026. Added: digital certificates only, a
+  7-working-day issue target, no personal signature, 7 days to respond to a concern, who makes decisions and decides
+  appeals, how to earn a new certificate after a revocation, and grievance timelines.
 - **Version 1.2, 23 October 2026:** Added: the verification page address (gradopuslabs.online/verify) and no identity documents.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review.
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version.
 
 ## Notes for reviewers (remove before publication)
 

@@ -11,6 +11,7 @@ import {
   rupeesToPaise,
   slugify,
 } from "@/lib/admin/form-parsing";
+import { MAX_IMPORT_CHARS } from "@/lib/admin/program-import";
 import { programEditSchema } from "@/lib/validation/admin";
 import { getCurrentUser } from "@/lib/auth/session";
 import type { FormResult } from "@/lib/form-result";
@@ -26,6 +27,7 @@ import {
   updateTask,
   type Direction,
 } from "@/lib/services/admin-content-service";
+import { importProgramAsAdmin } from "@/lib/services/admin-import-service";
 import { createManualEnrollmentAsAdmin, setStudentAccountStatus } from "@/lib/services/admin-people-service";
 import { createProgramAsAdmin, PROGRAM_FIELD_MAP, setProgramStatus, updateProgramAsAdmin } from "@/lib/services/admin-program-service";
 import { decideSubmission, updateReviewFeedback } from "@/lib/services/admin-review-service";
@@ -150,6 +152,24 @@ export async function changeProgramStatusAction(programId: string, _previous: Fo
     refresh();
     return { status: "success", message: `Program is now ${saved.data.status}.` };
   });
+}
+
+/** Creates (or replaces a draft) program with its modules and tasks from pasted JSON; always a draft. */
+export async function importProgramAction(_previous: FormResult, formData: FormData): Promise<FormResult> {
+  const result = await run("program import", async (actor) => {
+    if (!checked(formData, "confirm")) {
+      return {
+        status: "error",
+        message: "The program was not imported.",
+        fieldErrors: { confirm: "Please confirm that you understand what an import replaces." },
+      } satisfies FormResult;
+    }
+    // One character over the limit, so oversized input is reported rather than silently cut.
+    const saved = await importProgramAsAdmin(actor, text(formData, "packageJson", MAX_IMPORT_CHARS + 1));
+    if (!saved.ok) return toError(saved);
+    redirect(`/admin/programs/${saved.data.programId}?imported=${saved.data.created ? "new" : "updated"}`);
+  });
+  return result as FormResult;
 }
 
 // ---------- Modules ----------

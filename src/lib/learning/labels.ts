@@ -1,6 +1,6 @@
 import type { Status } from "@/components/ui/status-badge";
 import { brand } from "@/config/brand";
-import type { EnrollmentStatus, SubmissionStatus, TaskType } from "@/lib/constants";
+import type { CertificateStatus, EnrollmentStatus, SubmissionStatus, TaskType } from "@/lib/constants";
 import type { ProgramState, TaskState } from "@/lib/learning/progress";
 
 /* Display labels for learning states, so every page describes them the same way. */
@@ -21,6 +21,35 @@ export const programStateDisplay: Record<ProgramState, Display> = {
   awaiting_review: { label: "Awaiting review", status: "pending" },
   requirements_completed: { label: "Requirements completed", status: "success" },
 };
+
+/** Issue target promised in the Certificate Issuance & Verification Policy, section 7. */
+export const CERTIFICATE_ISSUE_WORKING_DAYS = 7;
+
+/**
+ * "Your certificate is under review" message: shown from the moment the student
+ * has submitted every required task until a certificate exists for the
+ * enrollment. Null while work remains, or once a certificate was issued (or revoked).
+ */
+export function certificateWaitMessage(
+  state: ProgramState,
+  certificate: CertificateStatus | null,
+): { title: string; body: string } | null {
+  if (certificate !== null) return null;
+  const title = "Your certificate is under review";
+  if (state === "awaiting_review") {
+    return {
+      title,
+      body: `You have submitted every required task. Once a reviewer accepts your final work, your certificate will be issued within ${CERTIFICATE_ISSUE_WORKING_DAYS} working days. If changes are requested, you will see the feedback on the task.`,
+    };
+  }
+  if (state === "requirements_completed") {
+    return {
+      title,
+      body: `You have completed every requirement. Our team is checking your records, and your certificate will be issued within ${CERTIFICATE_ISSUE_WORKING_DAYS} working days. It will appear under Certificates, and you will get a notification when it is ready.`,
+    };
+  }
+  return null;
+}
 
 export const taskStateDisplay: Record<TaskState, Display> = {
   not_started: { label: "Not started", status: "neutral" },

@@ -2,7 +2,12 @@ import { ButtonArrow, ButtonLink } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { ProgressBar } from "@/components/student/progress-bar";
-import { enrollmentStatusDisplay, programStateDisplay } from "@/lib/learning/labels";
+import {
+  CERTIFICATE_ISSUE_WORKING_DAYS,
+  certificateWaitMessage,
+  enrollmentStatusDisplay,
+  programStateDisplay,
+} from "@/lib/learning/labels";
 import type { EnrollmentOverview } from "@/lib/services/learning-service";
 
 /** Decorative program visual (no program images exist yet): initials on the brand colour. */
@@ -36,6 +41,7 @@ export function EnrollmentCard({ enrollment, headingLevel = "h3" }: { enrollment
   const status = enrollmentStatusDisplay[enrollment.status];
   const progress = enrollment.progress;
   const message = accessMessage(enrollment);
+  const certificateWait = progress ? certificateWaitMessage(progress.state, enrollment.certificate) : null;
   const learnHref = `/student/programs/${enrollment.id}`;
   const continueHref = enrollment.nextModule ? `${learnHref}/modules/${enrollment.nextModule.id}` : learnHref;
 
@@ -67,6 +73,12 @@ export function EnrollmentCard({ enrollment, headingLevel = "h3" }: { enrollment
         <p className="type-supporting mt-5 text-muted">Learning content for this program has not been published yet.</p>
       )}
       {message && <p className="type-supporting mt-5 text-muted">{message}</p>}
+      {certificateWait && (
+        <p className="type-supporting mt-5 text-muted">
+          <span className="font-medium text-foreground">{certificateWait.title}.</span> Expected within{" "}
+          {CERTIFICATE_ISSUE_WORKING_DAYS} working days of your work being accepted.
+        </p>
+      )}
 
       {enrollment.access !== "none" && (
         <div className="mt-auto pt-5">

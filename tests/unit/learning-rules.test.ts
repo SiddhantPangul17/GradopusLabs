@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { certificateWaitMessage } from "@/lib/learning/labels";
 import { evaluateProgress, taskStateFor, type ProgressSubmission, type ProgressTask } from "@/lib/learning/progress";
 import { canSubmitAttempt, canTransition, learningAccess } from "@/lib/learning/rules";
 import { programPackageSchema } from "@/lib/validation/curriculum";
@@ -190,5 +191,20 @@ describe("curriculum package validation", () => {
     for (const pkg of [dupModules, dupTasks, fileOnText, fileNoTypes, badType, unknown]) {
       expect(programPackageSchema.safeParse(pkg).success).toBe(false);
     }
+  });
+});
+
+describe("certificate wait message", () => {
+  it("shows from the final submission until a certificate exists", () => {
+    expect(certificateWaitMessage("awaiting_review", null)?.title).toBe("Your certificate is under review");
+    expect(certificateWaitMessage("requirements_completed", null)?.body).toContain("within 7 working days");
+  });
+
+  it("is hidden while work remains or once a certificate was issued or revoked", () => {
+    for (const state of ["no_content", "not_started", "in_progress"] as const) {
+      expect(certificateWaitMessage(state, null)).toBeNull();
+    }
+    expect(certificateWaitMessage("requirements_completed", "issued")).toBeNull();
+    expect(certificateWaitMessage("requirements_completed", "revoked")).toBeNull();
   });
 });

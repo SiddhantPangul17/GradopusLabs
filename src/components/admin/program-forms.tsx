@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, type ChangeEvent } from "react";
 import { AdminForm } from "@/components/admin/admin-form";
 import { Button } from "@/components/ui/button";
 import { CheckboxField, SelectField, TextareaField, TextField } from "@/components/ui/form-field";
@@ -157,6 +157,66 @@ export function ProgramForm({
             </div>
             <CheckboxField id="program-featured" name="featured" label="Feature on the homepage" defaultChecked={initial.featured} error={errors.featured} />
           </fieldset>
+        </>
+      )}
+    </AdminForm>
+  );
+}
+
+/**
+ * Paste a whole program (details, modules and tasks) as JSON, or load it from
+ * a .json file. The file is read in the browser into the text box; only the
+ * text is submitted. Imports are always saved as drafts.
+ */
+export function ProgramImportForm({ action }: { action: (previous: FormResult, formData: FormData) => Promise<FormResult> }) {
+  const [json, setJson] = useState("");
+  const [loaded, setLoaded] = useState<string | null>(null);
+
+  async function loadFile(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setJson(await file.text());
+    setLoaded(`Loaded ${file.name}. Check it below, then import.`);
+  }
+
+  return (
+    <AdminForm action={action} submitLabel="Import as draft" pendingLabel="Importing…" className="space-y-6">
+      {(errors) => (
+        <>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="import-file" className="type-label text-foreground">
+              Load from a .json file (optional)
+            </label>
+            <input
+              id="import-file"
+              type="file"
+              accept=".json,application/json"
+              onChange={loadFile}
+              className="type-supporting text-muted file:mr-3 file:rounded-control file:border file:border-border-strong file:bg-surface file:px-3 file:py-2 file:text-foreground"
+            />
+            <p role="status" className="type-supporting text-muted">
+              {loaded}
+            </p>
+          </div>
+          <TextareaField
+            id="import-json"
+            name="packageJson"
+            label="Program JSON"
+            hint="Paste the whole file, from the first { to the last }."
+            required
+            rows={16}
+            spellCheck={false}
+            value={json}
+            onChange={(event) => setJson(event.target.value)}
+            error={errors.packageJson}
+          />
+          <CheckboxField
+            id="import-confirm"
+            name="confirm"
+            label="I understand that if a draft program already uses this slug, its details are replaced and its modules and tasks are updated to match this file."
+            required
+            error={errors.confirm}
+          />
         </>
       )}
     </AdminForm>

@@ -1,8 +1,8 @@
 # Gradopus Labs Project Submission & Assessment Policy
 
-- **Version:** 1.1
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.2
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Contact:** <support.gradopuslabs@gmail.com>
 
@@ -44,8 +44,9 @@ cannot remove a protection this policy gives you.
   deadline, if it has one.
 - If a task is changed after you have started it, we will tell you, and the change will not be applied to a
   submission you have already made without your agreement.
-- Ask your mentor or reviewer if anything in a brief is unclear. Asking for clarification is never held against you.
-  `[TO BE CONFIRMED: the channel for task questions]`
+- Ask your mentor or reviewer if anything in a brief is unclear, by email to <support.gradopuslabs@gmail.com> or
+  through the contact form on our website. We aim to reply within **3 working days**. Asking for clarification is
+  never held against you.
 
 ## 4. Task briefs and acceptance criteria
 
@@ -79,12 +80,12 @@ program. A reviewer will not reject your work for failing a requirement that was
 
 ## 6. Deadlines, milestones and extensions
 
-- A task may have a deadline, shown with the task. Some programs may also set milestones, which will be stated in
-  the internship details. `[TO BE CONFIRMED: whether programs use milestones]`
+- A task may have a deadline, shown with the task. Programs do not use separate milestones: your progress is tracked
+  through each program's modules and tasks.
 - Deadlines are set so that the work can reasonably be completed within the time commitment published for the
   program.
-- **Late submissions are still reviewed**, and the reviewer can see when the work was submitted.
-  `[TO BE CONFIRMED: whether lateness affects the assessment of any task, and any grace period]`
+- **Late submissions are still reviewed**, and the reviewer can see when the work was submitted. Lateness does not,
+  by itself, affect the assessment of a task, so no grace period is needed.
 - **Extensions:** if you need more time for a genuine reason, such as illness, a family emergency, examinations or
   a disability-related need, ask before the deadline where you can. Reasonable requests will be considered fairly
   and answered in writing.
@@ -109,7 +110,7 @@ When a task asks for a repository:
 - Submit the repository URL **only when the task asks for it**.
 - A **private repository is acceptable**. Give the reviewer access as the task brief explains, for example by
   inviting the reviewer's account as a collaborator with read access. You do not have to make work public to have it
-  reviewed. `[TO BE CONFIRMED: the reviewer account to invite]`
+  reviewed. A task that accepts a private repository names the reviewer account to invite.
 - Grant only the access needed for the review, and remove it after the review if you wish.
 - Never share your GitHub password, personal access tokens or other credentials. Gradopus Labs will never ask for
   them.
@@ -128,7 +129,8 @@ When a task asks for a live deployment or a demonstration:
   originality.
 - You may be asked to **explain your code or demonstrate features** in a short, reasonable review, for example a
   call or a recorded walkthrough. This helps the reviewer assess your understanding and your own contribution.
-  `[TO BE CONFIRMED: how demonstrations are held, e.g. live call or recording]`
+  Demonstrations are normally a short recorded walkthrough that you share as a link, such as an unlisted video. A
+  live call is arranged only if you agree to it.
 - Use only free or approved hosting. Do not use paid services in the name of Gradopus Labs without written
   permission.
 - Do not put real personal data into a deployed task project unless the task requires it.
@@ -166,7 +168,8 @@ Using AI tools is **not automatically misconduct**. The rules are:
 
 1. **Follow the task brief.** Each task states whether AI tools may be used and how. Where a brief allows AI
    assistance, you may use it within those limits. Where a brief does not allow it, you must not.
-   `[TO BE CONFIRMED: the default rule when a task brief says nothing about AI tools]`
+   Where a brief says nothing about AI tools, you may use them to help you learn, research, plan and debug, but
+   the work must be your own and you must be able to explain any part of it.
 2. **Disclose your use** in the way the task asks, for example a short note in your README saying which tool you
    used and for what.
 3. **Understand what you submit.** You must be able to explain, test and change any code you submit, including
@@ -179,7 +182,7 @@ needs to understand how you used a tool, they may ask you to explain it.
 
 The website does not use automated AI-detection or plagiarism-detection software. If Gradopus Labs uses any such
 tool, it will be checked for reliability before use, and its result will never on its own be treated as proof of
-misconduct. `[TO BE CONFIRMED: whether reviewers will use any detection tools]`
+misconduct. Reviewers do not currently use any such tool.
 
 ## 14. Open-source libraries, templates and third-party components
 
@@ -209,9 +212,8 @@ misconduct. `[TO BE CONFIRMED: whether reviewers will use any detection tools]`
   - **Changes requested:** it needs specific improvements, which the feedback explains;
   - **Rejected:** it does not meet the criteria, for example because it is incomplete, inaccessible or not your own
     work.
-- A reviewer may also record a **score out of 100** for a task. Scores give you feedback; unless the task brief says
-  so, a score does not decide whether a task is accepted. `[TO BE CONFIRMED: whether scores are used, and whether
-  any task uses a minimum score]`
+- A reviewer may also record a **score out of 100** for a task. Scores are feedback only: no task uses a minimum
+  score, and a score never decides whether a task is accepted.
 - The same criteria apply to every student on the same task.
 
 ## 17. Aspects of work that may be assessed
@@ -234,11 +236,11 @@ A task is never assessed on an aspect it does not mention.
   what to improve.
 - After "Changes requested" or "Rejected", you may submit a **revision**. Earlier attempts and their feedback are
   kept and shown to you and the reviewer.
-- The website allows up to **10 attempts** per task. A task brief may set a lower limit, which will be shown with
-  the task. `[TO BE CONFIRMED: whether any task sets a lower limit]`
+- The website allows up to **10 attempts** per task. No task currently sets a lower limit; if one ever does, the
+  limit will be shown with the task before you start it.
 - While a submission is waiting for review, you cannot submit another attempt for that task. Once a submission is
   accepted, the task is complete and no further attempts are needed.
-- Reviewers aim to review submissions promptly. `[TO BE CONFIRMED: expected review time]`
+- Reviewers aim to review each submission within **7 working days**.
 - A reviewer may correct the written feedback or score after a decision; you will be able to see the updated
   feedback.
 
@@ -250,7 +252,8 @@ A task is never assessed on an aspect it does not mention.
   accepted. The reviewer will request changes and explain what is needed, so you can fix access and resubmit.
 - **Rejected** work can be revised and resubmitted, within the attempt limit.
 - If you reach the attempt limit for a required task without an accepted submission, contact your reviewer. The
-  case will be reviewed individually. `[TO BE CONFIRMED: what happens when the attempt limit is reached]`
+  case will be reviewed individually by the proprietor of Gradopus Labs, taking into account any exceptional
+  circumstances. Otherwise, the task stays incomplete, and the program cannot be completed without it.
 
 ## 20. Plagiarism, copied work, falsified evidence and misconduct
 
@@ -280,11 +283,11 @@ misconduct may be revoked, but only through the process in the Certificate Issua
 If you think a review outcome is wrong or unfair:
 
 1. **Ask your reviewer** first to explain the decision, if you are comfortable doing so.
-2. **Request a reassessment** in writing to <support.gradopuslabs@gmail.com> within `[TO BE CONFIRMED: number of
-   days]` of the decision. Say which task it is, which criteria you think were applied wrongly, and why.
+2. **Request a reassessment** in writing to <support.gradopuslabs@gmail.com> within **14 days** of the decision. Say which task it is, which criteria you think were applied wrongly, and why.
 3. Where possible, the reassessment is carried out by **someone who did not make the original decision**.
 4. You will receive a written outcome with reasons. If the reassessment finds that your submission met the criteria,
-   the outcome will be corrected in our records. `[TO BE CONFIRMED: response time]`
+   the outcome will be corrected in our records. We aim to send the outcome within **14 days** of receiving your
+   request.
 
 Requesting a reassessment will never count against you. If you are still not satisfied, you can raise a grievance
 (section 25).
@@ -295,8 +298,8 @@ You complete a program when you meet **all** of its published completion require
 
 1. every **required** task has an **accepted** review or, for a non-assessed activity such as a reading module, is
    marked as done in the way the task describes; and
-2. any other requirement stated in the program's internship details.
-   `[TO BE CONFIRMED: any additional completion requirements per program]`
+2. any other requirement stated in the program's internship details before you enrolled. Current programs have no
+   additional requirements.
 
 - Project submissions count towards completion **only once accepted**. Submitting a link does not by itself
   complete a task.
@@ -314,8 +317,8 @@ Certificate issuance is explained in the Certificate Issuance & Verification Pol
   history of your work, and so that completion and certificates can be checked later.
 - Only you and the Gradopus Labs team can see your submissions. They are not made public by Gradopus Labs.
 - How long submissions are kept, and how you can ask for them to be deleted, is explained in the
-  [Privacy Policy](./privacy-policy.md). Submissions are currently kept with no automatic deletion.
-  `[TO BE CONFIRMED: retention period for submissions]`
+  [Privacy Policy](./privacy-policy.md). In short, submissions are kept while your account is active and for
+  **1 year after you last sign in**, and are then deleted by our team.
 
 ## 24. Intellectual property and publication permissions
 
@@ -350,9 +353,13 @@ Related policies:
 
 ## Revision history
 
+- **Version 1.2, 28 October 2026:** Effective from 28 October 2026. Added: how to ask task questions, no milestones,
+  no effect of lateness, the reviewer account and demonstrations, the default rule on AI tools, scores as feedback
+  only, a 7-working-day review target, what happens at the attempt limit, reassessment time limits, and how long
+  submissions are kept.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review.
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version.
 
 ## Notes for reviewers (remove before publication)
 

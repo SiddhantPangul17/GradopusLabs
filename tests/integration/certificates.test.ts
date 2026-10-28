@@ -294,6 +294,22 @@ describe("verification", () => {
   });
 });
 
+describe("student view of certificate status", () => {
+  it("reports no certificate until one is issued, then issued, then revoked", async () => {
+    const { enrollmentId, student: s } = await setup();
+    const certificateOf = async () => {
+      const result = await learning.getEnrollmentLearning(s, enrollmentId);
+      return result.ok ? result.data.enrollment.certificate : "missing";
+    };
+    expect(await certificateOf()).toBeNull();
+    const issued = await issue(enrollmentId);
+    const certificateId = issued.ok ? issued.data.certificateId : "";
+    expect(await certificateOf()).toBe("issued");
+    await certs.revokeCertificate(admin, certificateId, { reason: "Revoked for testing purposes.", confirm: true });
+    expect(await certificateOf()).toBe("revoked");
+  });
+});
+
 describe("revocation and replacement", () => {
   it("revocation is admin-only, needs a reason, keeps the record, and shows immediately", async () => {
     const { enrollmentId, student: s } = await setup();

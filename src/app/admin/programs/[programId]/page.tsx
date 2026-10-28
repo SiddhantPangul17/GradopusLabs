@@ -59,7 +59,9 @@ async function ProgramDetail({
   const result = await getProgramForAdmin({ id: admin.id, role: admin.role }, programId);
   if (!result.ok) notFound();
   const program = result.data;
-  const created = (await searchParams).created === "1";
+  const query = await searchParams;
+  const created = query.created === "1";
+  const imported = query.imported === "new" || query.imported === "updated" ? query.imported : null;
   const status = programStatusDisplay[program.status];
   const targets = PROGRAM_STATUSES.filter((target) => canChangeProgramStatus(program.status, target));
   const activeStudents = program.stats.enrollments.active + program.stats.enrollments.pending;
@@ -83,6 +85,11 @@ async function ProgramDetail({
         actions={<ButtonLink href={`/admin/programs/${program.id}/modules`}>Manage modules and tasks</ButtonLink>}
       />
       {created && <Notice tone="success" title="Draft program created" className="mb-6">Add learning modules next, then publish when the checklist below is complete.</Notice>}
+      {imported && (
+        <Notice tone="success" title={imported === "new" ? "Program imported as a draft" : "Draft program updated from the import"} className="mb-6">
+          Its modules and tasks were saved too. Check the details and the publishing checklist below, then publish when you are ready.
+        </Notice>
+      )}
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <section aria-labelledby="details-heading" className="min-w-0">

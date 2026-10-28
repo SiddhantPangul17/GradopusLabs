@@ -111,7 +111,9 @@ images are disabled for now, and external links open with
 
 ## Operating it (no admin dashboard yet)
 
-**Add or update a program and its content:**
+**Add or update a program and its content:** in the admin dashboard, use
+**Programs > Import program** and paste the JSON (drafts only; see
+[admin.md](admin.md)), or from a terminal:
 
 ```bash
 npm run content:import -- --file path/to/program.json

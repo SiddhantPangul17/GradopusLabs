@@ -2,9 +2,9 @@ import { brand } from "@/config/brand";
 import type { FaqEntry, FaqGroup } from "@/types";
 
 /*
- * Site-wide FAQ content. Answers marked `draft: true` depend on policies that
- * have not been finalised and are shown with a "Draft" label. Review every
- * answer before launch.
+ * Site-wide FAQ content. An answer marked `draft: true` is shown with a
+ * "Draft" label; none are drafts now that the policies are in effect. Keep
+ * answers in line with docs/policies/*.md.
  */
 
 export const faqGroups: readonly FaqGroup[] = [
@@ -17,7 +17,7 @@ export const faqGroups: readonly FaqGroup[] = [
         question: `What is ${brand.name}?`,
         answer: [
           `${brand.name} is an online training platform where students learn practical technology skills by completing structured project tasks, at an affordable price.`,
-          "The platform is new, and some features (such as file uploads and email notifications) are still being built. Pages say clearly when something is not available yet.",
+          "The platform is new, and some features, such as file uploads, are not available yet. Pages say clearly when something is not available.",
         ],
         link: { label: `About ${brand.name}`, href: "/about" },
       },

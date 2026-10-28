@@ -1,6 +1,13 @@
 import "server-only";
 import { Types } from "mongoose";
-import type { EnrollmentSource, EnrollmentStatus, ProgramStatus, TaskCompletionRule, TaskType } from "@/lib/constants";
+import type {
+  CertificateStatus,
+  EnrollmentSource,
+  EnrollmentStatus,
+  ProgramStatus,
+  TaskCompletionRule,
+  TaskType,
+} from "@/lib/constants";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import { isDuplicateKeyError } from "@/lib/errors";
 import {
@@ -15,6 +22,7 @@ import { learningAccess, type LearningAccess } from "@/lib/learning/rules";
 import { assertStudent, type Actor } from "@/lib/services/authorization";
 import { fail, type ServiceResult } from "@/lib/services/result";
 import { isValidObjectIdString } from "@/lib/validation/common";
+import { CertificateModel, type CertificateRecord } from "@/models/certificate";
 import { EnrollmentModel, type EnrollmentRecord } from "@/models/enrollment";
 import { LearningModuleModel, type LearningModuleRecord } from "@/models/learning-module";
 import { LearningProgressModel } from "@/models/learning-progress";
@@ -53,7 +61,11 @@ export type EnrollmentOverview = {
   /** Null when the student has no access to the content. */
   progress: ProgramProgress | null;
   nextModule: { id: string; title: string } | null;
+  /** The enrollment's certificate, if one was issued ("issued" wins over "revoked"); null when none yet. */
+  certificate: EnrollmentCertificateStatus | null;
 };
+
+export type EnrollmentCertificateStatus = Extract<CertificateStatus, "issued" | "revoked">;
 
 export type TaskSummary = {
   id: string;
@@ -120,6 +132,20 @@ async function loadReadModules(studentId: Id, enrollmentIds: Id[]): Promise<Map<
   return new Map(docs.map((doc) => [doc.enrollmentId.toString(), doc.readModules.map((item) => item.moduleId.toString())]));
 }
 
+/** Certificate status per enrollment. Superseded certificates always have a replacement, so they are skipped. */
+async function loadCertificateStatuses(enrollmentIds: Id[]): Promise<Map<string, EnrollmentCertificateStatus>> {
+  const result = new Map<string, EnrollmentCertificateStatus>();
+  if (enrollmentIds.length === 0) return result;
+  const docs = await CertificateModel.find({ enrollmentId: { $in: enrollmentIds }, status: { $in: ["issued", "revoked"] } })
+    .select("enrollmentId status")
+    .lean<Pick<CertificateRecord, "enrollmentId" | "status">[]>();
+  for (const doc of docs) {
+    const id = doc.enrollmentId.toString();
+    if (doc.status === "issued" || !result.has(id)) result.set(id, doc.status as EnrollmentCertificateStatus);
+  }
+  return result;
+}
+
 function computeProgress(curriculum: Curriculum, attempts: ProgressSubmission[], readModuleIds: string[]): ProgramProgress {
   return evaluateProgress({
     modules: curriculum.modules.map((module) => ({ id: module._id.toString(), order: module.order })),
@@ -162,10 +188,11 @@ async function buildOverviews(studentId: Id, enrollments: EnrollmentDoc[]) {
     const program = programById.get(item.programId.toString());
     return program && learningAccess(item.status, program.status) !== "none";
   });
-  const [curricula, attempts, readModules] = await Promise.all([
+  const [curricula, attempts, readModules, certificates] = await Promise.all([
     loadCurricula(accessible.map((item) => item.programId)),
     loadAttempts(studentId, accessible.map((item) => item._id)),
     loadReadModules(studentId, accessible.map((item) => item._id)),
+    loadCertificateStatuses(accessible.map((item) => item._id)),
   ]);
 
   const overviews: (EnrollmentOverview & { curriculum: Curriculum | null })[] = [];
@@ -197,6 +224,7 @@ async function buildOverviews(studentId: Id, enrollments: EnrollmentDoc[]) {
       access,
       progress,
       nextModule: nextModuleDoc ? { id: nextModuleDoc._id.toString(), title: nextModuleDoc.title } : null,
+      certificate: certificates.get(enrollment._id.toString()) ?? null,
       curriculum,
     });
   }

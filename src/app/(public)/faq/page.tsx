@@ -21,8 +21,7 @@ export default function FaqPage() {
         <p className="type-eyebrow text-primary">FAQs</p>
         <h1 className="type-page-title mt-2 text-foreground">Frequently asked questions</h1>
         <p className="type-lead mt-4 text-muted">
-          Answers about programs, project tasks, certificates and payments. Answers labelled &ldquo;Draft&rdquo; depend
-          on policies that are still being finalised.
+          Answers about programs, project tasks, certificates and payments.
         </p>
         <nav aria-label="FAQ topics" className="mt-6">
           <ul className="flex flex-wrap gap-2">

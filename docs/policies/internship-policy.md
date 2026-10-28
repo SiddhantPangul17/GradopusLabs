@@ -1,8 +1,8 @@
 # Gradopus Labs Internship Policy
 
-- **Version:** 1.2
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.3
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Contact:** <support.gradopuslabs@gmail.com>
 
@@ -51,7 +51,7 @@ The internship details for each internship will state clearly:
 ### 3.1 Fees and stipends
 
 - Students pay an **enrollment fee** to join a program. The fee for each program is shown on its page before you
-  enroll. `[TO BE CONFIRMED: the fee for each program]`
+  enroll and again at checkout, in Indian rupees.
 - The enrollment fee is the only charge. There is no application, assessment or certificate fee.
 - Paying the fee gives you access to the program. It does not guarantee that your work will be accepted, that you
   will complete the program, or that you will receive a certificate, a job or a placement.
@@ -69,7 +69,7 @@ under applicable central and state labour laws, must be reviewed before launch.]
 
 **Who can join.** You must be **18 or older**. Each internship also lists any other eligibility requirements, such
 as the skills or prior knowledge needed to follow the tasks. Requirements are limited to what is genuinely needed
-for the internship. `[TO BE CONFIRMED: other eligibility requirements per internship]`
+for the internship, and are shown as prerequisites on the program's page.
 
 **Equal opportunity.** We do not exclude or treat any applicant less favourably because of gender, gender
 identity, sexual orientation, caste, religion, region, place of birth, language, disability, marital status,
@@ -104,8 +104,8 @@ until you pay or accept.
 
 ## 6. Internship duration and scheduling
 
-The duration, expected weekly time commitment and any fixed session times are stated in the internship details.
-`[TO BE CONFIRMED: duration and weekly hours per internship]`
+The duration in weeks and the expected weekly time commitment are shown on each program's page. Programs are
+self-paced and have no fixed session times, unless the internship details say otherwise before you enroll.
 
 - We will not expect you to work more than the time commitment stated in your internship details.
 - Unless the internship details say otherwise, you may arrange your own working time to suit your studies, within
@@ -136,8 +136,9 @@ You will not be asked to do work that is unrelated to the learning objectives of
 ## 8. Mentor support and communication expectations
 
 **What you can expect.** You will have access to a mentor or reviewer who can answer questions about your tasks,
-give feedback on your work and help when you are stuck.
-`[TO BE CONFIRMED: communication channels and expected response time]`
+give feedback on your work and help when you are stuck. Send questions to <support.gradopuslabs@gmail.com> or
+through the contact form on our website; we aim to reply within **3 working days**. Review results and feedback
+appear in your student account.
 
 **What we expect from you.**
 
@@ -165,7 +166,8 @@ where both people agree.
   reviewer access as the task instructs; you do not have to make work public to have it reviewed.
 - Work you submit must be your own. Credit any third-party code, libraries, tutorials or other resources you use,
   as the task instructions require. Follow the task's instructions on the use of AI coding assistants and disclose
-  where you have used them. `[TO BE CONFIRMED: the general rule on AI-assisted work]`
+  where you have used them. Unless a task says otherwise, you may use AI tools to help you learn, research, plan
+  and debug, but the work must be your own and you must be able to explain any part of it.
 - In group tasks, each member must be able to show their own contribution.
 - Never include passwords, API keys, access tokens or other people's personal information in a repository,
   deployment or document you submit.
@@ -188,15 +190,15 @@ number of attempts; if so, the limit is shown on the task. Earlier attempts and 
 ## 10. Attendance, participation and reasonable deadlines
 
 **Participation.** You are expected to work steadily on your tasks and keep your mentor informed of your progress.
-If your internship includes live sessions, the internship details will state which sessions are expected and how
-missed sessions can be made up. `[TO BE CONFIRMED: whether there are live sessions and any attendance
-expectations]`
+Programs are self-paced and have no live sessions or attendance requirements. If a program ever includes live
+sessions, its internship details will state, before you enroll, which sessions are expected and how missed
+sessions can be made up.
 
 **Deadlines.** Task deadlines are set so that the work can reasonably be completed within the stated time
 commitment.
 
 - Unless a task says otherwise, late submissions are still reviewed, and the reviewer can see when the work was
-  submitted. `[TO BE CONFIRMED: whether lateness affects evaluation or completion]`
+  submitted. Lateness does not, by itself, lower the outcome of a review or stop you completing the internship.
 - If you have a genuine reason for needing more time, such as illness, a family emergency or examinations, ask
   your mentor for an extension before the deadline where you can. Reasonable requests will be considered fairly.
 - Missing a deadline is never, on its own, treated as misconduct.
@@ -204,7 +206,8 @@ commitment.
 ## 11. Performance evaluation and feedback
 
 - Your work is evaluated only against the criteria published for each task and the completion requirements of
-  your internship. `[TO BE CONFIRMED: any scoring or grading scheme]`
+  your internship. There is no overall grade. A reviewer may add a score as extra feedback, but a score never
+  decides whether a task is accepted or whether you complete the internship.
 - Every review that requests changes or rejects a submission comes with written feedback explaining why and, where
   possible, what to improve.
 - The same criteria apply to every intern on the same task.
@@ -217,8 +220,8 @@ You complete an internship when you meet **all** of the completion requirements 
 
 1. every **required** task has an **accepted** review (or, for a non-assessed activity such as a reading module, is
    marked as done in the way the task describes); and
-2. any other requirement stated in your internship details.
-   `[TO BE CONFIRMED: any additional completion requirements per internship]`
+2. any other requirement stated in your internship details before you enrolled. Current programs have no
+   additional requirements.
 
 Optional tasks do not affect completion.
 
@@ -274,8 +277,9 @@ The following are not acceptable and may lead to the steps described in section 
 - any breach of section 15.
 
 **Reporting harassment.** If you experience or witness harassment, report it using the contact details in
-section 18. Reports are handled confidentially, and you will not be penalised for making a report in good faith.
-`[TO BE CONFIRMED: the person or committee who handles harassment complaints]`
+section 18. Reports are handled personally and confidentially by the proprietor of Gradopus Labs, and you will not
+be penalised for making a report in good faith. You can also go directly to the police or to any other authority
+that can deal with the complaint.
 
 `[LEGAL REVIEW: confirm the obligations that apply to complaints of sexual harassment involving interns,
 including how complaints must be received and handled.]`
@@ -293,8 +297,9 @@ private repositories, unreleased product details, or information belonging to Gr
 portfolio any code, documentation or other material that is confidential or belongs to a client unless you have
 received **written permission** from Gradopus Labs. Who owns work created during an internship, and when you may
 show it publicly, is set out in the Intellectual Property & Code of Conduct and, where relevant, your internship
-details or a separate written agreement, before you start any task they apply to. `[TO BE CONFIRMED: ownership and showcasing rules for practice
-tasks and for client or product work]`
+details or a separate written agreement, before you start any task they apply to. Current programs use practice
+tasks only: you keep ownership of the work you create for them and may show it in your portfolio. Gradopus Labs
+does not claim ownership of it.
 
 You may always describe, in general terms, the skills you used and the kind of work you did, for example on your
 CV, as long as you do not reveal confidential information.
@@ -328,8 +333,7 @@ different way to demonstrate your work.
   disclose a diagnosis.
 - Requests are kept confidential and shared only with the people who need to know in order to arrange the
   accommodation.
-- We will discuss the request with you and respond in writing.
-  `[TO BE CONFIRMED: expected time to respond]`
+- We will discuss the request with you and respond in writing within **7 working days**.
 - If we cannot provide exactly what you asked for, we will explain why and try to agree an alternative.
 - Asking for an accommodation will never affect your selection, evaluation or certificate.
 
@@ -357,8 +361,7 @@ as set out in the Payment, Refund & Stipend Policy.
 **What happens to your work and records.**
 
 - Reviews already completed stay on your record.
-- Submissions still waiting for review when an internship ends will be: `[TO BE CONFIRMED: reviewed, or closed
-  without review]`. You will be told which.
+- Submissions still waiting for review when an internship ends will still be reviewed.
 - A certificate is issued only if you met all of the completion requirements before the internship ended.
 - Enrollment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
   cases set out in the Payment, Refund & Stipend Policy.
@@ -374,10 +377,10 @@ termination decision or the behaviour of anyone involved, please raise it with u
 1. **Start informally**, where you feel comfortable doing so, by raising it with your mentor.
 2. **Raise a formal grievance** by writing to <support.gradopuslabs@gmail.com>. Include your name, the
    internship, what happened and what outcome you are seeking.
-3. We will acknowledge your grievance and respond in writing with a decision and the reasons for it.
-   `[TO BE CONFIRMED: acknowledgement and response timelines]`
-4. If you are not satisfied, you can ask for the decision to be reviewed by someone not involved in the original
-   decision, where possible. `[TO BE CONFIRMED: who handles escalated grievances]`
+3. We will acknowledge your grievance within **3 working days**, and respond in writing with a decision and the
+   reasons for it within **30 days**.
+4. If you are not satisfied, you can ask for the decision to be reviewed. Escalated grievances are reviewed
+   personally by the proprietor of Gradopus Labs.
 
 You can skip the informal step for any reason, and you should go straight to a formal grievance for any complaint
 of harassment.
@@ -417,10 +420,14 @@ We may update this policy from time to time. When we do:
 
 ## Revision history
 
+- **Version 1.3, 28 October 2026:** Effective from 28 October 2026. Added: self-paced delivery with no live
+  sessions, how to contact your mentor and reply times, the general rule on AI tools, no overall grade, ownership
+  and showcasing of practice work, accommodation and grievance timelines, and that pending submissions are still
+  reviewed when an internship ends.
 - **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrollment only, no identity documents.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review. Adds the
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version. Adds the
   confirmed fee model (enrollment fee only, no certificate fee, no stipends, refunds only in limited cases) and the
   open-enrollment route.
 - **Draft 0.1, 21 October 2026:** Initial internal draft.

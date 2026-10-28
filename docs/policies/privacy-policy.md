@@ -1,14 +1,13 @@
 # Gradopus Labs Privacy Policy
 
-- **Version:** 1.3
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.4
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Privacy contact:** <support.gradopuslabs@gmail.com>
 
 This policy explains what personal data Gradopus Labs collects through its website and programs, why, who can see
 it, what is public, how long it is kept and what you can ask us to do. It describes how the website works today.
-Where something is not yet in place, the policy says so.
 
 ## 1. Who we are
 
@@ -48,7 +47,7 @@ have their own privacy policies (see section 19).
   certificate's QR code shows your **full name** (section 10).
 - We use only the **cookies needed to keep you signed in** securely. We do not use analytics or advertising cookies.
 - We do **not** sell your personal data or send marketing emails.
-- Payments are handled by **Razorpay**, and emails are sent by **Resend**, when those services are switched on.
+- Payments are handled by **Razorpay**, emails are sent by **Resend**, and the website is hosted by **Vercel**.
 
 ## 4. Personal data we collect
 
@@ -128,9 +127,9 @@ is resolved (section 13).
 - **Records of administrative actions:** we keep an internal record of significant actions taken by our team, such
   as reviewing work, issuing or revoking a certificate, or suspending an account. These records identify the team
   member and the affected record. They do not include IP addresses or browser details.
-- **Hosting:** the company that hosts our website may automatically record technical information about requests,
-  such as IP address, browser type and the pages requested. `[TO BE CONFIRMED: hosting provider and what request
-  logs it keeps, and for how long]`
+- **Hosting:** our website is hosted by Vercel, which automatically records technical information about requests,
+  such as IP address, browser type and the pages requested, to run and secure the service. Vercel keeps these logs
+  only for a limited period, under its own privacy policy. We do not use them to identify or track visitors.
 - **Cookies:** see section 16.
 
 ## 5. Where personal data comes from
@@ -236,17 +235,18 @@ and proportionate, and how holders are informed of it.]`
 
 We share personal data with the following service providers, only as needed for them to provide their service to us:
 
-- **Razorpay** (payments), only when online payment is switched on. When you choose to pay, Razorpay's checkout
+- **Razorpay** (payments). When you choose to pay, Razorpay's checkout
   opens in your browser with your **name and email address** filled in, and you enter your payment details
   directly into it. We send Razorpay the amount, an internal payment reference and the program's identifier.
   Razorpay processes your payment under its own terms and privacy policy.
-- **Resend** (email delivery), only when email sending is switched on. For each email, we send Resend your email
+- **Resend** (email delivery). For each email, we send Resend your email
   address and the email's content, which can include your name, program and task titles, review feedback,
   certificate IDs, payment references and links. Contact-form messages are also delivered through Resend, including
   your name, email address, subject and message.
 - **Database hosting:** our database runs on MongoDB Atlas, on Amazon Web Services (AWS) infrastructure in a single
-  region. `[TO BE CONFIRMED: the AWS region]`
-- **Website hosting:** the website at gradopuslabs.online is hosted by `[TO BE CONFIRMED: hosting provider]`.
+  region.
+- **Website hosting:** the website at gradopuslabs.online is hosted by Vercel. All of the data above passes
+  through Vercel's servers when you use the website.
 
 We may also disclose personal data where the law requires it, for example in response to a lawful request from an
 authority. We do not sell personal data.
@@ -255,9 +255,11 @@ authority. We do not sell personal data.
 
 Some of our service providers may store or process data outside India:
 
-- **Database:** stored in one AWS region. `[TO BE CONFIRMED: the AWS region and its country]`
-- **Website hosting and email delivery:** `[TO BE CONFIRMED: the countries or regions where the hosting provider
-  and Resend store or process data]`
+- **Database:** stored by MongoDB Atlas in one AWS region, which may be outside India.
+- **Website hosting and email delivery:** Vercel and Resend are based in the United States, and may store or
+  process data in the United States and in other countries where they or their own providers operate.
+
+Each of these providers protects the data under its own security measures and data-protection terms.
 
 `[LEGAL REVIEW: confirm any requirements or restrictions that apply to transferring personal data outside India.]`
 
@@ -303,8 +305,7 @@ We may ask you to confirm your identity before acting on a request, using only w
 
 **What to expect:**
 
-- We will acknowledge your request within **3 working days**, and respond in full within `[TO BE CONFIRMED: full
-  response time]`.
+- We will acknowledge your request within **3 working days**, and respond in full within **30 days**.
 - There is no self-service deletion or download feature yet; requests are handled by our team.
 - We may not be able to delete everything. For example, certificate records may need to be kept so that
   verification stays accurate, payment records may need to be kept by law, and records may be needed for a
@@ -322,8 +323,8 @@ We use reasonable measures to protect personal data. On the website today these 
 - access checks so that students can see only their own records and only administrators can see others';
 - limits on repeated attempts to sign in, reset passwords and verify certificates.
 
-`[TO BE CONFIRMED: hosting security, including HTTPS, and any database encryption and backups, for the live
-website]`
+The website is served only over encrypted HTTPS connections. Our database provider, MongoDB Atlas, requires
+encrypted connections and encrypts stored data.
 
 No system is completely secure, and we cannot guarantee absolute security. Please keep your password private and
 tell us straight away if you think your account has been misused.
@@ -389,8 +390,7 @@ If you have a concern about how we handle your personal data:
 
 1. Write to <support.gradopuslabs@gmail.com>, describing your concern and what you would like us
    to do.
-2. We will acknowledge your complaint within **3 working days**, and respond in writing within `[TO BE CONFIRMED:
-   full response time]`.
+2. We will acknowledge your complaint within **3 working days**, and respond in writing within **30 days**.
 3. If you are not satisfied, you can ask for the decision to be reviewed, as described in the Student Terms &
    Conditions.
 
@@ -418,14 +418,17 @@ data or using a new service provider. When we do:
 
 ## Revision history
 
+- **Version 1.4, 28 October 2026:** Effective from 28 October 2026. Named Vercel as the website host, and added where
+  our service providers store data, how the website and database are secured, and a 30-day full response time for
+  privacy requests and complaints.
 - **Version 1.3, 23 October 2026:** The contact form now delivers messages by email (through Resend) to the support
   inbox without storing them on the website.
 - **Version 1.2, 23 October 2026:** Added: open enrollment only (no application data), no identity documents, minimum age 18,
   proprietor as sole administrator, MongoDB Atlas on AWS, retention periods, 3-working-day acknowledgement of privacy
   requests and complaints, and the breach-response process.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review.
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version.
 
 ## Notes for reviewers (remove before publication)
 

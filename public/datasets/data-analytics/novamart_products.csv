@@ -1,0 +1,61 @@
+product_id,product_name,category,unit_price,unit_cost
+P001,Wireless Earbuds,Electronics,1999,1533
+P002,Bluetooth Speaker,Electronics,2499,1955
+P003,Smart Watch,Electronics,3999,3127
+P004,Power Bank 10000mAh,Electronics,1299,939
+P005,USB-C Fast Charger 25W,Electronics,899,708
+P006,Laptop Stand,Electronics,1499,1105
+P007,Wireless Mouse,Electronics,699,526
+P008,Mechanical Keyboard,Electronics,3499,2711
+P009,Full HD Webcam,Electronics,2299,1693
+P010,Noise Cancelling Headphones,Electronics,6999,5299
+P011,Pen Drive 64GB,Electronics,549,422
+P012,Smart LED Bulb,Electronics,599,474
+P013,Non-stick Frying Pan,Home & Kitchen,1199,767
+P014,Pressure Cooker 3L,Home & Kitchen,1899,1175
+P015,Steel Water Bottle 1L,Home & Kitchen,549,346
+P016,Mixer Grinder 750W,Home & Kitchen,3299,2090
+P017,Electric Kettle 1.5L,Home & Kitchen,1099,720
+P018,Cotton Bedsheet Set,Home & Kitchen,1299,862
+P019,Storage Containers Set of 6,Home & Kitchen,799,494
+P020,Air Fryer 4L,Home & Kitchen,5499,3343
+P021,Dinner Set 18-piece,Home & Kitchen,2499,1597
+P022,LED Desk Lamp,Home & Kitchen,999,633
+P023,Wall Clock,Home & Kitchen,649,395
+P024,Cushion Covers Set of 5,Home & Kitchen,599,402
+P025,Men's Cotton T-Shirt,Fashion,499,246
+P026,Women's Kurta,Fashion,899,474
+P027,Denim Jeans,Fashion,1499,784
+P028,Running Shoes,Fashion,2499,1322
+P029,Casual Sneakers,Fashion,1999,1010
+P030,Leather Wallet,Fashion,699,363
+P031,Analog Wristwatch,Fashion,1799,924
+P032,Cotton Saree,Fashion,1999,1007
+P033,Hooded Sweatshirt,Fashion,1299,684
+P034,Sunglasses,Fashion,899,482
+P035,Backpack 25L,Fashion,1199,573
+P036,Formal Shirt,Fashion,999,509
+P037,Face Wash 100ml,Beauty & Personal Care,249,143
+P038,Sunscreen SPF 50,Beauty & Personal Care,399,225
+P039,Hair Dryer,Beauty & Personal Care,1299,718
+P040,Beard Trimmer,Beauty & Personal Care,1499,787
+P041,Moisturiser 200ml,Beauty & Personal Care,349,203
+P042,Shampoo 340ml,Beauty & Personal Care,299,162
+P043,Perfume 100ml,Beauty & Personal Care,999,578
+P044,Lip Balm Pack of 3,Beauty & Personal Care,199,107
+P045,Python Programming Guide,Books,599,406
+P046,Data Analytics Handbook,Books,699,467
+P047,Personal Finance Basics,Books,399,270
+P048,Indian History Overview,Books,499,334
+P049,Habits for Success,Books,349,245
+P050,Children's Story Collection,Books,299,221
+P051,Competitive Exam Guide,Books,649,429
+P052,Indian Kitchen Cookbook,Books,449,332
+P053,Yoga Mat,Sports & Fitness,699,437
+P054,Dumbbell Set 10kg,Sports & Fitness,1999,1135
+P055,Skipping Rope,Sports & Fitness,249,145
+P056,Cricket Bat,Sports & Fitness,1799,1116
+P057,Football,Sports & Fitness,799,503
+P058,Badminton Racket Pair,Sports & Fitness,1299,741
+P059,Resistance Bands Set,Sports & Fitness,599,359
+P060,Cycling Gloves,Sports & Fitness,449,267

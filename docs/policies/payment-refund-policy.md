@@ -1,8 +1,8 @@
 # Gradopus Labs Payment, Refund & Stipend Policy
 
-- **Version:** 1.1
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.2
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Payments contact:** <support.gradopuslabs@gmail.com>
 
@@ -36,8 +36,8 @@ Each program has its own fee, shown on its page. Programs can differ in price, d
 that one program's fee or terms apply to another.
 
 Gradopus Labs may waive the fee for some students, for example through a scholarship. Waivers are given in writing
-and do not change the program's requirements. `[TO BE CONFIRMED: whether fee waivers or scholarships will be
-offered, and how]`
+and do not change the program's requirements. We do not currently run a scholarship scheme, and there is no
+application process for waivers.
 
 ## 4. How fees are disclosed
 
@@ -51,7 +51,7 @@ Before you pay, you will see:
 The amount charged is always the program fee stored by Gradopus Labs at the time you pay. You cannot be charged a
 different amount at checkout, and no fee, tax or charge will be added that was not shown to you before you paid.
 
-`[TO BE CONFIRMED: the fee for each program, and whether prices include GST]`
+All fees are in Indian rupees (₹). The amount shown at checkout is the full amount you pay (section 14).
 
 We will not use false urgency, such as fake countdowns or invented "limited seats", to pressure you into paying.
 
@@ -90,7 +90,6 @@ client project, gives rise to wage, stipend or other obligations under applicabl
 
 - Online payments are processed by **Razorpay**, a third-party payment provider. You can pay using the methods
   Razorpay's checkout offers, such as UPI, cards, net banking or wallets.
-  `[TO BE CONFIRMED: Razorpay live account approval; online payment is not available until it is approved]`
 - You enter your payment details **directly into Razorpay's checkout**. Gradopus Labs does not receive or store your
   card number, CVV, UPI ID or bank details.
 - Gradopus Labs will **never** ask for your UPI PIN, card PIN, OTP, net-banking password or any other payment
@@ -103,8 +102,7 @@ client project, gives rise to wage, stipend or other obligations under applicabl
   - a record in the **Payments** section of your student dashboard;
   - a payment confirmation email, if email is set up, showing the program, amount, payment reference and date.
 
-The payment confirmation is **not a tax invoice**. `[TO BE CONFIRMED: whether tax invoices will be issued, see
-section 14]`
+The payment confirmation is **not a tax invoice**. Gradopus Labs does not currently issue tax invoices (section 14).
 
 ## 8. Refunds
 
@@ -147,8 +145,7 @@ description of a paid program as an "internship".]`
 ## 10. Program cancellation or significant changes by Gradopus Labs
 
 - If we **cancel** a program you have paid for before you complete it, we will tell you as early as possible and
-  refund your enrollment fee in full. `[TO BE CONFIRMED: whether a partial refund applies if most of the program has
-  already been delivered]`
+  refund your enrollment fee in full, however much of the program has already been delivered.
 - If we make a **significant change** that materially reduces what was promised, such as removing major parts of the
   program or substantially changing its duration, we will tell you before the change takes effect. You may then
   continue, or withdraw and receive a refund.
@@ -158,12 +155,13 @@ description of a paid program as an "internship".]`
 
 ## 11. Refund processing times
 
-- We aim to respond to refund requests within `[TO BE CONFIRMED: response time]`.
-- Approved refunds are started within `[TO BE CONFIRMED: processing time]`.
-- After a refund is started, banks and Razorpay may take additional time before it appears in your account.
+- We aim to respond to refund requests within **7 working days**.
+- Approved refunds are started within **7 working days** of approval.
+- After a refund is started, banks and Razorpay usually take a further 5 to 7 working days before it appears in
+  your account.
 
-Refunds are currently made by our team through Razorpay. They are not yet shown automatically in your dashboard; we
-will confirm each refund to you by email.
+Refunds are made by our team through Razorpay, to the payment method you used. We confirm each refund to you by
+email; refunds are not shown in your dashboard.
 
 ## 12. Disputed and duplicate payments
 
@@ -173,7 +171,7 @@ will confirm each refund to you by email.
   raising a dispute with your bank, so we can resolve it quickly. You keep any right you have to raise a dispute with
   your bank or payment provider.
 - If you raise a chargeback or payment dispute, we will work with you and Razorpay to resolve it.
-  `[TO BE CONFIRMED: whether program access is paused while a chargeback is open]` We will **not** revoke a
+  Your access to the program is not paused while a dispute is open. We will **not** revoke a
   certificate you have already earned because of a payment dispute.
 
 ## 13. Failed or delayed payments
@@ -183,23 +181,23 @@ will confirm each refund to you by email.
   enrollment is shown as **awaiting confirmation**. You can check the status on the checkout page.
 - Access is given only after the payment is confirmed by Razorpay to our server. A success message in your banking
   app alone does not activate enrollment.
-- If money has left your account but your enrollment is not confirmed after `[TO BE CONFIRMED: time]`, contact us
+- If money has left your account but your enrollment is not confirmed after **24 hours**, contact us
   with the payment reference.
 
 ## 14. Taxes and invoices
 
-`[TO BE CONFIRMED: whether Gradopus Labs is registered for GST, whether program fees include GST, and whether and how
-tax invoices will be issued. To be decided with a qualified accountant before live payments start.]`
-
-Until this is confirmed, no tax is calculated or shown on the website, and payment confirmations are not tax
-invoices.
+- The fee shown on the program page and at checkout is the total amount you pay. No GST or other tax is added on
+  top of it.
+- Gradopus Labs does not currently issue tax invoices. Your payment confirmation and the **Payments** section of
+  your student dashboard are your record of payment. If you need a separate payment receipt, email us with your
+  payment reference.
 
 ## 15. Financial grievances and contact
 
 For any question or complaint about a payment, refund or charge:
 
 1. Email <support.gradopuslabs@gmail.com> with your payment reference.
-2. We will acknowledge and respond in writing. `[TO BE CONFIRMED: response time]`
+2. We will acknowledge your message within **3 working days**, and respond in writing within **7 working days**.
 3. If you are not satisfied, you can raise a grievance under the Student Terms & Conditions.
 
 This does not affect any right you have to approach a consumer forum, your bank or any other authority available to
@@ -224,9 +222,13 @@ effect when you paid.
 
 ## Revision history
 
+- **Version 1.2, 28 October 2026:** Effective from 28 October 2026. Added: no scholarship scheme, fees in rupees
+  with nothing added at checkout, no tax invoices, full refunds when we cancel a program, refund timelines, no
+  pause of access during a payment dispute, a 24-hour point to contact us about an unconfirmed payment, and
+  complaint timelines.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review.
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version.
 
 ## Notes for reviewers (remove before publication)
 

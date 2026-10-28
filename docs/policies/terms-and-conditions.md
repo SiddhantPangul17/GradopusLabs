@@ -1,8 +1,8 @@
 # Gradopus Labs Student Terms & Conditions
 
-- **Version:** 1.2
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.3
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Contact:** <support.gradopuslabs@gmail.com>
 
@@ -56,8 +56,7 @@ that part does not apply to the extent of the conflict.
 - You must be **18 or older** to create an account or enroll in a program.
 - Each program lists any other eligibility requirements. These are limited to what is genuinely needed for the
   program, and we do not exclude anyone on discriminatory grounds, as described in the
-  [Internship Policy](./internship-policy.md), section 4. `[TO BE CONFIRMED: other eligibility requirements per
-  program]`
+  [Internship Policy](./internship-policy.md), section 4. They are shown as prerequisites on the program's page.
 - The information you give us, in your application, account and submissions, must be true, accurate and your own.
 - The name you give for your certificate must be your real name. You can ask us to correct it (see section 15).
 - If any information you gave changes or turns out to be wrong, tell us promptly.
@@ -118,8 +117,7 @@ details.]`
   details **before** you pay or accept. We will not apply conditions that were not disclosed to you in one of these
   ways.
 - Onboarding is described in section 5 of the Internship Policy.
-
-`[TO BE CONFIRMED: duration and weekly time commitment per program]`
+- Each program's page shows its **duration** in weeks and its **expected weekly time commitment**.
 
 ## 7. Your responsibilities and professional conduct
 
@@ -147,7 +145,7 @@ penalised for making a report in good faith.
 completed within the time commitment stated in your internship details.
 
 - Unless a task says otherwise, late submissions are still reviewed, and the reviewer can see when the work was
-  submitted. `[TO BE CONFIRMED: whether lateness affects evaluation or completion]`
+  submitted. Lateness does not, by itself, lower the outcome of a review or stop you completing the program.
 - If you need more time for a genuine reason, such as illness, a family emergency or examinations, ask your mentor
   before the deadline where you can. Reasonable requests will be considered fairly.
 - Missing a deadline is never, on its own, treated as misconduct.
@@ -156,13 +154,13 @@ completed within the time commitment stated in your internship details.
 Internship Policy and section 10 of these Terms.
 
 **Participation.** You are expected to work steadily on your tasks and keep your mentor informed of your progress.
-Any live sessions or attendance expectations will be stated in the internship details.
-`[TO BE CONFIRMED: whether programs include live sessions and any attendance expectations]`
+Programs are online and self-paced: there are no live sessions and no attendance requirements, unless the
+internship details for a program say otherwise before you enroll.
 
 **Communication.**
 
-- Use the official communication channels for program matters.
-  `[TO BE CONFIRMED: official communication channels]`
+- Use the official communication channels for program matters: email to <support.gradopuslabs@gmail.com>, the
+  contact form on our website, and the notifications and feedback in your student account.
 - We will use the contact details you gave us to send you important messages about your program, such as review
   results and changes to these Terms.
 - Nobody is expected to reply outside reasonable hours.
@@ -191,7 +189,9 @@ Your submissions must honestly show **your own** work and understanding.
 - disclose where you have used AI tools in a submission, in the way the task asks;
 - never submit AI-generated work as your own where the task does not allow it, or without disclosing it.
 
-`[TO BE CONFIRMED: the general rule on AI-assisted work, and how disclosure should be made]`
+**General rule.** Unless a task says otherwise, you may use AI tools to help you learn, research, plan and debug,
+but the work you submit must be your own, and you must be able to explain any part of it. Say briefly in your
+submission which AI tools you used and what for, for example "Used an AI assistant to explain an error message".
 
 **How concerns are handled.** If a reviewer believes a submission may breach this section, we will tell you what
 the concern is and give you a fair opportunity to respond, for example by explaining your work, before reaching a
@@ -219,7 +219,8 @@ breaches, the steps in section 17. Any certificate obtained through work that br
   to accept the submission.
 - You are responsible for complying with the terms of any hosting or deployment service you choose to use. Do not
   use paid services on our behalf, or in our name, without written permission.
-  `[TO BE CONFIRMED: whether Gradopus Labs provides or pays for any hosting or tools]`
+- Gradopus Labs does not provide or pay for hosting or tools. Tasks are designed so that they can be completed with
+  free tools and free service plans.
 
 **Secrets and personal data.** Never include passwords, API keys, access tokens or other secrets, or other people's
 personal information, in a repository, deployment or document you submit. If you include a secret by mistake, tell
@@ -330,7 +331,8 @@ section as sufficient on its own.]`
 **Assessment.**
 
 - Your submissions are reviewed only against the criteria published for each task and the completion requirements
-  of your program. `[TO BE CONFIRMED: any scoring or grading scheme]`
+  of your program. There is no overall grade. A reviewer may add a score as extra feedback, but a score never
+  decides whether a task is accepted or whether you complete the program.
 - Submitting a link, file or demonstration does **not** by itself complete a task. Project submissions count
   towards completion only once a reviewer **accepts** them.
 - A review result is "Accepted", "Changes requested" or "Rejected", with written feedback when changes are
@@ -385,7 +387,8 @@ If someone asks us to verify a certificate, we will tell them truthfully what ou
 ## 16. Fees, payments, refunds and stipends
 
 - **Enrollment fee:** you pay an enrollment fee to join a program. The amount is shown on the program's page and at
-  checkout before you pay. `[TO BE CONFIRMED: the fee for each program, and whether it includes GST]`
+  checkout before you pay, in Indian rupees. The amount shown at checkout is the full amount you pay; no tax or
+  other charge is added on top.
 - **No other charges:** there is no application, assessment or certificate fee. We will not charge any amount that
   was not disclosed in writing before you enrolled.
 - **What the fee pays for:** taking part in the program. It does not guarantee that your work will be accepted, that
@@ -428,7 +431,7 @@ Payment, Refund & Stipend Policy.
 **What happens next.** When a program ends for any reason, section 17 of the Internship Policy applies:
 
 - reviews already completed stay on your record;
-- pending submissions are handled as stated there; `[TO BE CONFIRMED: reviewed, or closed without review]`
+- submissions made before the program ended are still reviewed;
 - a certificate is issued only if you met all completion requirements before the program ended;
 - enrollment fees are not refunded when you withdraw or your participation is ended for misconduct, except in the
   cases in the Payment, Refund & Stipend Policy;
@@ -445,13 +448,14 @@ handled under section 18 of the Internship Policy:
 1. Raise it informally with your mentor, if you feel comfortable doing so.
 2. Raise a formal grievance in writing to <support.gradopuslabs@gmail.com>, describing what
    happened and the outcome you are seeking.
-3. We will acknowledge it and respond in writing with a decision and reasons.
-   `[TO BE CONFIRMED: acknowledgement and response timelines]`
-4. If you are not satisfied, you can ask for the decision to be reviewed by someone not involved in the original
-   decision, where possible. `[TO BE CONFIRMED: who handles escalated grievances]`
+3. We will acknowledge it within **3 working days**, and respond in writing with a decision and reasons within
+   **30 days**.
+4. If you are not satisfied, you can ask for the decision to be reviewed. Escalated grievances are reviewed
+   personally by the proprietor of Gradopus Labs.
 
 You may skip the informal step for any reason, and should go straight to a formal grievance for any complaint of
-harassment. `[TO BE CONFIRMED: the person or committee who handles harassment complaints]`
+harassment. Harassment complaints are handled personally and in confidence by the proprietor of Gradopus Labs. You
+can also go directly to the police or to any other authority that can deal with the complaint.
 
 You will not be penalised for raising a genuine concern. Using this process does not prevent you from using any
 other remedy available to you under law.
@@ -485,7 +489,7 @@ We may update these Terms from time to time. When we do:
 
 - the new version will be published with its version number and effective date;
 - current students will be told about significant changes before they take effect, using the contact details they
-  gave us; `[TO BE CONFIRMED: minimum notice period]`
+  gave us, at least **14 days** before they take effect;
 - changes will not apply retrospectively to work already submitted or reviewed, and will not make the completion
   requirements of a program you have already accepted harder to meet without your agreement;
 - if you do not agree to a significant change, you may withdraw from your program without penalty. If the change
@@ -494,11 +498,9 @@ We may update these Terms from time to time. When we do:
 
 ## 21. Applicable law and disputes
 
-These Terms are intended to be read in accordance with the laws of India.
+These Terms are governed by the laws of India.
 
-`[TO BE CONFIRMED: governing law, jurisdiction and any dispute-resolution process, after legal review.]`
-
-Until that is confirmed:
+If a dispute arises:
 
 - please raise any concern with us first under section 18, so we can try to resolve it;
 - nothing in these Terms requires you to use any particular court, arbitration or other forum, or prevents you from
@@ -528,10 +530,14 @@ section 18.
 
 ## Revision history
 
+- **Version 1.3, 28 October 2026:** Effective from 28 October 2026. Added: self-paced delivery with no live
+  sessions, official communication channels, the general rule on AI tools, no hosting or tools provided, no overall
+  grade, the fee shown at checkout as the full amount, grievance timelines and handling, 14 days' notice of
+  significant changes, and Indian law as the governing law.
 - **Version 1.2, 23 October 2026:** Added: minimum age 18, open enrollment only, no identity documents.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review. Adds the
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version. Adds the
   confirmed fee model (enrollment fee only, no certificate fee, no stipends, refunds only in limited cases), the
   open-enrollment route and the registration checkbox.
 - **Draft 0.1, 21 October 2026:** Initial internal draft.

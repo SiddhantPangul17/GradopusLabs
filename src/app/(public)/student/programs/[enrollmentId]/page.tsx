@@ -11,7 +11,7 @@ import { AwardIcon, BookOpenIcon, CheckIcon, ChevronRightIcon, ClockIcon } from 
 import { Notice } from "@/components/ui/notice";
 import { StatusBadge, type Status } from "@/components/ui/status-badge";
 import { requireStudent } from "@/lib/auth/session";
-import { enrollmentStatusDisplay, formatMinutes, programStateDisplay } from "@/lib/learning/labels";
+import { certificateWaitMessage, enrollmentStatusDisplay, formatMinutes, programStateDisplay } from "@/lib/learning/labels";
 import { getEnrollmentLearning, type ModuleSummary } from "@/lib/services/learning-service";
 import { cn } from "@/lib/utils";
 
@@ -25,8 +25,7 @@ const stateExplanation = {
   not_started: "Start with the first module below.",
   in_progress: "Keep going: complete every module to meet the program's requirements.",
   awaiting_review: "You have submitted everything required. Some work is waiting for review.",
-  requirements_completed:
-    "You have completed every required module and task. Certificates are issued by our team after a check of your records and appear under Certificates once issued.",
+  requirements_completed: "You have completed every required module and task.",
 } as const;
 
 type ModuleState = { label: string; status: Status; step: "done" | "review" | "todo" };
@@ -85,6 +84,7 @@ async function ProgramLearning({ params }: { params: PageProps<"/student/program
   const awaitingReview = modules.reduce((sum, module) => sum + module.progress.awaitingReview, 0);
   const nextModule = enrollment.nextModule;
   const finished = progress?.state === "requirements_completed";
+  const certificateWait = progress && enrollment.access !== "none" ? certificateWaitMessage(progress.state, enrollment.certificate) : null;
 
   return (
     <>
@@ -122,7 +122,15 @@ async function ProgramLearning({ params }: { params: PageProps<"/student/program
                   valueText={`${progress.completedModules} of ${progress.totalModules} modules completed`}
                 />
               )}
-              <p className="type-supporting mt-3 max-w-2xl text-muted">{stateExplanation[progress.state]}</p>
+              <p className="type-supporting mt-3 max-w-2xl text-muted">
+                {stateExplanation[progress.state]}
+                {finished && enrollment.certificate === "issued" && " Your certificate has been issued."}
+              </p>
+              {certificateWait && (
+                <Notice tone="info" title={certificateWait.title} className="mt-4 max-w-2xl">
+                  {certificateWait.body}
+                </Notice>
+              )}
               {enrollment.access === "read_only" && (
                 <p className="type-supporting mt-2 max-w-2xl text-muted">
                   This program is completed. You can review the content and your submissions; new submissions are closed.

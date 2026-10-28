@@ -85,8 +85,9 @@ describe("published policy documents", () => {
 
     expect(published).not.toContain("LEGAL REVIEW");
     expect(published).not.toContain("Notes for reviewers");
+    expect(published).not.toContain("TO BE CONFIRMED"); // the policies are in effect: no open placeholders
     expect(published).not.toMatch(/^\|/m); // tables are not supported by the renderer
-    expect(parsed.intro).toMatch(/\*\*Effective date:\*\*/);
+    expect(parsed.intro).toMatch(/\*\*Effective date:\*\* \d{1,2} [A-Z][a-z]+ \d{4}/);
     expect(parsed.intro).toMatch(/\*\*Version:\*\*/);
 
     const numbers = parsed.sections.filter((section) => section.number !== null).map((section) => Number(section.number));

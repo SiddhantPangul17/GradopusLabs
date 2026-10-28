@@ -13,6 +13,7 @@ never send identity, role, reviewer or status.
 | `/admin/analytics` (+ programs, revenue, learning, certificates, operations) | Reports, charts, CSV exports and operational status ([analytics.md](analytics.md)) |
 | `/admin/programs` | All programs with status filter |
 | `/admin/programs/new` | Create a program (always saved as a draft) |
+| `/admin/programs/import` | Create a program with all its modules and tasks from pasted JSON (always a draft) |
 | `/admin/programs/[id]` | Edit details, publishing checklist, publish / archive / move to draft (confirmed) |
 | `/admin/programs/[id]/modules` | Add, publish/hide and reorder learning modules |
 | `/admin/programs/[id]/modules/[moduleId]` | Edit a module; add, edit, publish/hide and reorder its tasks |
@@ -42,7 +43,17 @@ never send identity, role, reviewer or status.
   removes the program from the catalogue and new enrollment; enrolled students
   keep access. Moving a published program back to draft removes access until it
   is published again. Programs are **never deleted**.
-- FAQ entries are kept on save (edit them through `npm run content:import`).
+- FAQ entries are kept on save (edit them through an import).
+- **Import** (`/admin/programs/import`) takes the same JSON as `npm run content:import`
+  (`docs/examples/sample-program.json`), pasted or loaded from a `.json` file in the
+  browser. The whole file is validated first; nothing is saved if any part is
+  invalid, and problems are listed by position ("Module 3, task 1, slug"). Extra
+  rules: the result is always a **draft** (any status in the file is ignored);
+  only new slugs or existing **drafts** can be imported (published and archived
+  programs are refused, so students never see content change underneath them);
+  file-upload tasks are refused. Importing over a draft replaces its details and
+  updates modules/tasks in place by slug (unpublishing any not in the file).
+  Audited as `curriculum.imported` with `via: "admin"` and the acting admin.
 
 ## Modules and tasks
 

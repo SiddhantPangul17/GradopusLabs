@@ -1,8 +1,8 @@
 # Gradopus Labs Intellectual Property & Code of Conduct
 
-- **Version:** 1.1
-- **Effective date:** To be set after legal review
-- **Last updated:** 23 October 2026
+- **Version:** 1.2
+- **Effective date:** 28 October 2026
+- **Last updated:** 28 October 2026
 - **Operated by:** Gradopus Labs, a sole proprietorship based in Maharashtra, India
 - **Contact:** <support.gradopuslabs@gmail.com>
 
@@ -50,7 +50,8 @@ When working in a group, everyone must contribute fairly, credit each other's wo
 disagreements respectfully. Ask your mentor for help if a group problem cannot be resolved.
 
 Harassment can be reported at any time under section 18, including directly, without first raising it with the
-person involved. `[TO BE CONFIRMED: the person or committee who handles harassment complaints]`
+person involved. Harassment complaints are handled personally and confidentially by the proprietor of Gradopus
+Labs. You can also go directly to the police or to any other authority that can deal with the complaint.
 
 `[LEGAL REVIEW: confirm the obligations that apply to complaints of sexual harassment involving interns, including
 how complaints must be received and handled.]`
@@ -79,7 +80,8 @@ Using properly credited libraries, tutorials or templates, as a task allows, is 
 AI tools can be useful, and using them is **not automatically misconduct**. The rules are:
 
 - **Follow each task brief.** A brief states whether AI tools may be used and how. Use them only within those limits.
-  `[TO BE CONFIRMED: the default rule when a brief says nothing about AI tools]`
+  If a brief says nothing about AI tools, you may use them to help you learn, research, plan and debug, as long as
+  you follow the rest of this section.
 - **Disclose** your use as the task asks, for example a note in your README naming the tool and what it helped with.
 - **Understand, test and explain** any generated code you submit. You are responsible for it, including its bugs,
   security problems and licence issues.
@@ -94,8 +96,8 @@ Results from AI-detection or plagiarism-detection software are never treated, on
 A person must review the evidence and give you a chance to respond. Any such tool must be checked for reliability
 before it is used.
 
-Gradopus Labs does not endorse any particular AI tool. `[TO BE CONFIRMED: whether any AI tools are recommended or
-provided for programs]`
+Gradopus Labs does not endorse, provide or require any particular AI tool, and you never need a paid AI tool to
+complete a program.
 
 ## 7. Attribution
 
@@ -150,8 +152,8 @@ program tasks.
   keeping records the law requires.
 - **Ownership** of work created during a program depends on applicable law, the licences of any material it includes,
   any written agreement, and the actual circumstances. Gradopus Labs does **not** claim ownership of your
-  student-created work unless a separate written agreement says so (section 11).
-  `[TO BE CONFIRMED: whether any program will ask for ownership or a licence of student-created work]`
+  student-created work unless a separate written agreement says so (section 11). No current program asks for
+  ownership of, or a licence to, your work.
 - **You cannot transfer rights you do not own.** Third-party and open-source parts of your work stay with their
   owners (section 8).
 
@@ -184,7 +186,8 @@ internal documentation, and materials supplied by Gradopus Labs or its authorise
 - You may use them only for your program.
 - You must not resell, republish or share them, or use the Gradopus Labs name or logo in a way that suggests
   endorsement, except as permitted in writing.
-- `[TO BE CONFIRMED: whether students may keep Gradopus Labs starter code in a public portfolio repository]`
+- You may keep Gradopus Labs starter code in a public portfolio repository as part of your own project, but you
+  must not publish the task briefs or lessons themselves.
 
 ## 13. Portfolio publication and permission to display work
 
@@ -223,8 +226,9 @@ reasonable steps to keep confidential information secure, but cannot promise abs
 is unlawful to an appropriate authority, raising a genuine grievance, seeking legal advice, or disclosing information
 where the law requires it.
 
-`[TO BE CONFIRMED: any client confidentiality obligations that apply to specific programs; these will be stated in
-the internship details or a written agreement.]`
+Current programs use practice tasks only and involve no client work, so no client confidentiality obligations
+apply. If a future program involves client work, any such obligations will be stated in its internship details or a
+written agreement before you start.
 
 ## 15. Personal data, credentials and secrets
 
@@ -280,7 +284,7 @@ When a concern is raised:
 
 1. It is looked into by someone who is not personally involved, where possible.
 2. The person concerned is told in writing what the concern is and the evidence for it.
-3. They have a fair opportunity to respond. `[TO BE CONFIRMED: the time allowed to respond]`
+3. They have a fair opportunity to respond, with at least **7 days** to do so.
 4. A decision is made on the evidence and explained in writing, with reasons.
 5. Information about the case is shared only with those who need to know.
 
@@ -332,9 +336,12 @@ Changes will not apply retrospectively to conduct before the change, or to owner
 
 ## Revision history
 
+- **Version 1.2, 28 October 2026:** Effective from 28 October 2026. Added: who handles harassment complaints, the
+  default rule on AI tools, that no program asks for ownership of your work, starter code in portfolios, no client
+  confidentiality obligations for current programs, and 7 days to respond to a concern.
 - **Version 1.1, 23 October 2026:** Added the operator's location and the official support email address
-  (support.gradopuslabs@gmail.com). Effective date still to be set after legal review.
-- **Version 1.0, 21 October 2026:** First published version. Effective date to be set after legal review.
+  (support.gradopuslabs@gmail.com).
+- **Version 1.0, 21 October 2026:** First published version.
 
 ## Notes for reviewers (remove before publication)
 

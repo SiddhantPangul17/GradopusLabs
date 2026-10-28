@@ -26,7 +26,14 @@ async function Programs({ searchParams }: { searchParams: PageProps<"/admin/prog
       <AdminHeader
         title="Programs"
         description="Create programs, manage their learning content and control what appears in the public catalogue."
-        actions={<ButtonLink href="/admin/programs/new">New program</ButtonLink>}
+        actions={
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink href="/admin/programs/import" variant="outline">
+              Import program
+            </ButtonLink>
+            <ButtonLink href="/admin/programs/new">New program</ButtonLink>
+          </div>
+        }
       />
       <nav aria-label="Filter by status" className="mb-6 flex flex-wrap gap-2">
         {[{ value: undefined, label: "All" }, ...PROGRAM_STATUSES.map((value) => ({ value, label: programStatusDisplay[value].label }))].map((option) => (
